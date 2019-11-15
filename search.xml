@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>hexo-theme-next修改背景</title>
+    <url>/2019/11/14/hexo-theme-next%E4%BF%AE%E6%94%B9%E8%83%8C%E6%99%AF/</url>
+    <content><![CDATA[<h3><span id="hexo-theme-next-zai-xiu-gai-bei-jing-shi-peng-dao-de-wen-ti">hexo-theme-next在修改背景时碰到的问题</span><a href="#hexo-theme-next-zai-xiu-gai-bei-jing-shi-peng-dao-de-wen-ti" class="header-anchor">#</a></h3><h6><span id="ben-ren-hexo-de-an-zhuang-lu-jing-wei-c-hexo-blog-ban-ben-wei-v7-5-0">本人hexo的安装路径为：C:\hexo\blog，版本为v7.5.0</span><a href="#ben-ren-hexo-de-an-zhuang-lu-jing-wei-c-hexo-blog-ban-ben-wei-v7-5-0" class="header-anchor">#</a></h6><ul>
+<li>在搜索如何修改页面背景的过程中，发现大部分博客介绍的方法仅适用于旧的next而不是新的hexo-theme-nextv7.5.0主题。</li>
+</ul>
+<p><strong>教程转载如下：</strong><br><a href="https://blog.csdn.net/zgcr654321/article/details/86751765#hexo_1" target="_blank" rel="noopener">https://blog.csdn.net/zgcr654321/article/details/86751765#hexo_1</a></p>
+<ul>
+<li>设置hexo博客背景图片/浏览页面时显示浏览进度<br>要设置博客的背景图片，打开hexo博客源码目录<strong>\themes\next\source\css\ _custom\custom.styl</strong>文件，添加以下代码：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">body&#123;</span><br><span class="line">    background:url(/images/background1.jpg);</span><br><span class="line">    background-size:cover;</span><br><span class="line">    background-repeat:no-repeat;</span><br><span class="line">    background-attachment:fixed;</span><br><span class="line">    background-position:center;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.main-inner &#123; </span><br><span class="line">    background: #fff;</span><br><span class="line">    opacity: 0.9;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>搜索后发现<strong>C:\hexo\blog\themes\hexo-theme-next\source\css</strong>下有：</p>
+<ul>
+<li>_common</li>
+<li>_mixins</li>
+<li>_schemes</li>
+<li>_variables</li>
+<li>main.styl</li>
+</ul>
+<p>始终没有找到<strong>custom.styl</strong>。<br>打开博客静态页面，用f12对页面进行调试，发现管理页面背景的css是<strong>main.css</strong>,路径为<strong>C:\hexo\blog\public\css\main.css</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">body &#123;</span><br><span class="line">  background: #eee;</span><br><span class="line">  color: #555;</span><br><span class="line">  font-family: &apos;Lato&apos;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, sans-serif;</span><br><span class="line">  font-size: 1em;</span><br><span class="line">  line-height: 2;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>查询后了解public文件夹存放hexo s指令生成的静态网页。<br>继续在hexo-theme-next文件夹中寻找涉及background的代码。<br>在<strong>C:\hexo\blog\themes\hexo-theme-next\source\css_common\scaffolding\base.styl</strong>中，发现：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">body &#123;</span><br><span class="line">  background: $body-bg-color;</span><br><span class="line">  color: $text-color;</span><br><span class="line">  font-family: $font-family-base;</span><br><span class="line">  font-size: $font-size-base;</span><br><span class="line">  line-height: $line-height-base;</span><br><span class="line"></span><br><span class="line">  +tablet-mobile() &#123;</span><br><span class="line">    // Remove the padding of body when the sidebar is open.</span><br><span class="line">    padding-left: 0 !important;</span><br><span class="line">    padding-right: 0 !important;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>而后在<strong>C:\hexo\blog\themes\hexo-theme-next\source\css_variables\Gemini.styl</strong>中找到了** $body-bg-color;**，修改为：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">// Settings for some of the most global styles.</span><br><span class="line">// --------------------------------------------------</span><br><span class="line">$body-bg-color           = url(/images/back_ground.jpg);</span><br></pre></td></tr></table></figure>
+<p>已把图片放入<strong>/images</strong>并命名为<strong>back_ground.jpg</strong>，成功生成。后续可在body下添加其他命令，如图像不重复等。</p>
+]]></content>
+      <categories>
+        <category>hexo admin</category>
+      </categories>
+      <tags>
+        <tag>踩坑</tag>
+        <tag>hexo</tag>
+        <tag>修改背景</tag>
+        <tag>hexo-theme-next</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Admin上的deploy问题</title>
+    <url>/2019/11/14/Admin%E4%B8%8A%E7%9A%84deploy%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<ul>
+<li>目前仅有linux下的解决方案，参见<a href="https://github.com/jaredly/hexo-admin/issues/70" target="_blank" rel="noopener">https://github.com/jaredly/hexo-admin/issues/70</a></li>
+<li>windows环境下暂无直接解决方案，只能采取间接方法，调用bat命令完成一键上传。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>hexo踩坑</category>
+      </categories>
+      <tags>
+        <tag>踩坑</tag>
+        <tag>hexo</tag>
+        <tag>hexo admin</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JS要点</title>
+    <url>/2019/11/14/JS%E8%A6%81%E7%82%B9/</url>
+    <content><![CDATA[<p>目录：</p>
+<div class="toc">
+
+<!-- toc -->
+
+<ul>
+<li><a href="#zhuan-yi">转义</a></li>
+<li><a href="#huo-qu-chang-du">获取长度</a></li>
+<li><a href="#suo-yin">索引</a></li>
+<li><a href="#shu-zu">数组</a></li>
+<li><a href="#bu-ke-bian-xing">不可变性</a></li>
+<li><a href="#han-shu">函数</a></li>
+<li><a href="#bu-er-zhi-yu-bi-jiao-yun-suan-fu">布尔值与比较运算符</a></li>
+<li><a href="#dui-xiang">对象</a></li>
+<li><a href="#json">JSON</a></li>
+<li><a href="#sui-ji-shu">随机数</a></li>
+<li><a href="#regular-expressions-zheng-ze-biao-da-shi">Regular expressions 正则表达式</a></li>
+</ul>
+<!-- tocstop -->
+
+</div>
+
+<h2><span id="zhuan-yi">转义</span><a href="#zhuan-yi" class="header-anchor">#</a></h2><ul>
+<li>当我们需要在字符串中使用与开头结尾相同的引号时，我们需要对引号进行 转义 。如果你有很多双引号的字符串，使用转义字符可能导致难以阅读。这时候可以使用单引号。<blockquote>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&quot;This string has \\&quot;double quotes\\&quot; in it&quot;</span><br></pre></td></tr></table></figure>
+改为：<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&apos;This string has &quot;double quotes&quot; in it&apos;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><figcaption><span>myStr </span></figcaption><table><tr><td class="code"><pre><span class="line">改为:</span><br><span class="line">```var myStr =&apos;&lt;a href=&quot;http://www.example.com&quot; target=&quot;_blank&quot;&gt;Link&lt;/a&gt;&apos;;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<hr>
+<h2><span id="huo-qu-chang-du">获取长度</span><a href="#huo-qu-chang-du" class="header-anchor">#</a></h2><ul>
+<li>例如，我们创建了一个变量 var firstName = “Charles”，我们就可以通过使用 <strong>firstName.length</strong> 来获得 “Charles” 字符串的长度。</li>
+<li>区别与python的len()函数</li>
+</ul>
+<hr>
+<h2><span id="suo-yin">索引</span><a href="#suo-yin" class="header-anchor">#</a></h2><ul>
+<li><strong>JavaScript中只有字符串类型，没有字符类型。</strong></li>
+<li>如果要获取<strong>字符串</strong>中的某个字符，我们需要通过[索引] 来获得对应的字符。</li>
+</ul>
+<hr>
+<h2><span id="shu-zu">数组</span><a href="#shu-zu" class="header-anchor">#</a></h2><ul>
+<li>数组中可同时包含字符串与数字</li>
+<li>.push() 允许有一个或多个参数，并把它“push”到数组的末尾。</li>
+<li>.pop() 函数用来“抛出”一个<strong>数组末尾</strong>的值。我们可以把这个“抛出”的值赋给一个变量存储起来。数组中任何类型的数据条目（数值，字符串，甚至是数组）可以被“抛出来” 。<blockquote>
+<p>举个例子, 对于这段代码<br>var oneDown = [1, 4, 6].pop();<br>现在 oneDown 的值为 6 ，数组变成了 [1, 4]。</p>
+</blockquote>
+</li>
+<li>.shift() 与.pop()工作原理类似 ，但它移除的是<strong>第一个元素</strong>，而不是最后一个。</li>
+<li>你不仅可以 shift（移出）数组中的第一个元素，你也可以 <strong>unshift（移入）</strong>一个元素到数组的头部。.unshift() 函数用起来就像 .push() 函数一样, 但不是在数组的末尾添加元素，而是在<strong>数组的头部添加元素</strong>。</li>
+</ul>
+<hr>
+<h2><span id="bu-ke-bian-xing">不可变性</span><a href="#bu-ke-bian-xing" class="header-anchor">#</a></h2><ul>
+<li>在 JavaScript 中，字符串 的值是 不可变的，这意味着一旦字符串被创建就不能被改变。<blockquote>
+<p>改变 myStr 中的唯一方法是重新给它赋一个值，就像这样：<br>var myStr = “Bob”;<br>myStr = “Job”;</p>
+</blockquote>
+</li>
+</ul>
+<hr>
+<h2><span id="han-shu">函数</span><a href="#han-shu" class="header-anchor">#</a></h2><ul>
+<li>在函数外定义的变量具有 全局 作用域。这意味着，具有全局作用域的变量可以在代码的任何地方被调用。</li>
+<li>没有使用var关键字定义的变量，会被自动创建在全局作用域中，变成全局变量。当在代码其他地方无意间定义了一个变量，刚好变量名与全局变量相同，这时候会产生意想不到的后果，可能导致你的代码出现BUG。<strong>因此你应该总是使用var关键字来声明你的变量。</strong></li>
+<li>一个程序中有可能具有相同名称的 局部变量 和 全局变量。<strong>在这种情况下，局部变量将会优先于 全局变量。</strong></li>
+</ul>
+<hr>
+<h2><span id="bu-er-zhi-yu-bi-jiao-yun-suan-fu">布尔值与比较运算符</span><a href="#bu-er-zhi-yu-bi-jiao-yun-suan-fu" class="header-anchor">#</a></h2><ul>
+<li>Boolean 值绝不会写作被引号包裹起来的形式。<strong>字符串 的 “true” 和 “false” 不是布尔值</strong>，在 JavaScript 中也没有特殊含义。（布尔值不是字符串）<blockquote>
+<p><strong>等于运算符:</strong><br>1 ==1// true<br>1 ==2// false<br>1 == ‘1’ // true<br>“3”==3// true</p>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p><strong>不等于运算符:</strong><br>1 != 2// true<br>1 != “1”// false<br>1 != ‘1’// false<br>1 != true // false<br>0 != false// false</p>
+</blockquote>
+<ul>
+<li><p><strong>全等(===)是相对于相等操作符（==）的一种操作符。</strong>与相等操作符不同的是全等比较严格，它会同时比较元素的值和 数据类型。</p>
+<blockquote>
+<p><strong>全等运算符:</strong><br>3 === 3 // true<br>3 === ‘3’ // false</p>
+</blockquote>
+</li>
+<li><p>不全等运算符（!==）与全等运算符是相反的。这意味着“不全等”并返回 false 的地方，用全等运算会返回 true，反之亦然。全等运算符不会转换值的数据类型。</p>
+<blockquote>
+<p><strong>不全等运算符:</strong><br>3 !== 3 // false<br>3 !== ‘3’ // true<br>4 !== 3 // true</p>
+</blockquote>
+</li>
+<li><p>所有的比较操作符返回的都是一个boolean值，<strong>要么是 true 要么是false</strong> 。</p>
+<blockquote>
+<p>如果要比较a和b的大小，a&lt;b返回true,a&gt;b返回false.<br>可写为<strong>return a&lt;b</strong>的形式来代替<strong>return a&lt;b?true:false;</strong>更加简洁！</p>
+</blockquote>
+</li>
+</ul>
+<hr>
+<h2><span id="dui-xiang">对象</span><a href="#dui-xiang" class="header-anchor">#</a></h2><ul>
+<li><p>对象和数组很相似，数组是通过索引来访问和修改数据，对象是通过<strong>属性</strong>来访问和修改数据的。</p>
+</li>
+<li><p>对象适合用来存储<strong>结构化数据</strong>，就和真实世界的对象一模一样，比如一只猫。</p>
+<blockquote>
+<p>这是一个示例对象：（注意：与，）</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var cat = &#123;</span><br><span class="line">&quot;name&quot;: &quot;Whiskers&quot;,</span><br><span class="line">&quot;legs&quot;: 4,</span><br><span class="line">&quot;tails&quot;: 1,</span><br><span class="line">&quot;enemies&quot;: [&quot;Water&quot;, &quot;Dogs&quot;]</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
+<li><p>属性+值的思想类似于键值对的思想</p>
+</li>
+<li><p>有两种方式访问对象属性，一个是点操作符(.)，一个是中括号操作符([])。<br>当你知道属性的名称的时候，使用点操作符。</p>
+</li>
+<li><p>第二种访问对象的方式就是中括号操作符([])，<strong>如果你想访问的属性的名称有一个空格，这时你只能使用中括号操作符([])</strong>。</p>
+<blockquote>
+<p>这是一个使用中括号操作符([])读取对象属性的例子：</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var myObj = &#123;</span><br><span class="line">&quot;Space Name&quot;: &quot;Kirk&quot;,</span><br><span class="line">&quot;More Space&quot;: &quot;Spock&quot;</span><br><span class="line">&#125;;</span><br><span class="line">myObj[&quot;Space Name&quot;]; // Kirk</span><br><span class="line">myObj[&apos;More Space&apos;]; // Spock</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>提示：属性名称中如果有空格，必须把属性名称用单引号或双引号包裹起来。</strong></p>
+</li>
+<li><p>我们同样可以删除对象的属性，例如：<br>delete ourDog.bark;(删除ourdog对象的bark属性)</p>
+</li>
+<li><p>有时检查一个对象属性是否存在是非常有用的，我们可以)<strong>用.hasOwnProperty(propname)方法</strong>来检查对象是否有该属性。如果有返回true，反之返回 false。</p>
+</li>
+</ul>
+<blockquote>
+<p>举例:</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var myObj = &#123;</span><br><span class="line">top: &quot;hat&quot;,</span><br><span class="line">bottom: &quot;pants&quot;</span><br><span class="line">&#125;;</span><br><span class="line">myObj.hasOwnProperty(&quot;top&quot;);// true</span><br><span class="line">myObj.hasOwnProperty(&quot;middle&quot;); // false</span><br></pre></td></tr></table></figure>
+<hr>
+<h2><span id="json">JSON</span><a href="#json" class="header-anchor">#</a></h2><ul>
+<li><strong>JavaScript Object Notation 简称 JSON</strong>，它使用JavaScript对象的格式来存储数据。JSON是灵活的，因为它允许 数据结构 是<strong>字符串，数字，布尔值，字符串，和 对象</strong>的任意组合。</li>
+</ul>
+<blockquote>
+<p>这里是一个JSON对象的示例：</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var ourMusic = [</span><br><span class="line">&#123;</span><br><span class="line">&quot;artist&quot;: &quot;Daft Punk&quot;,//string</span><br><span class="line">&quot;title&quot;: &quot;Homework&quot;,//string</span><br><span class="line">&quot;release_year&quot;: 1997,//int</span><br><span class="line">&quot;formats&quot;: [ </span><br><span class="line">&quot;CD&quot;, //string</span><br><span class="line">&quot;Cassette&quot;, //string</span><br><span class="line">&quot;LP&quot; ],</span><br><span class="line">&quot;gold&quot;: true //bool</span><br><span class="line">&#125;</span><br><span class="line">];</span><br></pre></td></tr></table></figure>
+<ul>
+<li>这是一个对象数组，并且对象有各种关于专辑的 详细信息。它也有一个嵌套的 formarts 的数组。附加专辑记录可以被添加到数组的最上层。其中，ourMusic是一个数组[]，内部可添加多个对象{}。</li>
+<li><strong>数组中有多个 JSON 对象的时候，对象与对象之间要用逗号隔开。</strong><blockquote>
+<p>嵌套的JSON对象:</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var ourStorage = &#123;</span><br><span class="line">&quot;desk&quot;: &#123;</span><br><span class="line">&quot;drawer&quot;: &quot;stapler&quot;</span><br><span class="line">&#125;,</span><br><span class="line">&quot;cabinet&quot;: &#123;</span><br><span class="line">&quot;top drawer&quot;: &#123; </span><br><span class="line">&quot;folder1&quot;: &quot;a file&quot;,</span><br><span class="line">&quot;folder2&quot;: &quot;secrets&quot;</span><br><span class="line">&#125;,</span><br><span class="line">&quot;bottom drawer&quot;: &quot;soda&quot;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">ourStorage.cabinet[&quot;top drawer&quot;].folder2;// &quot;secrets&quot;</span><br><span class="line">ourStorage.desk.drawer; // &quot;stapler&quot;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var myPlants = [</span><br><span class="line">&#123; </span><br><span class="line">type: &quot;flowers&quot;,</span><br><span class="line">list: [</span><br><span class="line">&quot;rose&quot;,</span><br><span class="line">&quot;tulip&quot;,</span><br><span class="line">&quot;dandelion&quot;</span><br><span class="line">]</span><br><span class="line">&#125;,</span><br><span class="line">&#123;</span><br><span class="line">type: &quot;trees&quot;,</span><br><span class="line">list: [</span><br><span class="line">&quot;fir&quot;,</span><br><span class="line">&quot;pine&quot;,</span><br><span class="line">&quot;birch&quot;</span><br><span class="line">]</span><br><span class="line">&#125;</span><br><span class="line">];</span><br><span class="line">var secondTree = myPlants[1].list[1]; // pine</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h2><span id="sui-ji-shu">随机数</span><a href="#sui-ji-shu" class="header-anchor">#</a></h2><ul>
+<li>Math.random()用来生成一个在<strong>0(包括0)到1(不包括1)之间的随机小数</strong>，因此Math.random()可能返回0但绝不会返回1。</li>
+<li>用Math.random()生成一个随机小数。<br>把这个随机小数乘以 20。<br>用 Math.floor() 向下取整 获得它最近的整数。</li>
+</ul>
+<p><strong>记住Math.random()永远不会返回 1。同时因为我们是在用 Math.floor() 向下取整，所以最终我们获得的结果不可能有 20。这确保了我们获得了一个在0到19之间的整数。</strong><br>把操作连缀起来，代码类似于下面：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Math.floor(Math.random() * 20);</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>返回一个在myMin(包括myMin)和myMax(包括myMax)之间的随机数。</strong><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Math.floor(Math.random() * (max - min + 1)) + min</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h2><span id="regular-expressions-zheng-ze-biao-da-shi">Regular expressions 正则表达式</span><a href="#regular-expressions-zheng-ze-biao-da-shi" class="header-anchor">#</a></h2><ul>
+<li>Regular expressions正则表达式被用来根据某种匹配模式来寻找strings中的某些单词。</li>
+</ul>
+<blockquote>
+<p>例如：如果我们想要找到字符串The dog chased the cat中单词 the，我们可以使用下面的正则表达式:<strong>/the/gi</strong><br>我们可以把这个正则表达式分成几段：</p>
+</blockquote>
+<ul>
+<li>/ 是这个正则表达式的头部</li>
+<li>the 是我们想要匹配的模式</li>
+<li>/g 代表着 global(全局)，意味着返回所有的匹配而不仅仅是第一个。</li>
+<li>i 代表着忽略大小写，意思是当我们寻找匹配的字符串的时候忽略掉字母的大小写。<blockquote>
+<p>用全局、忽略大小写的模式选取字符串 testString中所有的单词 and。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var testString = &quot;Ada Lovelace and Charles Babbage designed the first computer and the software that would have run on it.&quot;;</span><br><span class="line">var expressionToGetSoftware = /software/gi;</span><br><span class="line">var softwareCount = testString.match(expressionToGetSoftware).length;</span><br><span class="line">var expression = /and/gi;// Change this Line</span><br><span class="line">var andCount = testString.match(expression).length;</span><br></pre></td></tr></table></figure></li>
+<li>特殊选择器中的一种就是数字选择器\d，意思是被用来获取一个字符串的数字。<br>在JavaScript中, 数字选择器类似于: /\d/g。</li>
+</ul>
+<p><strong>在选择器后面添加一个加号标记(+)，例如：/\d+/g，它允许这个正则表达式匹配一个或更多数字。</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var testString = &quot;There are 3 cats but 4 dogs.&quot;;</span><br><span class="line">var expression = /\d+/g;// Change this line</span><br><span class="line">var digitCount = testString.match(expression).length;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>返回2 </p>
+</blockquote>
+<ul>
+<li>我们也可以使用正则表达式选择器 \s 来查找一个字符串中的空白。<br>空白字符有 “ “ (空格符)、\r (回车符)、\n (换行符)、\t (制表符) 和 \f (换页符。<br>空白正则表达式类似于：<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">/\s+/g</span><br></pre></td></tr></table></figure></li>
+<li>你可以用正则表达式选择器的大写版本来反转任何匹配（相反意思）。</li>
+</ul>
+<p><strong>例如：\s 匹配任何空白字符，\S 匹配任何非空白字符。</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var testString = &quot;How many non-space characters are there in this sentence?&quot;;</span><br><span class="line">var expression = /\S/g;</span><br><span class="line">var nonSpaceCount = testString.match(expression).length;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>返回：49</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>javascript</tag>
+        <tag>前端</tag>
+        <tag>要点</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2019/11/13/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2><span id="quick-start">Quick Start</span><a href="#quick-start" class="header-anchor">#</a></h2><h3><span id="create-a-new-post">Create a new post</span><a href="#create-a-new-post" class="header-anchor">#</a></h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3><span id="run-server">Run server</span><a href="#run-server" class="header-anchor">#</a></h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3><span id="generate-static-files">Generate static files</span><a href="#generate-static-files" class="header-anchor">#</a></h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3><span id="deploy-to-remote-sites">Deploy to remote sites</span><a href="#deploy-to-remote-sites" class="header-anchor">#</a></h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+]]></content>
+  </entry>
+</search>

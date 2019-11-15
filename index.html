@@ -21,12 +21,12 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Gemini',
     version: '7.5.0',
     exturl: false,
     sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
     copycode: {"enable":false,"show_result":false,"style":null},
-    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
     bookmark: {"enable":false,"color":"#222","save":"auto"},
     fancybox: false,
     mediumzoom: false,
@@ -39,8 +39,8 @@
       hits: {"per_page":10},
       labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     },
-    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
-    path: '',
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     translation: {
       copy_button: '复制',
@@ -160,9 +160,34 @@
     <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
 
   </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
   </ul>
 
 </nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
 </div>
     </header>
 
@@ -186,10 +211,109 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/14/hexo-theme-next%E4%BF%AE%E6%94%B9%E8%83%8C%E6%99%AF/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="cyberspar">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="cyberspar's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/11/14/hexo-theme-next%E4%BF%AE%E6%94%B9%E8%83%8C%E6%99%AF/" class="post-title-link" itemprop="url">hexo-theme-next修改背景</a>
+        </h1>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-11-14 21:50:00" itemprop="dateCreated datePublished" datetime="2019-11-14T21:50:00+08:00">2019-11-14</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-11-15 09:01:57" itemprop="dateModified" datetime="2019-11-15T09:01:57+08:00">2019-11-15</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/hexo-admin/" itemprop="url" rel="index">
+                    <span itemprop="name">hexo admin</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3><span id="hexo-theme-next-zai-xiu-gai-bei-jing-shi-peng-dao-de-wen-ti">hexo-theme-next在修改背景时碰到的问题</span><a href="#hexo-theme-next-zai-xiu-gai-bei-jing-shi-peng-dao-de-wen-ti" class="header-anchor">#</a></h3><h6><span id="ben-ren-hexo-de-an-zhuang-lu-jing-wei-c-hexo-blog-ban-ben-wei-v7-5-0">本人hexo的安装路径为：C:\hexo\blog，版本为v7.5.0</span><a href="#ben-ren-hexo-de-an-zhuang-lu-jing-wei-c-hexo-blog-ban-ben-wei-v7-5-0" class="header-anchor">#</a></h6><ul>
+<li>在搜索如何修改页面背景的过程中，发现大部分博客介绍的方法仅适用于旧的next而不是新的hexo-theme-nextv7.5.0主题。</li>
+</ul>
+<p><strong>教程转载如下：</strong><br><a href="https://blog.csdn.net/zgcr654321/article/details/86751765#hexo_1" target="_blank" rel="noopener">https://blog.csdn.net/zgcr654321/article/details/86751765#hexo_1</a></p>
+<ul>
+<li>设置hexo博客背景图片/浏览页面时显示浏览进度<br>要设置博客的背景图片，打开hexo博客源码目录<strong>\themes\next\source\css\ _custom\custom.styl</strong>文件，添加以下代码：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">body&#123;</span><br><span class="line">    background:url(/images/background1.jpg);</span><br><span class="line">    background-size:cover;</span><br><span class="line">    background-repeat:no-repeat;</span><br><span class="line">    background-attachment:fixed;</span><br><span class="line">    background-position:center;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.main-inner &#123; </span><br><span class="line">    background: #fff;</span><br><span class="line">    opacity: 0.9;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>搜索后发现<strong>C:\hexo\blog\themes\hexo-theme-next\source\css</strong>下有：</p>
+<ul>
+<li>_common</li>
+<li>_mixins</li>
+<li>_schemes</li>
+<li>_variables</li>
+<li>main.styl</li>
+</ul>
+<p>始终没有找到<strong>custom.styl</strong>。<br>打开博客静态页面，用f12对页面进行调试，发现管理页面背景的css是<strong>main.css</strong>,路径为<strong>C:\hexo\blog\public\css\main.css</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">body &#123;</span><br><span class="line">  background: #eee;</span><br><span class="line">  color: #555;</span><br><span class="line">  font-family: &apos;Lato&apos;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, sans-serif;</span><br><span class="line">  font-size: 1em;</span><br><span class="line">  line-height: 2;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>查询后了解public文件夹存放hexo s指令生成的静态网页。<br>继续在hexo-theme-next文件夹中寻找涉及background的代码。<br>在<strong>C:\hexo\blog\themes\hexo-theme-next\source\css_common\scaffolding\base.styl</strong>中，发现：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">body &#123;</span><br><span class="line">  background: $body-bg-color;</span><br><span class="line">  color: $text-color;</span><br><span class="line">  font-family: $font-family-base;</span><br><span class="line">  font-size: $font-size-base;</span><br><span class="line">  line-height: $line-height-base;</span><br><span class="line"></span><br><span class="line">  +tablet-mobile() &#123;</span><br><span class="line">    // Remove the padding of body when the sidebar is open.</span><br><span class="line">    padding-left: 0 !important;</span><br><span class="line">    padding-right: 0 !important;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>而后在<strong>C:\hexo\blog\themes\hexo-theme-next\source\css_variables\Gemini.styl</strong>中找到了** $body-bg-color;**，修改为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// Settings for some of the most global styles.</span><br><span class="line">// --------------------------------------------------</span><br><span class="line">$body-bg-color           = url(/images/back_ground.jpg);</span><br></pre></td></tr></table></figure>
+<p>已把图片放入<strong>/images</strong>并命名为<strong>back_ground.jpg</strong>，成功生成。后续可在body下添加其他命令，如图像不重复等。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/14/Admin%E4%B8%8A%E7%9A%84deploy%E9%97%AE%E9%A2%98/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/avatar.jpg">
       <meta itemprop="name" content="cyberspar">
       <meta itemprop="description" content="">
     </span>
@@ -204,6 +328,7 @@
         </h1>
 
         <div class="post-meta">
+          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -211,7 +336,18 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2019-11-14 19:03:01 / 修改时间：19:04:52" itemprop="dateCreated datePublished" datetime="2019-11-14T19:03:01+08:00">2019-11-14</time>
+              <time title="创建时间：2019-11-14 19:03:00 / 修改时间：21:47:53" itemprop="dateCreated datePublished" datetime="2019-11-14T19:03:00+08:00">2019-11-14</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/hexo%E8%B8%A9%E5%9D%91/" itemprop="url" rel="index">
+                    <span itemprop="name">hexo踩坑</span>
+                  </a>
+                </span>
             </span>
 
           
@@ -248,69 +384,10 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/14/test/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="cyberspar">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="cyberspar's blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/11/14/test/" class="post-title-link" itemprop="url">test</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2019-11-14 16:44:00 / 修改时间：19:01:55" itemprop="dateCreated datePublished" datetime="2019-11-14T16:44:00+08:00">2019-11-14</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>test</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/14/JS%E8%A6%81%E7%82%B9/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/avatar.jpg">
       <meta itemprop="name" content="cyberspar">
       <meta itemprop="description" content="">
     </span>
@@ -325,6 +402,7 @@
         </h1>
 
         <div class="post-meta">
+          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -332,7 +410,18 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2019-11-14 12:20:00 / 修改时间：12:33:51" itemprop="dateCreated datePublished" datetime="2019-11-14T12:20:00+08:00">2019-11-14</time>
+              <time title="创建时间：2019-11-14 12:20:00 / 修改时间：21:49:03" itemprop="dateCreated datePublished" datetime="2019-11-14T12:20:00+08:00">2019-11-14</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
             </span>
 
           
@@ -382,8 +471,10 @@
 <hr>
 <h2><span id="huo-qu-chang-du">获取长度</span><a href="#huo-qu-chang-du" class="header-anchor">#</a></h2><ul>
 <li>例如，我们创建了一个变量 var firstName = “Charles”，我们就可以通过使用 <strong>firstName.length</strong> 来获得 “Charles” 字符串的长度。</li>
+<li>区别与python的len()函数</li>
 </ul>
-<h2><span id="qu-bie-yu-python-de-len-han-shu"><em>区别与python的len()函数</em></span><a href="#qu-bie-yu-python-de-len-han-shu" class="header-anchor">#</a></h2><h2><span id="suo-yin">索引</span><a href="#suo-yin" class="header-anchor">#</a></h2><ul>
+<hr>
+<h2><span id="suo-yin">索引</span><a href="#suo-yin" class="header-anchor">#</a></h2><ul>
 <li><strong>JavaScript中只有字符串类型，没有字符类型。</strong></li>
 <li>如果要获取<strong>字符串</strong>中的某个字符，我们需要通过[索引] 来获得对应的字符。</li>
 </ul>
@@ -549,7 +640,7 @@
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/13/hello-world/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/avatar.jpg">
       <meta itemprop="name" content="cyberspar">
       <meta itemprop="description" content="">
     </span>
@@ -564,6 +655,7 @@
         </h1>
 
         <div class="post-meta">
+          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -649,6 +741,8 @@
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="cyberspar"
+      src="/images/avatar.jpg">
   <p class="site-author-name" itemprop="name">cyberspar</p>
   <div class="site-description" itemprop="description"></div>
 </div>
@@ -661,12 +755,28 @@
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
   </nav>
 </div>
   <div class="feed-link motion-element">
     <a href="/atom.xml" rel="alternate">
       <i class="fa fa-rss"></i>RSS
     </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/cyberspar" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;cyberspar" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/mailto:wo187215@gmail.com" title="E-Mail → mailto:wo187215@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
   </div>
 
 
@@ -696,11 +806,32 @@
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.0.0
   </div>
-  <span class="post-meta-divider">|</span>
-  <div class="theme-info">主题 – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.5.0
-  </div>
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">blog全站共3k字</span>
+</div>
 
         
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
 
 
 
@@ -723,7 +854,7 @@
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
 <script src="/js/utils.js"></script><script src="/js/motion.js"></script>
-<script src="/js/schemes/muse.js"></script>
+<script src="/js/schemes/pisces.js"></script>
 <script src="/js/next-boot.js"></script>
 
 
@@ -732,6 +863,8 @@
 
 
 
+
+  <script src="/js/local-search.js"></script>
 
 
 

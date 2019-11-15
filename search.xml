@@ -4,7 +4,7 @@
     <title>hexo-theme-next修改背景</title>
     <url>/2019/11/14/hexo-theme-next%E4%BF%AE%E6%94%B9%E8%83%8C%E6%99%AF/</url>
     <content><![CDATA[<h3><span id="hexo-theme-next-zai-xiu-gai-bei-jing-shi-peng-dao-de-wen-ti">hexo-theme-next在修改背景时碰到的问题</span><a href="#hexo-theme-next-zai-xiu-gai-bei-jing-shi-peng-dao-de-wen-ti" class="header-anchor">#</a></h3><h6><span id="ben-ren-hexo-de-an-zhuang-lu-jing-wei-c-hexo-blog-ban-ben-wei-v7-5-0">本人hexo的安装路径为：C:\hexo\blog，版本为v7.5.0</span><a href="#ben-ren-hexo-de-an-zhuang-lu-jing-wei-c-hexo-blog-ban-ben-wei-v7-5-0" class="header-anchor">#</a></h6><ul>
-<li>在搜索如何修改页面背景的过程中，发现大部分博客介绍的方法仅适用于旧的next而不是新的hexo-theme-nextv7.5.0主题。</li>
+<li>在搜索如何修改页面背景的过程中，发现大部分博客介绍的方法仅适用于旧的next而不是新的hexo-theme-nextv7.5.0主题。<a id="more"></a></li>
 </ul>
 <p><strong>教程转载如下：</strong><br><a href="https://blog.csdn.net/zgcr654321/article/details/86751765#hexo_1" target="_blank" rel="noopener">https://blog.csdn.net/zgcr654321/article/details/86751765#hexo_1</a></p>
 <ul>
@@ -78,18 +78,17 @@
 <!-- tocstop -->
 
 </div>
-
-<h2><span id="zhuan-yi">转义</span><a href="#zhuan-yi" class="header-anchor">#</a></h2><ul>
-<li>当我们需要在字符串中使用与开头结尾相同的引号时，我们需要对引号进行 转义 。如果你有很多双引号的字符串，使用转义字符可能导致难以阅读。这时候可以使用单引号。<blockquote>
-</blockquote>
+<a id="more"></a>
+## 转义
++ 当我们需要在字符串中使用与开头结尾相同的引号时，我们需要对引号进行 转义 。如果你有很多双引号的字符串，使用转义字符可能导致难以阅读。这时候可以使用单引号。
+> 
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&quot;This string has \\&quot;double quotes\\&quot; in it&quot;</span><br></pre></td></tr></table></figure>
-改为：<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&apos;This string has &quot;double quotes&quot; in it&apos;</span><br></pre></td></tr></table></figure>
+改为：
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&apos;This string has &quot;double quotes&quot; in it&apos;</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><figcaption><span>myStr </span></figcaption><table><tr><td class="code"><pre><span class="line">改为:</span><br><span class="line">```var myStr =&apos;&lt;a href=&quot;http://www.example.com&quot; target=&quot;_blank&quot;&gt;Link&lt;/a&gt;&apos;;</span><br></pre></td></tr></table></figure>
 
 
 
-</li>
-</ul>
 <hr>
 <h2><span id="huo-qu-chang-du">获取长度</span><a href="#huo-qu-chang-du" class="header-anchor">#</a></h2><ul>
 <li>例如，我们创建了一个变量 var firstName = “Charles”，我们就可以通过使用 <strong>firstName.length</strong> 来获得 “Charles” 字符串的长度。</li>

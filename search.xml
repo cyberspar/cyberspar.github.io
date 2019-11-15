@@ -3,8 +3,9 @@
   <entry>
     <title>托管至github图片不显示</title>
     <url>/2019/11/15/%E6%89%98%E7%AE%A1%E8%87%B3github%E5%9B%BE%E7%89%87%E4%B8%8D%E6%98%BE%E7%A4%BA/</url>
-    <content><![CDATA[<p>执行hexo d后未报错，本地静态页面显示正常但在 username.github.io上预览出现图片不显示的问题，包括背景图片。  在github的repositories中发现图片已经上传。 检查页面console发现出现了failed load 的错误。</p>
-<p><strong>解决方法：</strong><br><strong>将图片后缀为.JPG的图片全部修改为.png即可</strong></p>
+    <content><![CDATA[<p>执行hexo d后未报错，本地静态页面显示正常但在 username.github.io上预览出现图片不显示的问题，包括背景图片。 在github的repositories中发现图片已经上传。 检查页面console发现出现了failed load 的错误。</p>
+<a id="more"></a>
+<p>尝试清除缓存或重新deploy均无效。<br><strong>解决方法：</strong><br><strong>将图片后缀为.JPG的图片全部修改为.png即可</strong></p>
 ]]></content>
       <categories>
         <category>hexo</category>
@@ -42,7 +43,6 @@
 <p>已把图片放入<strong>/images</strong>并命名为<strong>back_ground.jpg</strong>，成功生成。后续可在body下添加其他命令，如图像不重复等。</p>
 ]]></content>
       <categories>
-        <category>hexo admin</category>
         <category>hexo</category>
       </categories>
       <tags>

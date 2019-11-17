@@ -1,7 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>托管至github图片不显示</title>
+    <title>一键完成hexo deploy</title>
+    <url>/2019/11/17/%E4%B8%80%E9%94%AE%E5%AE%8C%E6%88%90hexo-deploy/</url>
+    <content><![CDATA[<h4><span id="jie-shao-ru-he-shi-yong-bat-wen-jian-kuai-su-de-shi-xian-hexo-de-deploy-generate-deng-cao-zuo">介绍如何使用.bat文件快速的实现hexo的deploy，generate等操作。</span><a href="#jie-shao-ru-he-shi-yong-bat-wen-jian-kuai-su-de-shi-xian-hexo-de-deploy-generate-deng-cao-zuo" class="header-anchor">#</a></h4><p>无论是使用git bash还是命令行都必须要先进入hexo的根目录，这使得生成静态网页和托管至github变得很不方便。<br>笔者首先尝试的是采用<strong>hexo admin</strong>插件来实现一键deploy，但无奈一直出现错误。于是转而采用<strong>批处理命令</strong>。</p>
+<ul>
+<li>操作系统：windows</li>
+<li>hexo文件存放目录：C:\hexo\blog <a id="more"></a>
+
+</li>
+</ul>
+<h5><span id="tong-chang-wei-liao-bi-mian-chu-xian-hen-duo-mi-zhi-cuo-wu-zai-zhi-xing-ren-he-you-guan-hexo-de-cao-zuo-zhi-qian-wo-men-du-ying-gai-jin-xing-hexo-clean-de-cao-zuo"><font color="red">通常，为了避免出现很多谜之错误，在执行任何有关hexo的操作之前我们都应该进行hexo clean的操作。</font></span><a href="#tong-chang-wei-liao-bi-mian-chu-xian-hen-duo-mi-zhi-cuo-wu-zai-zhi-xing-ren-he-you-guan-hexo-de-cao-zuo-zhi-qian-wo-men-du-ying-gai-jin-xing-hexo-clean-de-cao-zuo" class="header-anchor">#</a></h5><hr>
+<h5><span id="1-yi-jian-qi-dong-hexo-ben-di-fu-wu">1. 一键启动hexo本地服务</span><a href="#1-yi-jian-qi-dong-hexo-ben-di-fu-wu" class="header-anchor">#</a></h5><p>首先我们在<strong>桌面</strong>创建一个名为<strong>open_hexo</strong>的文件，并将后缀改为<strong>.bat</strong>。（笔者使用的是vscode）代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@echo off</span><br><span class="line">C:</span><br><span class="line">cd C:\hexo\blog</span><br><span class="line">hexo clean&amp;&amp;hexo g&amp;&amp;hexo s</span><br></pre></td></tr></table></figure>
+<ul>
+<li>第一行@echo off表示执行了这条命令后关闭所有命令(包括本身这条命令)的回显；</li>
+<li>第二行是hexo存放的盘的名称；</li>
+<li>第三行是hexo存放的根目录名称；</li>
+</ul>
+<p>在桌面单击运行即可一键让hexo生成本地的静态网页。网页编写完毕在命令行窗口中输入<strong>ctrl+c</strong>，<strong>y</strong>即可直接退出。</p>
+<hr>
+<h5><span id="2-yi-jian-tuo-guan-hexo-zhi-github">2. 一键托管hexo至github</span><a href="#2-yi-jian-tuo-guan-hexo-zhi-github" class="header-anchor">#</a></h5><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@echo off</span><br><span class="line">C:</span><br><span class="line">cd C:\hexo\blog</span><br><span class="line">hexo clean&amp;&amp;hexo g&amp;&amp;hexo d</span><br><span class="line">exit</span><br></pre></td></tr></table></figure>
+<p>原理同上，需要注意的是：<strong>如果hexo 在generate的过程中出现错误，是无法deploy的，因此我们需要通过hexo g来进行代码的测试</strong></p>
+<hr>
+<h5><span id="2-yi-jian-sheng-cheng-hexo-dai-ma-ce-shi-yong">2. 一键生成hexo代码（测试用）</span><a href="#2-yi-jian-sheng-cheng-hexo-dai-ma-ce-shi-yong" class="header-anchor">#</a></h5><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@echo off</span><br><span class="line">C:</span><br><span class="line">cd C:\hexo\blog</span><br><span class="line">hexo clean&amp;&amp;hexo g</span><br><span class="line">pause</span><br></pre></td></tr></table></figure>
+<hr>
+<p>偶尔出现的命令行闪退暂不知道原因，也没有解决方法。可以尝试手动在git bash或命令行中执行。</p>
+]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+        <tag>.bat</tag>
+        <tag>一键部署</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo托管至github图片不显示</title>
     <url>/2019/11/15/%E6%89%98%E7%AE%A1%E8%87%B3github%E5%9B%BE%E7%89%87%E4%B8%8D%E6%98%BE%E7%A4%BA/</url>
     <content><![CDATA[<p>执行hexo d后未报错，本地静态页面显示正常但在 username.github.io上预览出现图片不显示的问题，包括背景图片。 在github的repositories中发现图片已经上传。 检查页面console发现出现了failed load 的错误。</p>
 <a id="more"></a>
@@ -53,7 +89,7 @@
       </tags>
   </entry>
   <entry>
-    <title>Admin上的deploy问题</title>
+    <title>hexo admin上的deploy问题</title>
     <url>/2019/11/14/Admin%E4%B8%8A%E7%9A%84deploy%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<ul>
 <li>目前仅有linux下的解决方案，参见<a href="https://github.com/jaredly/hexo-admin/issues/70" target="_blank" rel="noopener">https://github.com/jaredly/hexo-admin/issues/70</a></li>

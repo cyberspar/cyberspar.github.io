@@ -30,7 +30,7 @@
     bookmark: {"enable":false,"color":"#222","save":"auto"},
     fancybox: false,
     mediumzoom: false,
-    lazyload: false,
+    lazyload: true,
     pangu: false,
     algolia: {
       appID: '',
@@ -263,7 +263,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>修改底部颜色。<br>最终效果如下：<br><img src="/2019/11/17/hexo-theme-next%E4%BF%AE%E6%94%B9%E5%BA%95%E9%83%A8%E6%96%87%E5%AD%97%E9%A2%9C%E8%89%B2/1.png" alt></p>
+        <p>修改底部颜色。<br>最终效果如下：<br><img alt data-src="/2019/11/17/hexo-theme-next%E4%BF%AE%E6%94%B9%E5%BA%95%E9%83%A8%E6%96%87%E5%AD%97%E9%A2%9C%E8%89%B2/1.png"></p>
 <a id="more"></a>
 <p>打开<strong>C:\hexo\blog\themes\hexo-theme-next\source\css_common\outline\footer\footer.styl</strong>，要修改的部分为：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">.footer &#123;</span><br><span class="line">  color: $uesd_by_footer;//后续修改</span><br><span class="line">  font-size: $font-size-small;</span><br><span class="line">  padding: 20px 0;</span><br><span class="line"></span><br><span class="line">  &amp;.footer-fixed &#123;</span><br><span class="line">    bottom: 0;</span><br><span class="line">    left: 0;</span><br><span class="line">    position: absolute;</span><br><span class="line">    right: 0;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  img &#123;</span><br><span class="line">    border: 0;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -347,7 +347,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-count">14</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -360,7 +360,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-count">19</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -449,6 +449,7 @@
 
   
   <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
 <script src="/js/utils.js"></script><script src="/js/motion.js"></script>

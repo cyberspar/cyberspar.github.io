@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>图片插入测试</title>
+    <url>/2019/11/20/%E5%9B%BE%E7%89%87%E6%8F%92%E5%85%A5%E6%B5%8B%E8%AF%95/</url>
+    <content><![CDATA[<p>图片插入测试</p>
+<a id="more"></a>
+<p><img alt data-src="/2019/11/20/%E5%9B%BE%E7%89%87%E6%8F%92%E5%85%A5%E6%B5%8B%E8%AF%95/1.png"><br><img alt data-src="/2019/11/20/%E5%9B%BE%E7%89%87%E6%8F%92%E5%85%A5%E6%B5%8B%E8%AF%95/2.png"></p>
+]]></content>
+      <tags>
+        <tag>图片</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Python基础知识</title>
     <url>/2019/11/18/Python%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</url>
     <content><![CDATA[<p>python编程 从入门到实践</p>
@@ -590,7 +601,7 @@ d:\python 3.5.2\lib\site-packages\IPython\core\interactiveshell.py:2889: UserWar
 
 
 
-<pre><code>array([[1, 2, 3]])</code></pre><p>numpy中定义的最重要的数据结构是称为ndarray的n维数组类型，这个结构引用了两个对象，一块用于保存数据的存储区域和一个用于描述元素类型的dtype对象：<br><img src="/2019/11/18/Python%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E8%AE%A1%E7%AE%97/ndarray.jpg" alt></p>
+<pre><code>array([[1, 2, 3]])</code></pre><p>numpy中定义的最重要的数据结构是称为ndarray的n维数组类型，这个结构引用了两个对象，一块用于保存数据的存储区域和一个用于描述元素类型的dtype对象：<br><img alt data-src="/2019/11/18/Python%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E8%AE%A1%E7%AE%97/ndarray.jpg"></p>
 <h2><span id="why-use-numpy">Why use numpy?</span><a href="#why-use-numpy" class="header-anchor">#</a></h2><p>二维数组的生成在python中我们还可以用到list列表，如果用list来表示[1,2,3]，由于list中的元素可以是任何对象，所以list中保存的是对象的指针，如果要保存[1,2,3]就需要三个指针和三个整数对象，是比较浪费内存资源和cpu计算时间的，而ndarray是一种保存单一数据类型的多维数组结构，在数据处理上比list列表要快上很多，在这里我们可以用%timeit命令来检测两者的数据处理速度：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">a = range(<span class="number">1000</span>)</span><br><span class="line">%timeit[i**<span class="number">2</span> <span class="keyword">for</span> i <span class="keyword">in</span> a]</span><br><span class="line"></span><br><span class="line">b = np.arange(<span class="number">1000</span>)</span><br><span class="line">%timeit b**<span class="number">2</span></span><br></pre></td></tr></table></figure>
 
@@ -829,7 +840,7 @@ ValueError: operands could not be broadcast together with shapes (3,3) (2,2) </c
        [ 0.43123533, -0.36082685, -0.74793903, -0.79224281],
        [ 0.7236446 ,  0.20984101, -0.72106863, -0.75943607],
        [ 1.48130312,  1.25328679, -0.24704999,  1.06256753]])</code></pre><h1><span id="shu-ju-fen-xi-zhi-pandas">数据分析之Pandas</span><a href="#shu-ju-fen-xi-zhi-pandas" class="header-anchor">#</a></h1><p>之前介绍了numpy，但numpy的特长并不是在于数据处理，而是在它能非常方便地实现科学计算，所以我们日常对数据进行处理时用的numpy情况并不是很多，我们需要处理的数据一般都是带有列标签和index索引的，而numpy并不支持这些，这时我们就需要pandas上场啦！ </p>
-<h2><span id="what-is-pandas">What is Pandas?</span><a href="#what-is-pandas" class="header-anchor">#</a></h2><p>Pandas是基于Numpy构建的库，在数据处理方面可以把它理解为numpy加强版，同时Pandas也是一项开源项目：Github 。不同于numpy的是，pandas拥有种数据结构：Series和DataFrame：<br><img src="/2019/11/18/Python%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E8%AE%A1%E7%AE%97/Series.jpg" alt></p>
+<h2><span id="what-is-pandas">What is Pandas?</span><a href="#what-is-pandas" class="header-anchor">#</a></h2><p>Pandas是基于Numpy构建的库，在数据处理方面可以把它理解为numpy加强版，同时Pandas也是一项开源项目：Github 。不同于numpy的是，pandas拥有种数据结构：Series和DataFrame：<br><img alt data-src="/2019/11/18/Python%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E8%AE%A1%E7%AE%97/Series.jpg"></p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> pandas <span class="keyword">import</span> Series,DataFrame</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">data = Series([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>],index = [<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>,<span class="string">'d'</span>])</span><br><span class="line">data</span><br></pre></td></tr></table></figure>
 
 
@@ -840,7 +851,7 @@ b    2
 c    3
 d    4
 dtype: int64</code></pre><p>Series是一种类似一维数组的数据结构，由一组数据和与之相关的index组成，这个结构一看似乎与dict字典差不多，我们知道字典是一种无序的数据结构，而pandas中的Series的数据结构不一样，它相当于定长有序的字典，并且它的index和value之间是独立的，两者的索引还是有区别的，Series的index是可变的，而dict字典的key值是不可变的。</p>
-<p><img src="/2019/11/18/Python%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E8%AE%A1%E7%AE%97/DataFrame.jpg" alt></p>
+<p><img alt data-src="/2019/11/18/Python%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E8%AE%A1%E7%AE%97/DataFrame.jpg"></p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">data = &#123;<span class="string">'a'</span>:[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],<span class="string">'b'</span>:[<span class="string">'we'</span>,<span class="string">'you'</span>,<span class="string">'they'</span>],<span class="string">'c'</span>:[<span class="string">'btc'</span>,<span class="string">'eos'</span>,<span class="string">'ae'</span>]&#125;</span><br><span class="line">df = DataFrame(data)</span><br><span class="line">df</span><br></pre></td></tr></table></figure>
 
 
@@ -2868,9 +2879,9 @@ dtype: float64</code></pre><p>还是需要注意：这些方法同样返回的�
 <pre><code>array([2.  , 2.25, 2.5 , 2.75, 3.  ])</code></pre><h2><span id="axis-de-zhen-zheng-yi-yi">Axis的真正意义</span><a href="#axis-de-zhen-zheng-yi-yi" class="header-anchor">#</a></h2><p>在Pandas中删除列或在NumPy矩阵中对值进行求和时，可能会遇到这问题。即使没有，那么你也肯定会在将来的某个时候碰到。我们现在来看看删除列的示例：<br>df.drop(‘Row A’, axis=0)<br>df.drop(‘Column A’, axis=1)<br>在我知道自己为什么要这样定义坐标轴之前，我不知道我写了多少次这行代码。你可以从上面看出，如果要处理列，就将axis设为1，如果要处理行，则将其设为0。</p>
 <p>但为什么会这样呢？我记得我最喜欢的解释是这个：<br>df.shape<br>(# of Rows, # of Columns)<br>从Pandas的dataframe调用shape属性时会返回一个元组，其中第一个值表示行数，第二个值表示列数。如果你想想在Python中是如何建立索引的，即行为0，列为1，会发现这与我们定义坐标轴值的方式非常相似。很有趣吧！</p>
 <h2><span id="concat-merge-he-join">Concat, Merge, 和Join</span><a href="#concat-merge-he-join" class="header-anchor">#</a></h2><p>如果你熟悉SQL，那么这些概念对你来说可能会更容易。无论如何，这些功能基本上就是以特定方式组合dataframe的方法。可能很难评判在什么时候使用哪个最好，所以让我们都回顾一下。</p>
-<p>Concat允许用户在其下方或旁边附加一个或多个dataframe（取决于你如何定义轴）。<br><img src="/2019/11/18/Python%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E8%AE%A1%E7%AE%97/Concat.png" alt></p>
-<p>Merge可以基于特定的、共有的主键（Primary Key）组合多个dataframe。<br><img src="/2019/11/18/Python%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E8%AE%A1%E7%AE%97/Merge.png" alt></p>
-<p>Join，就像merge一样，可以组合两个dataframe。但是，它根据它们的索引进行组合，而不是某些特定的主键。<br><img src="/2019/11/18/Python%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E8%AE%A1%E7%AE%97/Join.png" alt></p>
+<p>Concat允许用户在其下方或旁边附加一个或多个dataframe（取决于你如何定义轴）。<br><img alt data-src="/2019/11/18/Python%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E8%AE%A1%E7%AE%97/Concat.png"></p>
+<p>Merge可以基于特定的、共有的主键（Primary Key）组合多个dataframe。<br><img alt data-src="/2019/11/18/Python%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E8%AE%A1%E7%AE%97/Merge.png"></p>
+<p>Join，就像merge一样，可以组合两个dataframe。但是，它根据它们的索引进行组合，而不是某些特定的主键。<br><img alt data-src="/2019/11/18/Python%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E8%AE%A1%E7%AE%97/Join.png"></p>
 <h2><span id="pandas-apply">Pandas Apply</span><a href="#pandas-apply" class="header-anchor">#</a></h2><p>apply类似于map函数，不过它是用于Pandas DataFrames的，或者更具体地说是用于Series的。如果你不熟悉也没关系，Series在很大程度上与NumPy中的阵列（array）非常相似。</p>
 <p>Apply会根据你指定的内容向列或行中的每个元素发送一个函数。你可以想象这是多么有用，特别是在对整个DataFrame的列处理格式或运算数值的时候，可以省去循环。</p>
 <h2><span id="tou-shi-biao">透视表</span><a href="#tou-shi-biao" class="header-anchor">#</a></h2><p>如果你熟悉Microsoft Excel，那么你可能已经听说过数据透视表。Pandas内置的pivot_table函数将电子表格样式的数据透视表创建为DataFrame。请注意，透视表中的维度存储在MultiIndex对象中，用来声明DataFrame的index和columns。</p>
@@ -3928,7 +3939,7 @@ array([[ 3,  5],
   <entry>
     <title>hexo-theme-next修改底部文字颜色</title>
     <url>/2019/11/17/hexo-theme-next%E4%BF%AE%E6%94%B9%E5%BA%95%E9%83%A8%E6%96%87%E5%AD%97%E9%A2%9C%E8%89%B2/</url>
-    <content><![CDATA[<p>修改底部颜色。<br>最终效果如下：<br><img src="/2019/11/17/hexo-theme-next%E4%BF%AE%E6%94%B9%E5%BA%95%E9%83%A8%E6%96%87%E5%AD%97%E9%A2%9C%E8%89%B2/1.png" alt></p>
+    <content><![CDATA[<p>修改底部颜色。<br>最终效果如下：<br><img alt data-src="/2019/11/17/hexo-theme-next%E4%BF%AE%E6%94%B9%E5%BA%95%E9%83%A8%E6%96%87%E5%AD%97%E9%A2%9C%E8%89%B2/1.png"></p>
 <a id="more"></a>
 <p>打开<strong>C:\hexo\blog\themes\hexo-theme-next\source\css_common\outline\footer\footer.styl</strong>，要修改的部分为：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.footer &#123;</span><br><span class="line">  color: $uesd_by_footer;//后续修改</span><br><span class="line">  font-size: $font-size-small;</span><br><span class="line">  padding: 20px 0;</span><br><span class="line"></span><br><span class="line">  &amp;.footer-fixed &#123;</span><br><span class="line">    bottom: 0;</span><br><span class="line">    left: 0;</span><br><span class="line">    position: absolute;</span><br><span class="line">    right: 0;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  img &#123;</span><br><span class="line">    border: 0;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -4325,9 +4336,9 @@ create table 系部<pre><code>(
         <category>前端</category>
       </categories>
       <tags>
-        <tag>要点</tag>
         <tag>javascript</tag>
         <tag>前端</tag>
+        <tag>要点</tag>
       </tags>
   </entry>
 </search>

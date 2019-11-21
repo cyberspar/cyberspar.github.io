@@ -1,14 +1,132 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Mysql2008语法要点</title>
+    <url>/2019/11/21/Mysql2008%E8%AF%AD%E6%B3%95%E8%A6%81%E7%82%B9/</url>
+    <content><![CDATA[<p><strong>注意：要选中指定代码再执行，执行成功后要刷新表并单击右键重新生成。</strong></p>
+<ul>
+<li>2019.11.21 增加了多表查询的内容</li>
+<li>2019.11.17 第一次上传<!--toc-->
+<a id="more"></a>
+</li>
+</ul>
+<hr>
+<h2><span id="shu-ju-lei-xing-zhu-yi">数据类型注意</span><a href="#shu-ju-lei-xing-zhu-yi" class="header-anchor">#</a></h2><ul>
+<li><strong>varchar(n)</strong>它与char 类型相似,n必须从1-8000 .之间的数值。存储大小为输入数据字节的实际长度。 由于CHAR 数据类型长度固定，因此它比VARCHAR 类型的处理速度快。</li>
+</ul>
+<hr>
+<h2><span id="cha-ru-yu-shan-chu-deng">插入与删除等</span><a href="#cha-ru-yu-shan-chu-deng" class="header-anchor">#</a></h2><figure class="highlight plain"><figcaption><span>sp_rename 'student', '学生表' ``` </span></figcaption><table><tr><td class="code"><pre><span class="line">&gt; 修改表名student为学生表</span><br><span class="line">``` alter table 姓名表 add 性别 char(2)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>姓名表中添加性别列，并指定数据类型，int类不能指定宽度</p>
+</blockquote>
+<figure class="highlight plain"><figcaption><span>table 姓名表 drop column 性别 ```</span></figcaption><table><tr><td class="code"><pre><span class="line">&gt; 姓名表中删除性别列</span><br><span class="line">``` alter table 姓名表 alter column 性别 char(2)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>姓名表中更改性别的数据类型</p>
+</blockquote>
+<figure class="highlight plain"><figcaption><span>sp_rename '班级表.备注', '其他' ```</span></figcaption><table><tr><td class="code"><pre><span class="line">&gt; 班级表中，备注类改为其他</span><br><span class="line">``` alter table 班级表 add constraint 主键名 primary key clustered(设为主键的名)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>创建主键约束:系部代码</p>
+</blockquote>
+<figure class="highlight plain"><figcaption><span>null foreign key references 系部(系部代码) ```</span></figcaption><table><tr><td class="code"><pre><span class="line">&gt;创建外键约束:系部代码</span><br><span class="line">``` insert 学生表 (学号) values(1720250136)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>插入记录学生表中的学号(仅能插入数字)</p>
+</blockquote>
+<figure class="highlight plain"><figcaption><span>学生表 set 姓名</span></figcaption><table><tr><td class="code"><pre><span class="line">&gt;修改学生表中的姓名null为测试社</span><br><span class="line">``` update 学生表 set 性别=&apos;男&apos;,出生日期=&apos;1999.09.21&apos;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>多行修改</p>
+</blockquote>
+<figure class="highlight plain"><figcaption><span>* from 学生表 where 学号</span></figcaption><table><tr><td class="code"><pre><span class="line">&gt; 查询语句，如果没用符合条件的则不返回任何。</span><br><span class="line">``` select 学号,姓名,班级代码,出生日期,性别,年龄 from 学生表 where 姓名 like(&apos;张%&apos;)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>查询所有姓张的学生的学号和姓名。</p>
+</blockquote>
+<figure class="highlight plain"><figcaption><span>学号,姓名,班级代码,出生日期,性别,年龄 from 学生表 where 姓名 like('\_力\_') ```</span></figcaption><table><tr><td class="code"><pre><span class="line">&gt;查询姓名中第二个汉字是“力”的学号和姓名,切长度为3。</span><br><span class="line">``` select 学号,姓名,班级代码,出生日期,性别,年龄 from 学生表 where 专业代码 is null</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>查询没有专业代码的学生的所有信息。</p>
+</blockquote>
+<p><strong>数字类型不加引号，区分“19”与19</strong></p>
+<hr>
+<h2><span id="pi-pei-mo-shi">匹配模式</span><a href="#pi-pei-mo-shi" class="header-anchor">#</a></h2><ul>
+<li>下划线_：表示任意单个字符</li>
+<li>百分号%：表示任意多个字符</li>
+<li>方括号[]:括号里面可以限制一个字符的取值范围，例如[5-9],表示这个字符的范围在数字5和9之间包括5和9</li>
+<li>^ : 表示非，不包含例 [^9]，表示这个字符不包含9</li>
+</ul>
+<hr>
+<h2><span id="cha-xun-xian-zhi">查询限制</span><a href="#cha-xun-xian-zhi" class="header-anchor">#</a></h2><h4><span id="zui-da-xiao-jun-zhi">最大/小，均值</span><a href="#zui-da-xiao-jun-zhi" class="header-anchor">#</a></h4><figure class="highlight plain"><figcaption><span>AVG(年龄) from 学生表 ```</span></figcaption><table><tr><td class="code"><pre><span class="line">&gt; 返回一个均值，还有如max()，min()等命令</span><br><span class="line">#### 升/降序</span><br><span class="line">```select 学号,姓名,班级代码,出生日期,性别,年龄 from 学生表 order by 学号</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><figcaption><span>学号,姓名,班级代码,出生日期,性别,年龄 from 学生表 order by 学号 desc```</span></figcaption><table><tr><td class="code"><pre><span class="line">&gt;**默认为升序,desc是降序**</span><br><span class="line"></span><br><span class="line">``` select * from 学生表 order by 学号,成绩</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>先按<strong>学号</strong>升序再按照<strong>成绩</strong>升序排列</p>
+</blockquote>
+<figure class="highlight plain"><figcaption><span>* from 学生表 order by 学号 desc,成绩```</span></figcaption><table><tr><td class="code"><pre><span class="line">&gt; 先按**学号**降序序再按照**成绩**升序排列</span><br><span class="line"></span><br><span class="line">+ 查询中添加distinct仅返回不重复的项</span><br><span class="line">#### 求和</span><br><span class="line">``` select sum(成绩) as 总分 from 学生表</span><br></pre></td></tr></table></figure>
+<ul>
+<li>仅返回一个一行一列的表格，名称为总分，数值为sum()的值 <h4><span id="group-by-order-by-having">group by/order by/having</span><a href="#group-by-order-by-having" class="header-anchor">#</a></h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">select 学号,成绩 from 学生表</span><br><span class="line">group by 学号,姓名</span><br><span class="line">having count(学号)&gt;3</span><br></pre></td></tr></table></figure></li>
+<li>输出同一人学号出现超过三遍，即输出选超过三门课的人，group by 指定一列或多列，值相等为一组。(学号为主键)<strong>满足having条件才输出</strong><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">select 专业代码,couunt(学号) as 人数 from 学生表</span><br><span class="line">group by 专业代码</span><br><span class="line">order by 人数 desc</span><br></pre></td></tr></table></figure></li>
+<li>求每个专业各有多少人，并按人数递减顺序显示各专业代码</li>
+</ul>
+<hr>
+<h2><span id="lian-jie-cha-xun">连接查询</span><a href="#lian-jie-cha-xun" class="header-anchor">#</a></h2><p>连接类型：</p>
+<ol>
+<li>内连接</li>
+<li>左外连接</li>
+<li>右外连接</li>
+<li>完全外连接</li>
+</ol>
+<h4><span id="1-jiao-cha-lian-jie-cross-join">1 交叉连接CROSS JOIN</span><a href="#1-jiao-cha-lian-jie-cross-join" class="header-anchor">#</a></h4><p><strong>如果不带WHERE条件子句，它将会返回被连接的两个表的笛卡尔积，返回结果的行数等于两个表行数的乘积；</strong></p>
+<ul>
+<li>select *from T_student cross join T_class<br>等于<br> select *from T_student, T_class  </li>
+<li>有where子句，往往会先生成两个表行数乘积的数据表，然后才根据where条件从中选择。<figure class="highlight plain"><figcaption><span>* from T_student s cross join T_class c where s.classId </span></figcaption><table><tr><td class="code"><pre><span class="line">**(注:cross join后加条件只能用where,不能用on)**</span><br><span class="line"></span><br><span class="line">+ SELECT 学号,姓名,班级表.班级代码,班级表.班级名称  FROM 班级表 CROSS JOIN 学生表 where 学生表.班级代码=班级表.班级代码</span><br><span class="line">&gt; 交叉查询cross join</span><br><span class="line"></span><br><span class="line">#### 2 内连接INNER JOIN</span><br><span class="line">两边表同时符合条件的组合</span><br><span class="line">#### 3 等值连接</span><br><span class="line">+ 等值连接</span><br><span class="line">概念：在连接条件中使用等于号（=）运算符，其查询结果中列出被连接表中的所有列，包括其中的重复列。</span><br></pre></td></tr></table></figure>
+select * from T_student s,T_class c where s.classId = c.classId<br>select * from T_student s inner join T_class c on s.classId = c.classId <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">&gt; 等值连接表示为R A=BS，自然连接表示为R S；自然连接是除去重复属性的等值连接。两者之间的区别和联系如下:</span><br><span class="line">1、自然连接一定是等值连接，但等值连接不一定是自然连接。</span><br><span class="line">2、等值连接要求相等的分量，不一定是公共属性；而自然连接要求相等的分量必须是公共属性。</span><br><span class="line">3、等值连接不把重复的属性除去；而自然连接要把重复的属性除去。</span><br><span class="line"></span><br><span class="line">#### 4 内连接 inner join</span><br><span class="line">select 学号，姓名，课程代码	from 学生表 inner join 选课表</span><br><span class="line">on 学生表.学号 = 选课表.学号</span><br><span class="line">+ **超过两张表必须添加连接条件，否则返回的两张表的笛卡尔积没有意义**</span><br><span class="line">#### 5 复合连接 join on</span><br></pre></td></tr></table></figure>
+select 学号,姓名,性别,班级表.班级名称,专业表.专业名称,系部表.系部名称 from 学生表<br>join 专业表 on 学生表.专业代码=专业表.专业代码<br>join 系部表 on  学生表.系部代码=系部表.系部代码<br>join 班级表 on  学生表.班级代码=班级表.班级代码<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">+ 查询所有学生学号,姓名,性别,班级名称,专业名称和系部名称。（要求使用复合连接条件查询）使用多个join on 完成多表连接。  </span><br><span class="line"></span><br><span class="line">在一个JOIN表达式中，可以连结多个ON子句：</span><br></pre></td></tr></table></figure>
+SELECT fields<br>FROM 表1 INNER JOIN 表2<br>ON 表1.字段1 比较运算子 表2.字段1 AND<br>ON 表1.字段2 比较运算子 表2.字段2) OR<br>ON 表1.字段3 比较运算子 表2.字段3)<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">JOIN表达式中，可以为巢状式：</span><br></pre></td></tr></table></figure>
+SELECT fields<br>FROM 表1 INNER JOIN<br>(表2 INNER JOIN [( ]表3<br>[INNER JOIN [( ] 表x [INNER JOIN …)]<br>ON 表3.字段3 比较运算子 表x.字段x)]<br>ON 表2.字段2 比较运算子 表3.字段3)<br>ON 表1.字段1 比较运算子 表2.字段2<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">在一个INNER JOIN中，可以包括巢状式的LEFT JOIN或RIGHT JOIN，但是在一个LEFT JOIN或RIGHT JOIN中不能包括巢状式的INNER JOIN。</span><br><span class="line">原文链接：https://blog.csdn.net/dreamweaver_zhou/article/details/78885020</span><br><span class="line"></span><br><span class="line">#### 自身连接</span><br><span class="line">**嵌套查询：**</span><br></pre></td></tr></table></figure>
+select 姓名,性别,高考成绩 from 学生表 where 学生表.高考成绩 &gt;(select 高考成绩 from 学生表 where 姓名=’刘德华’)<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">+ 查询所有比刘德华高考分数高的学生姓名、性别、高考分数和刘德华的高考分数。（要求使用自身连接）嵌套查询，后面select条件指定了成绩</span><br><span class="line"></span><br><span class="line">+ 构建表格代码：</span><br></pre></td></tr></table></figure>
+create table 系部<pre><code>(
+    系部代码 char(6) not null primary key,
+    系部名称 varchar(30) not null,
+    系主任 char(8) null,
+)</code></pre>create table 专业表<pre><code>(
+    专业代码 char(4) not null primary key,
+    专业名称 varchar(20) not null,
+    系部代码 char(6) null foreign key references 系部(系部代码),
+)</code></pre>create table 班级表<pre><code>(
+    班级代码 char(9) not null primary key,
+    班级名称 varchar(20) null,
+    专业代码 char(4) null foreign key references 专业表(专业代码),
+    系部代码 char(6) null foreign key references 系部(系部代码),
+    备注 varchar(50) null ,
+)</code></pre>create table 学生表<pre><code>(
+    学号 char(12) not null primary key,
+    姓名 char(8) null,
+    性别 char(2) null,
+    出生日期 datetime null,
+    入学时间 datetime null,
+    班级代码 char(9) null foreign key references 班级表(班级代码),
+    系部代码 char(6) null foreign key references 系部(系部代码),
+    专业代码 char(4) null foreign key references 专业表(专业代码),
+)</code></pre>```</li>
+</ul>
+]]></content>
+      <categories>
+        <category>数据库</category>
+      </categories>
+      <tags>
+        <tag>要点</tag>
+        <tag>Mysql2008</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>图片插入测试</title>
     <url>/2019/11/20/%E5%9B%BE%E7%89%87%E6%8F%92%E5%85%A5%E6%B5%8B%E8%AF%95/</url>
     <content><![CDATA[<p>图片插入测试</p>
 <a id="more"></a>
 <p><img alt data-src="/2019/11/20/%E5%9B%BE%E7%89%87%E6%8F%92%E5%85%A5%E6%B5%8B%E8%AF%95/1.png"><br><img alt data-src="/2019/11/20/%E5%9B%BE%E7%89%87%E6%8F%92%E5%85%A5%E6%B5%8B%E8%AF%95/2.png"></p>
 ]]></content>
+      <categories>
+        <category>图片</category>
+      </categories>
       <tags>
         <tag>图片</tag>
+        <tag>测试</tag>
       </tags>
   </entry>
   <entry>
@@ -3947,99 +4065,6 @@ array([[ 3,  5],
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">// Colors</span><br><span class="line">// colors for use across theme.</span><br><span class="line">// --------------------------------------------------</span><br><span class="line">$whitesmoke   = #f5f5f5;</span><br><span class="line">$gainsboro    = #eee;</span><br><span class="line">$gray-lighter = #ddd;</span><br><span class="line">$grey-light   = #ccc;</span><br><span class="line">$grey         = #bbb;</span><br><span class="line">$grey-dark    = #999;</span><br><span class="line">$grey-dim     = #666;</span><br><span class="line">$black-light  = #555;</span><br><span class="line">$black-dim    = #333;</span><br><span class="line">$black-deep   = #222;</span><br><span class="line">$red          = #ff2a2a;</span><br><span class="line">$blue-bright  = #87daff;</span><br><span class="line">$blue         = #0684bd;</span><br><span class="line">$blue-deep    = #262a30;</span><br><span class="line">$orange       = #fc6423;</span><br><span class="line">$uesd_by_footer   = #000000;//后续添加改变footer颜色的代码</span><br></pre></td></tr></table></figure>
 <p>新加入一个<strong>uesd_by_footer</strong>变量，并选择自己想要的颜色。<font color="red"><strong>注意缩进</strong></font></p>
 ]]></content>
-  </entry>
-  <entry>
-    <title>Mysql2008语法要点</title>
-    <url>/2019/11/17/Mysql2008%E8%AF%AD%E6%B3%95%E8%A6%81%E7%82%B9/</url>
-    <content><![CDATA[<p>目录：</p>
-<div class="toc">
-
-<!-- toc -->
-
-<ul>
-<li><a href="#cha-ru-yu-shan-chu">插入与删除</a></li>
-<li><a href="#lian-jie-cha-xun">连接查询</a></li>
-</ul>
-<!-- tocstop -->
-
-</div>
-<a id="more"></a>
-
-<hr>
-<p><strong>注意：要选中指定代码再执行，执行成功后要刷新表并单击右键重新生成。</strong></p>
-<hr>
-<ul>
-<li><strong>varchar(n)</strong>它与char 类型相似,n必须从1-8000 .之间的数值。存储大小为输入数据字节的实际长度。 由于CHAR 数据类型长度固定，因此它比VARCHAR 类型的处理速度快。</li>
-</ul>
-<hr>
-<h2><span id="cha-ru-yu-shan-chu">插入与删除</span><a href="#cha-ru-yu-shan-chu" class="header-anchor">#</a></h2><figure class="highlight plain"><figcaption><span>sp_rename 'student', '学生表' ```  </span></figcaption><table><tr><td class="code"><pre><span class="line">&gt; 修改表名student为学生表    </span><br><span class="line">``` alter table 姓名表 add 性别 char(2) ```  </span><br><span class="line">&gt; 姓名表中添加性别列，并指定数据类型，int类不能指定宽度  </span><br><span class="line">``` alter table 姓名表 drop column 性别 ```  </span><br><span class="line">&gt; 姓名表中删除性别列  </span><br><span class="line">``` alter table 姓名表 alter column 性别 char(2) ```  </span><br><span class="line">&gt; 姓名表中更改性别的数据类型  </span><br><span class="line">``` EXEC sp_rename &apos;班级表.备注&apos;, &apos;其他&apos; ```  </span><br><span class="line">&gt; 班级表中，备注类改为其他  </span><br><span class="line">``` alter table 班级表 add constraint 主键名 primary key   clustered(设为主键的名) ```  </span><br><span class="line">&gt;创建主键约束:系部代码  </span><br><span class="line">``` char(6) null foreign key references 系部(系部代码) ```  </span><br><span class="line">&gt;创建外键约束:系部代码  </span><br><span class="line">``` insert 学生表 (学号) values(1720250136) ```  </span><br><span class="line">&gt;插入记录学生表中的学号(仅能插入数字)  </span><br><span class="line">``` update 学生表 set 姓名=(&apos;测试社&apos;) ```  </span><br><span class="line">&gt;修改学生表中的姓名null为测试社  </span><br><span class="line">``` update 学生表 set 性别=&apos;男&apos;,出生日期=&apos;1999.09.21&apos; ```  </span><br><span class="line">&gt; 多行修改  </span><br><span class="line">``` select * from 学生表 where 学号=&apos;1829300&apos; and 姓名=&apos;测试2&apos;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>查询语句，如果没用符合条件的则不返回任何。  </p>
-</blockquote>
-<figure class="highlight plain"><figcaption><span>学号,姓名,班级代码,出生日期,性别,年龄 from 学生表 where 姓名 like('张%') ```  </span></figcaption><table><tr><td class="code"><pre><span class="line">&gt; 查询所有姓张的学生的学号和姓名。  </span><br><span class="line">``` select 学号,姓名,班级代码,出生日期,性别,年龄 from 学生表 where 姓名 like(&apos;\_力\_&apos;) ```  </span><br><span class="line">&gt;查询姓名中第二个汉字是“力”的学号和姓名,切长度为3。  </span><br><span class="line">``` select 学号,姓名,班级代码,出生日期,性别,年龄 from 学生表 where 专业代码 is null ```  </span><br><span class="line">&gt;查询没有专业代码的学生的所有信息。  </span><br><span class="line"></span><br><span class="line">**数字类型不加引号，区分“19”与19**</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line">## 匹配模式</span><br><span class="line"></span><br><span class="line">+ 下划线_：表示任意单个字符</span><br><span class="line">+ 百分号%：表示任意多个字符</span><br><span class="line">+ 方括号[]:括号里面可以限制一个字符的取值范围，例如[5-9],表示这个字符的范围在数字5和9之间包括5和9</span><br><span class="line">+ ^ : 表示非，不包含例 [^9]，表示这个字符不包含9</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line">## 查询限制</span><br><span class="line">``` select AVG(年龄) from 学生表</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>返回一个均值</p>
-</blockquote>
-<figure class="highlight plain"><figcaption><span>学号,姓名,班级代码,出生日期,性别,年龄 from 学生表 order by 学号```  </span></figcaption><table><tr><td class="code"><pre><span class="line">```select 学号,姓名,班级代码,出生日期,性别,年龄 from 学生表 order by 学号 desc</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p><strong>默认为升序,desc是降序</strong></p>
-</blockquote>
-<figure class="highlight plain"><figcaption><span>* from 学生表 order by 学号,成绩 ```</span></figcaption><table><tr><td class="code"><pre><span class="line">&gt; 先按**学号**升序再按照**成绩**升序排列  </span><br><span class="line">```select * from 学生表 order by 姓名 desc,年龄```  </span><br><span class="line">&gt; 先按**学号**降序序再按照**成绩**升序排列</span><br><span class="line"></span><br><span class="line">+ 查询中添加distinct仅返回不重复的项</span><br><span class="line"></span><br><span class="line">``` select sum(成绩) as 总分 from 学生表</span><br></pre></td></tr></table></figure>
-<ul>
-<li>仅返回一个一行一列的表格，名称为总分，数值为sum的值<br>group by 指定一列或多列，值相等为一组<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">select 学号,成绩 from 学生表</span><br><span class="line">group by 学号,姓名</span><br><span class="line">having count(学号)&gt;3</span><br></pre></td></tr></table></figure></li>
-<li>输出同一人学号出现超过三遍，即输出选超过三门课的人。(学号为主键)</li>
-</ul>
-<p><strong>满足having条件才输出</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">select 专业代码,couunt(学号) as 人数 from 学生表</span><br><span class="line">group by 专业代码</span><br><span class="line">order by 人数 desc</span><br></pre></td></tr></table></figure>
-<ul>
-<li>求每个专业各有多少人，并按人数递减顺序显示各专业代码</li>
-</ul>
-<hr>
-<h2><span id="lian-jie-cha-xun">连接查询</span><a href="#lian-jie-cha-xun" class="header-anchor">#</a></h2><p>连接类型：</p>
-<ol>
-<li>内连接</li>
-<li>左外连接</li>
-<li>右外连接</li>
-<li>完全外连接</li>
-</ol>
-<ul>
-<li>交叉连接（CROSS JOIN）：也称<strong>迪卡尔积</strong></li>
-<li>select *from T_student cross join T_class<br>等于<br> select *from T_student, T_class  </li>
-<li>有where子句，往往会先生成两个表行数乘积的数据表，然后才根据where条件从中选择。<figure class="highlight plain"><figcaption><span>* from T_student s cross join T_class c where s.classId </span></figcaption><table><tr><td class="code"><pre><span class="line">(注:cross join后加条件只能用where,不能用on)  </span><br><span class="line"></span><br><span class="line">+ SELECT 学号,姓名,班级表.班级代码,班级表.班级名称  FROM 班级表 CROSS JOIN 学生表 where 学生表.班级代码=班级表.班级代码</span><br><span class="line">&gt; 交叉查询</span><br><span class="line"></span><br><span class="line">+ 等值连接</span><br><span class="line">概念：在连接条件中使用等于号（=）运算符，其查询结果中列出被连接表中的所有列，包括其中的重复列。</span><br></pre></td></tr></table></figure>
-select * from T_student s,T_class c where s.classId = c.classId<br>select * from T_student s inner join T_class c on s.classId = c.classId <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">select 学号，姓名，课程代码	from 学生表 inner join 选课表</span><br><span class="line">on 学生表.学号 = 选课表.学号</span><br><span class="line">+ 超过两张表必须添加连接条件，否则返回的两张表的笛卡尔积没有意义</span><br><span class="line"></span><br><span class="line">+ 构建表格代码：</span><br></pre></td></tr></table></figure>
-create table 系部<pre><code>(
-    系部代码 char(6) not null primary key,
-    系部名称 varchar(30) not null,
-    系主任 char(8) null,
-)</code></pre>create table 专业表<pre><code>(
-    专业代码 char(4) not null primary key,
-    专业名称 varchar(20) not null,
-    系部代码 char(6) null foreign key references 系部(系部代码),
-)</code></pre>create table 班级表<pre><code>(
-    班级代码 char(9) not null primary key,
-    班级名称 varchar(20) null,
-    专业代码 char(4) null foreign key references 专业表(专业代码),
-    系部代码 char(6) null foreign key references 系部(系部代码),
-    备注 varchar(50) null ,
-)</code></pre>create table 学生表<pre><code>(
-    学号 char(12) not null primary key,
-    姓名 char(8) null,
-    性别 char(2) null,
-    出生日期 datetime null,
-    入学时间 datetime null,
-    班级代码 char(9) null foreign key references 班级表(班级代码),
-    系部代码 char(6) null foreign key references 系部(系部代码),
-    专业代码 char(4) null foreign key references 专业表(专业代码),
-)</code></pre>```</li>
-</ul>
-]]></content>
-      <categories>
-        <category>数据库</category>
-      </categories>
-      <tags>
-        <tag>要点</tag>
-        <tag>Mysql2008</tag>
-      </tags>
   </entry>
   <entry>
     <title>一键完成hexo deploy</title>

@@ -51,15 +51,15 @@
   };
 </script>
 
-  <meta name="description" content="python的进阶使用">
-<meta name="keywords" content="要点,python,进阶">
+  <meta name="description" content="python的进阶使用      if _name_ == ‘_main_‘: import 自己的包 放入默认地址中 导入自己的包 __ init__.py的作用   Python代码技巧 all or any collections dir emoji from _future_ import geopy inspect Jedi **kwargs newspaper3k 运算符重载（Oper">
+<meta name="keywords" content="python,要点,进阶">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python的进阶使用">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;18&#x2F;Python%E7%9A%84%E8%BF%9B%E9%98%B6%E4%BD%BF%E7%94%A8&#x2F;index.html">
 <meta property="og:site_name" content="cyberspar&#39;s blog">
-<meta property="og:description" content="python的进阶使用">
+<meta property="og:description" content="python的进阶使用      if _name_ == ‘_main_‘: import 自己的包 放入默认地址中 导入自己的包 __ init__.py的作用   Python代码技巧 all or any collections dir emoji from _future_ import geopy inspect Jedi **kwargs newspaper3k 运算符重载（Oper">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-11-18T06:33:23.314Z">
+<meta property="og:updated_time" content="2019-11-24T09:59:17.155Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://yoursite.com/2019/11/18/Python%E7%9A%84%E8%BF%9B%E9%98%B6%E4%BD%BF%E7%94%A8/">
@@ -239,10 +239,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2019-11-18 14:21:20 / 修改时间：14:33:23" itemprop="dateCreated datePublished" datetime="2019-11-18T14:21:20+08:00">2019-11-18</time>
+              <time title="创建时间：2019-11-18 14:21:20" itemprop="dateCreated datePublished" datetime="2019-11-18T14:21:20+08:00">2019-11-18</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-11-24 17:59:17" itemprop="dateModified" datetime="2019-11-24T17:59:17+08:00">2019-11-24</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -274,7 +280,57 @@
 
       
         <p>python的进阶使用</p>
+<div class="toc">
+
+<!-- toc -->
+
+<ul>
+<li><a href="#if-name-main">if _<em>name_</em> == ‘_<em>main_</em>‘:</a></li>
+<li><a href="#import-zi-ji-de-bao">import 自己的包</a><ul>
+<li><a href="#fang-ru-mo-ren-di-zhi-zhong">放入默认地址中</a></li>
+<li><a href="#dao-ru-zi-ji-de-bao">导入自己的包</a></li>
+<li><a href="#init-py-de-zuo-yong">__ init__.py的作用</a></li>
+</ul>
+</li>
+<li><a href="#python-dai-ma-ji-qiao">Python代码技巧</a><ul>
+<li><a href="#all-or-any">all or any</a></li>
+<li><a href="#collections">collections</a></li>
+<li><a href="#dir">dir</a></li>
+<li><a href="#emoji">emoji</a></li>
+<li><a href="#from-future-import">from _<em>future_</em> import</a></li>
+<li><a href="#geopy">geopy</a></li>
+<li><a href="#inspect">inspect</a></li>
+<li><a href="#jedi">Jedi</a></li>
+<li><a href="#kwargs">**kwargs</a></li>
+<li><a href="#newspaper3k">newspaper3k</a></li>
+<li><a href="#yun-suan-fu-chong-zai-operator-overloading">运算符重载（Operator overloading）</a></li>
+<li><a href="#pprint">pprint</a></li>
+<li><a href="#lei-xing-ti-shi-type-hints">类型提示（Type hints）</a></li>
+<li><a href="#uuid">uuid</a></li>
+<li><a href="#xkcd">xkcd</a></li>
+<li><a href="#yaml">YAML</a></li>
+</ul>
+</li>
+<li><a href="#duo-he-bing-xing-chu-li">多核并行处理</a><ul>
+<li><a href="#biao-zhun-fang-fa">标准方法</a></li>
+<li><a href="#geng-kuai-de-fang-fa">更快的方法</a><ul>
+<li><a href="#bu-shi-yong-duo-xian-cheng-duo-jin-cheng">不使用多线程/多进程</a></li>
+<li><a href="#duo-xian-cheng-threadpoolexecutor">多线程ThreadPoolExecutor</a></li>
+<li><a href="#duo-jin-cheng-processpoolexecutor">多进程ProcessPoolExecutor</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#zhi-neng-zai-py-wen-jian-qie-bi-xu-yao-you-name-main-fou-ze-hui-chu-jin-cheng-cuo-wu">只能在.py文件且必须要有<strong>name</strong> == “<strong>main</strong>“，否则会出进程错误</a><ul>
+<li><a href="#ta-zong-shi-na-me-kuai-ma">它总是那么快吗？</a></li>
+</ul>
+</li>
+</ul>
+<!-- tocstop -->
+
+</div>
 <a id="more"></a>
+
 <h1><span id="if-name-main">if _<em>name_</em> == ‘_<em>main_</em>‘:</span><a href="#if-name-main" class="header-anchor">#</a></h1><p>_<em>name_</em> 是当前模块名，当模块被直接运行时模块名为 _<em>main_</em> 。这句话的意思就是，当模块被直接运行时，以下代码块将被运行，当模块是被导入时，代码块不被运行。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> __name__==<span class="string">"__main__"</span>:</span><br><span class="line">    <span class="keyword">print</span> (<span class="string">"I'm the second."</span>)</span><br></pre></td></tr></table></figure>
 
@@ -847,7 +903,6 @@ Requirement already satisfied: pyyaml in c:\users\deeplearn\appdata\roaming\pyth
 </li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
     </div>
 
     
@@ -856,8 +911,8 @@ Requirement already satisfied: pyyaml in c:\users\deeplearn\appdata\roaming\pyth
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/%E8%A6%81%E7%82%B9/" rel="tag"># 要点</a>
               <a href="/tags/python/" rel="tag"># python</a>
+              <a href="/tags/%E8%A6%81%E7%82%B9/" rel="tag"># 要点</a>
               <a href="/tags/%E8%BF%9B%E9%98%B6/" rel="tag"># 进阶</a>
           </div>
 
@@ -930,20 +985,20 @@ Requirement already satisfied: pyyaml in c:\users\deeplearn\appdata\roaming\pyth
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-count">15</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-count">21</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -989,7 +1044,7 @@ Requirement already satisfied: pyyaml in c:\users\deeplearn\appdata\roaming\pyth
 </div>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">blog全站共58.6k字</span>
+  <span class="post-count">blog全站共60.1k字</span>
 </div>
 
         

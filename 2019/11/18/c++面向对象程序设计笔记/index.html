@@ -51,15 +51,15 @@
   };
 </script>
 
-  <meta name="description" content="c++面向对象程序设计的一些要点和笔记">
+  <meta name="description" content="c++面向对象程序设计的一些要点和笔记      C++ 基本语法 在 C++ 中，分号是语句结束符。 C++ 标识符 C++ 注释 数据类型 typedef声明 枚举类型(enumeration)   变量作用域 C++ 中的左值（Lvalues）和右值（Rvalues） 全局变量 整数常量 字符常量   定义常量 thread_local 存储类 位运算符 杂项运算符 switch 与嵌套sw">
 <meta name="keywords" content="要点,c++">
 <meta property="og:type" content="article">
 <meta property="og:title" content="c++面向对象程序设计笔记">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;18&#x2F;c++%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E7%AC%94%E8%AE%B0&#x2F;index.html">
 <meta property="og:site_name" content="cyberspar&#39;s blog">
-<meta property="og:description" content="c++面向对象程序设计的一些要点和笔记">
+<meta property="og:description" content="c++面向对象程序设计的一些要点和笔记      C++ 基本语法 在 C++ 中，分号是语句结束符。 C++ 标识符 C++ 注释 数据类型 typedef声明 枚举类型(enumeration)   变量作用域 C++ 中的左值（Lvalues）和右值（Rvalues） 全局变量 整数常量 字符常量   定义常量 thread_local 存储类 位运算符 杂项运算符 switch 与嵌套sw">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-11-18T06:39:31.705Z">
+<meta property="og:updated_time" content="2019-11-24T09:59:27.692Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://yoursite.com/2019/11/18/c++%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E7%AC%94%E8%AE%B0/">
@@ -239,10 +239,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2019-11-18 14:21:00 / 修改时间：14:39:31" itemprop="dateCreated datePublished" datetime="2019-11-18T14:21:00+08:00">2019-11-18</time>
+              <time title="创建时间：2019-11-18 14:21:00" itemprop="dateCreated datePublished" datetime="2019-11-18T14:21:00+08:00">2019-11-18</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-11-24 17:59:27" itemprop="dateModified" datetime="2019-11-24T17:59:27+08:00">2019-11-24</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -274,8 +280,41 @@
 
       
         <p>c++面向对象程序设计的一些要点和笔记</p>
+<div class="toc">
+
+<!-- toc -->
+
+<ul>
+<li><a href="#c-ji-ben-yu-fa">C++ 基本语法</a><ul>
+<li><a href="#zai-c-zhong-fen-hao-shi-yu-ju-jie-shu-fu">在 C++ 中，分号是语句结束符。</a></li>
+<li><a href="#c-biao-shi-fu">C++ 标识符</a></li>
+<li><a href="#c-zhu-shi">C++ 注释</a></li>
+<li><a href="#shu-ju-lei-xing">数据类型</a></li>
+<li><a href="#typedef-sheng-ming">typedef声明</a></li>
+<li><a href="#mei-ju-lei-xing-enumeration">枚举类型(enumeration)</a></li>
+</ul>
+</li>
+<li><a href="#bian-liang-zuo-yong-yu">变量作用域</a><ul>
+<li><a href="#c-zhong-de-zuo-zhi-lvalues-he-you-zhi-rvalues">C++ 中的左值（Lvalues）和右值（Rvalues）</a></li>
+<li><a href="#quan-ju-bian-liang">全局变量</a></li>
+<li><a href="#zheng-shu-chang-liang">整数常量</a></li>
+<li><a href="#zi-fu-chang-liang">字符常量</a></li>
+</ul>
+</li>
+<li><a href="#ding-yi-chang-liang">定义常量</a></li>
+<li><a href="#thread-local-cun-chu-lei">thread_local 存储类</a></li>
+<li><a href="#wei-yun-suan-fu">位运算符</a></li>
+<li><a href="#za-xiang-yun-suan-fu">杂项运算符</a></li>
+<li><a href="#switch-yu-qian-tao-switch">switch 与嵌套switch</a></li>
+<li><a href="#lambda-han-shu-yu-biao-da-shi">Lambda 函数与表达式</a></li>
+</ul>
+<!-- tocstop -->
+
+</div>
 <a id="more"></a>
-<h1><span id="c-ji-ben-yu-fa">C++ 基本语法</span><a href="#c-ji-ben-yu-fa" class="header-anchor">#</a></h1><ul>
+# C++ 基本语法
+
+<ul>
 <li>C++ 语言定义了一些头文件，这些头文件包含了程序中必需的或有用的信息。上面这段程序中，包含了头文件 <iostream>。<br>下一行 using namespace std; 告诉编译器使用 std 命名空间。命名空间是 C++ 中一个相对新的概念。<br>下一行 // main() 是程序开始执行的地方 是一个单行注释。单行注释以 // 开头，在行末结束。<br>下一行 int main() 是主函数，程序从这里开始执行。<br>下一行 cout &lt;&lt; “Hello World”; 会在屏幕上显示消息 “Hello World”。<br>下一行 return 0; 终止 main( )函数，并向调用进程返回值 0。</iostream></li>
 </ul>
 <h2><span id="zai-c-zhong-fen-hao-shi-yu-ju-jie-shu-fu">在 C++ 中，分号是语句结束符。</span><a href="#zai-c-zhong-fen-hao-shi-yu-ju-jie-shu-fu" class="header-anchor">#</a></h2><p>也就是说，每个语句必须以分号结束。它表明一个逻辑实体的结束。</p>
@@ -356,10 +395,9 @@
 <p>还有逗号运算符等，同c</p>
 <h1><span id="switch-yu-qian-tao-switch">switch 与嵌套switch</span><a href="#switch-yu-qian-tao-switch" class="header-anchor">#</a></h1><h1><span id="lambda-han-shu-yu-biao-da-shi">Lambda 函数与表达式</span><a href="#lambda-han-shu-yu-biao-da-shi" class="header-anchor">#</a></h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"># 成员</span><br><span class="line">成员变量、成员函数</span><br><span class="line">成员转换与数据溢出</span><br><span class="line"></span><br><span class="line"># 一些有用的内置的数学函数。</span><br><span class="line"></span><br><span class="line">为了利用这些函数，您需要引用数学头文件 &lt;cmath&gt;。</span><br><span class="line">* double floor(double);</span><br><span class="line">该函数返回一个小于或等于传入参数的最大整数。</span><br><span class="line"></span><br><span class="line"># C++ 随机数</span><br><span class="line"></span><br><span class="line">生成随机数之前必须先调用 srand() 函数。</span><br><span class="line"></span><br><span class="line">下面是一个关于生成随机数的简单实例。实例中使用了 time() 函数来获取系统时间的秒数，通过调用 rand() 函数来生成随机数：</span><br></pre></td></tr></table></figure>
 <p>srand( (unsigned)time( NULL ) );</p>
-<pre><code># 逗号表达式
-返回最后的值
-3+5，7 返回7
-</code></pre>
+<p>```</p>
+<h1><span id="dou-hao-biao-da-shi">逗号表达式</span><a href="#dou-hao-biao-da-shi" class="header-anchor">#</a></h1><p>返回最后的值<br>3+5，7 返回7</p>
+
     </div>
 
     
@@ -425,7 +463,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">1.</span> <span class="nav-text">C++ 基本语法#</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">1.1.</span> <span class="nav-text">在 C++ 中，分号是语句结束符。#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">1.2.</span> <span class="nav-text">C++ 标识符#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">1.3.</span> <span class="nav-text">C++ 注释#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">1.4.</span> <span class="nav-text">数据类型#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">1.5.</span> <span class="nav-text">typedef声明#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">1.6.</span> <span class="nav-text">枚举类型(enumeration)#</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">2.</span> <span class="nav-text">变量作用域#</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">2.1.</span> <span class="nav-text">C++ 中的左值（Lvalues）和右值（Rvalues）#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">2.2.</span> <span class="nav-text">全局变量#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">2.3.</span> <span class="nav-text">整数常量#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">2.4.</span> <span class="nav-text">字符常量#</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">3.</span> <span class="nav-text">定义常量#</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">4.</span> <span class="nav-text">thread_local 存储类#</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">5.</span> <span class="nav-text">位运算符#</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">6.</span> <span class="nav-text">杂项运算符#</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">7.</span> <span class="nav-text">switch 与嵌套switch#</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">8.</span> <span class="nav-text">Lambda 函数与表达式#</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">1.</span> <span class="nav-text">在 C++ 中，分号是语句结束符。#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">2.</span> <span class="nav-text">C++ 标识符#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">3.</span> <span class="nav-text">C++ 注释#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">4.</span> <span class="nav-text">数据类型#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">5.</span> <span class="nav-text">typedef声明#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">6.</span> <span class="nav-text">枚举类型(enumeration)#</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number"></span> <span class="nav-text">变量作用域#</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">1.</span> <span class="nav-text">C++ 中的左值（Lvalues）和右值（Rvalues）#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">2.</span> <span class="nav-text">全局变量#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">3.</span> <span class="nav-text">整数常量#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">4.</span> <span class="nav-text">字符常量#</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number"></span> <span class="nav-text">定义常量#</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number"></span> <span class="nav-text">thread_local 存储类#</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number"></span> <span class="nav-text">位运算符#</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number"></span> <span class="nav-text">杂项运算符#</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number"></span> <span class="nav-text">switch 与嵌套switch#</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number"></span> <span class="nav-text">Lambda 函数与表达式#</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number"></span> <span class="nav-text">逗号表达式#</span></a></div>
       </div>
       <!--/noindex-->
 
@@ -441,20 +479,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-count">15</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-count">21</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -500,7 +538,7 @@
 </div>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">blog全站共58.6k字</span>
+  <span class="post-count">blog全站共60.1k字</span>
 </div>
 
         

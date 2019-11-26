@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>小程序设计过程中问题</title>
-    <url>/2019/11/24/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E9%97%AE%E9%A2%98/</url>
+    <url>/2019/11/24/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<ul>
 <li>2019.11.24 第一次记录</li>
 </ul>
@@ -4763,9 +4763,9 @@ array([[ 3,  5],
         <category>前端</category>
       </categories>
       <tags>
+        <tag>要点</tag>
         <tag>javascript</tag>
         <tag>前端</tag>
-        <tag>要点</tag>
       </tags>
   </entry>
 </search>

@@ -44,6 +44,14 @@
 <li>当HMM有了条件分布后，就变成了线性条件随机场。</li>
 </ul>
 ]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>HMM</tag>
+        <tag>隐式马尔科夫模型</tag>
+        <tag>文本挖掘</tag>
+      </tags>
   </entry>
   <entry>
     <title>小程序设计过程中问题</title>
@@ -4787,9 +4795,9 @@ array([[ 3,  5],
         <category>前端</category>
       </categories>
       <tags>
-        <tag>要点</tag>
         <tag>javascript</tag>
         <tag>前端</tag>
+        <tag>要点</tag>
       </tags>
   </entry>
 </search>

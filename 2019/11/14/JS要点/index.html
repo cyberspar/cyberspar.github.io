@@ -53,13 +53,13 @@
   };
 </script>
 
-  <meta name="description" content="目录：      转义 获取长度 索引 数组 不可变性 函数 布尔值与比较运算符 对象 JSON 随机数 Regular expressions 正则表达式">
-<meta name="keywords" content="要点,javascript,前端">
+  <meta name="description" content="目录：     转义 获取长度 索引 数组 不可变性 函数 布尔值与比较运算符 对象 JSON 随机数 Regular expressions 正则表达式">
+<meta name="keywords" content="javascript,前端,要点">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JS要点">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;14&#x2F;JS%E8%A6%81%E7%82%B9&#x2F;index.html">
 <meta property="og:site_name" content="cyberspar&#39;s blog">
-<meta property="og:description" content="目录：      转义 获取长度 索引 数组 不可变性 函数 布尔值与比较运算符 对象 JSON 随机数 Regular expressions 正则表达式">
+<meta property="og:description" content="目录：     转义 获取长度 索引 数组 不可变性 函数 布尔值与比较运算符 对象 JSON 随机数 Regular expressions 正则表达式">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2019-11-15T01:33:51.973Z">
 <meta name="twitter:card" content="summary">
@@ -288,7 +288,6 @@
 <div class="toc">
 
 <!-- toc -->
-
 <ul>
 <li><a href="#zhuan-yi">转义</a></li>
 <li><a href="#huo-qu-chang-du">获取长度</a></li>
@@ -303,19 +302,16 @@
 <li><a href="#regular-expressions-zheng-ze-biao-da-shi">Regular expressions 正则表达式</a></li>
 </ul>
 <!-- tocstop -->
-
-</div>
-<a id="more"></a>
-## 转义
-+ 当我们需要在字符串中使用与开头结尾相同的引号时，我们需要对引号进行 转义 。如果你有很多双引号的字符串，使用转义字符可能导致难以阅读。这时候可以使用单引号。
-> 
+<p></p></div><br><a id="more"></a><p></p>
+<h2><span id="zhuan-yi">转义</span><a href="#zhuan-yi" class="header-anchor">#</a></h2><ul>
+<li>当我们需要在字符串中使用与开头结尾相同的引号时，我们需要对引号进行 转义 。如果你有很多双引号的字符串，使用转义字符可能导致难以阅读。这时候可以使用单引号。<blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;This string has \\&quot;double quotes\\&quot; in it&quot;</span><br></pre></td></tr></table></figure>
-改为：
+<p>改为：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&apos;This string has &quot;double quotes&quot; in it&apos;</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><figcaption><span>myStr </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">改为:</span><br><span class="line">```var myStr =&apos;&lt;a href=&quot;http://www.example.com&quot; target=&quot;_blank&quot;&gt;Link&lt;/a&gt;&apos;;</span><br></pre></td></tr></table></figure>
-
-
-
+</blockquote>
+</li>
+</ul>
 <hr>
 <h2><span id="huo-qu-chang-du">获取长度</span><a href="#huo-qu-chang-du" class="header-anchor">#</a></h2><ul>
 <li>例如，我们创建了一个变量 var firstName = “Charles”，我们就可以通过使用 <strong>firstName.length</strong> 来获得 “Charles” 字符串的长度。</li>
@@ -373,19 +369,17 @@
 </li>
 <li><p>所有的比较操作符返回的都是一个boolean值，<strong>要么是 true 要么是false</strong> 。</p>
 <blockquote>
-<p>如果要比较a和b的大小，a&lt;b返回true,a&gt;b返回false.<br>可写为<strong>return a&lt;b</strong>的形式来代替<strong>return a&lt;b?true:false;</strong>更加简洁！</p>
+<p>如果要比较a和b的大小，a<b返回true,a>b返回false.<br>可写为<strong>return a&lt;b</strong>的形式来代替<strong>return a&lt;b?true:false;</strong>更加简洁！</b返回true,a></p>
 </blockquote>
 </li>
 </ul>
 <hr>
 <h2><span id="dui-xiang">对象</span><a href="#dui-xiang" class="header-anchor">#</a></h2><ul>
-<li><p>对象和数组很相似，数组是通过索引来访问和修改数据，对象是通过<strong>属性</strong>来访问和修改数据的。</p>
-</li>
-<li><p>对象适合用来存储<strong>结构化数据</strong>，就和真实世界的对象一模一样，比如一只猫。</p>
-<blockquote>
+<li>对象和数组很相似，数组是通过索引来访问和修改数据，对象是通过<strong>属性</strong>来访问和修改数据的。</li>
+<li>对象适合用来存储<strong>结构化数据</strong>，就和真实世界的对象一模一样，比如一只猫。<blockquote>
 <p>这是一个示例对象：（注意：与，）</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var cat = &#123;</span><br><span class="line">&quot;name&quot;: &quot;Whiskers&quot;,</span><br><span class="line">&quot;legs&quot;: 4,</span><br><span class="line">&quot;tails&quot;: 1,</span><br><span class="line">&quot;enemies&quot;: [&quot;Water&quot;, &quot;Dogs&quot;]</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var cat = &#123;</span><br><span class="line">&quot;name&quot;: &quot;Whiskers&quot;,</span><br><span class="line">&quot;legs&quot;: 4,</span><br><span class="line">&quot;tails&quot;: 1,</span><br><span class="line">&quot;enemies&quot;: [&quot;Water&quot;, &quot;Dogs&quot;]</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></blockquote>
+</li>
 <li><p>属性+值的思想类似于键值对的思想</p>
 </li>
 <li><p>有两种方式访问对象属性，一个是点操作符(.)，一个是中括号操作符([])。<br>当你知道属性的名称的时候，使用点操作符。</p>
@@ -393,45 +387,30 @@
 <li><p>第二种访问对象的方式就是中括号操作符([])，<strong>如果你想访问的属性的名称有一个空格，这时你只能使用中括号操作符([])</strong>。</p>
 <blockquote>
 <p>这是一个使用中括号操作符([])读取对象属性的例子：</p>
-</blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var myObj = &#123;</span><br><span class="line">&quot;Space Name&quot;: &quot;Kirk&quot;,</span><br><span class="line">&quot;More Space&quot;: &quot;Spock&quot;</span><br><span class="line">&#125;;</span><br><span class="line">myObj[&quot;Space Name&quot;]; // Kirk</span><br><span class="line">myObj[&apos;More Space&apos;]; // Spock</span><br></pre></td></tr></table></figure>
+</blockquote>
 </li>
 <li><p><strong>提示：属性名称中如果有空格，必须把属性名称用单引号或双引号包裹起来。</strong></p>
 </li>
-<li><p>我们同样可以删除对象的属性，例如：<br>delete ourDog.bark;(删除ourdog对象的bark属性)</p>
-</li>
-<li><p>有时检查一个对象属性是否存在是非常有用的，我们可以)<strong>用.hasOwnProperty(propname)方法</strong>来检查对象是否有该属性。如果有返回true，反之返回 false。</p>
-</li>
+<li>我们同样可以删除对象的属性，例如：<br>delete ourDog.bark;(删除ourdog对象的bark属性)</li>
+<li>有时检查一个对象属性是否存在是非常有用的，我们可以)<strong>用.hasOwnProperty(propname)方法</strong>来检查对象是否有该属性。如果有返回true，反之返回 false。</li>
 </ul>
 <blockquote>
 <p>举例:</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var myObj = &#123;</span><br><span class="line">top: &quot;hat&quot;,</span><br><span class="line">bottom: &quot;pants&quot;</span><br><span class="line">&#125;;</span><br><span class="line">myObj.hasOwnProperty(&quot;top&quot;);// true</span><br><span class="line">myObj.hasOwnProperty(&quot;middle&quot;); // false</span><br></pre></td></tr></table></figure>
-<hr>
-<h2><span id="json">JSON</span><a href="#json" class="header-anchor">#</a></h2><ul>
+<h2><span id="123456var-myobj-123-top-quot-hat-quot-bottom-quot-pants-quot-125-myobj-hasownproperty-quot-top-quot-truemyobj-hasownproperty-quot-middle-quot-false"><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var myObj = &#123;</span><br><span class="line">top: &quot;hat&quot;,</span><br><span class="line">bottom: &quot;pants&quot;</span><br><span class="line">&#125;;</span><br><span class="line">myObj.hasOwnProperty(&quot;top&quot;);// true</span><br><span class="line">myObj.hasOwnProperty(&quot;middle&quot;); // false</span><br></pre></td></tr></table></figure></span><a href="#123456var-myobj-123-top-quot-hat-quot-bottom-quot-pants-quot-125-myobj-hasownproperty-quot-top-quot-truemyobj-hasownproperty-quot-middle-quot-false" class="header-anchor">#</a></h2><h2><span id="json">JSON</span><a href="#json" class="header-anchor">#</a></h2><ul>
 <li><strong>JavaScript Object Notation 简称 JSON</strong>，它使用JavaScript对象的格式来存储数据。JSON是灵活的，因为它允许 数据结构 是<strong>字符串，数字，布尔值，字符串，和 对象</strong>的任意组合。</li>
 </ul>
-<blockquote>
-<p>这里是一个JSON对象的示例：</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var ourMusic = [</span><br><span class="line">&#123;</span><br><span class="line">&quot;artist&quot;: &quot;Daft Punk&quot;,//string</span><br><span class="line">&quot;title&quot;: &quot;Homework&quot;,//string</span><br><span class="line">&quot;release_year&quot;: 1997,//int</span><br><span class="line">&quot;formats&quot;: [ </span><br><span class="line">&quot;CD&quot;, //string</span><br><span class="line">&quot;Cassette&quot;, //string</span><br><span class="line">&quot;LP&quot; ],</span><br><span class="line">&quot;gold&quot;: true //bool</span><br><span class="line">&#125;</span><br><span class="line">];</span><br></pre></td></tr></table></figure>
+<p>这里是一个JSON对象的示例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var ourMusic = [</span><br><span class="line">&#123;</span><br><span class="line">&quot;artist&quot;: &quot;Daft Punk&quot;,//string</span><br><span class="line">&quot;title&quot;: &quot;Homework&quot;,//string</span><br><span class="line">&quot;release_year&quot;: 1997,//int</span><br><span class="line">&quot;formats&quot;: [ </span><br><span class="line">&quot;CD&quot;, //string</span><br><span class="line">&quot;Cassette&quot;, //string</span><br><span class="line">&quot;LP&quot; ],</span><br><span class="line">&quot;gold&quot;: true //bool</span><br><span class="line">&#125;</span><br><span class="line">];</span><br></pre></td></tr></table></figure></p>
 <ul>
 <li>这是一个对象数组，并且对象有各种关于专辑的 详细信息。它也有一个嵌套的 formarts 的数组。附加专辑记录可以被添加到数组的最上层。其中，ourMusic是一个数组[]，内部可添加多个对象{}。</li>
-<li><strong>数组中有多个 JSON 对象的时候，对象与对象之间要用逗号隔开。</strong><blockquote>
-<p>嵌套的JSON对象:</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">var ourStorage = &#123;</span><br><span class="line">&quot;desk&quot;: &#123;</span><br><span class="line">&quot;drawer&quot;: &quot;stapler&quot;</span><br><span class="line">&#125;,</span><br><span class="line">&quot;cabinet&quot;: &#123;</span><br><span class="line">&quot;top drawer&quot;: &#123; </span><br><span class="line">&quot;folder1&quot;: &quot;a file&quot;,</span><br><span class="line">&quot;folder2&quot;: &quot;secrets&quot;</span><br><span class="line">&#125;,</span><br><span class="line">&quot;bottom drawer&quot;: &quot;soda&quot;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">ourStorage.cabinet[&quot;top drawer&quot;].folder2;// &quot;secrets&quot;</span><br><span class="line">ourStorage.desk.drawer; // &quot;stapler&quot;</span><br></pre></td></tr></table></figure>
+<li><strong>数组中有多个 JSON 对象的时候，对象与对象之间要用逗号隔开。</strong><br>嵌套的JSON对象:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">var ourStorage = &#123;</span><br><span class="line">&quot;desk&quot;: &#123;</span><br><span class="line">&quot;drawer&quot;: &quot;stapler&quot;</span><br><span class="line">&#125;,</span><br><span class="line">&quot;cabinet&quot;: &#123;</span><br><span class="line">&quot;top drawer&quot;: &#123; </span><br><span class="line">&quot;folder1&quot;: &quot;a file&quot;,</span><br><span class="line">&quot;folder2&quot;: &quot;secrets&quot;</span><br><span class="line">&#125;,</span><br><span class="line">&quot;bottom drawer&quot;: &quot;soda&quot;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">ourStorage.cabinet[&quot;top drawer&quot;].folder2;// &quot;secrets&quot;</span><br><span class="line">ourStorage.desk.drawer; // &quot;stapler&quot;</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">var myPlants = [</span><br><span class="line">&#123; </span><br><span class="line">type: &quot;flowers&quot;,</span><br><span class="line">list: [</span><br><span class="line">&quot;rose&quot;,</span><br><span class="line">&quot;tulip&quot;,</span><br><span class="line">&quot;dandelion&quot;</span><br><span class="line">]</span><br><span class="line">&#125;,</span><br><span class="line">&#123;</span><br><span class="line">type: &quot;trees&quot;,</span><br><span class="line">list: [</span><br><span class="line">&quot;fir&quot;,</span><br><span class="line">&quot;pine&quot;,</span><br><span class="line">&quot;birch&quot;</span><br><span class="line">]</span><br><span class="line">&#125;</span><br><span class="line">];</span><br><span class="line">var secondTree = myPlants[1].list[1]; // pine</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <hr>
 <h2><span id="sui-ji-shu">随机数</span><a href="#sui-ji-shu" class="header-anchor">#</a></h2><ul>
 <li>Math.random()用来生成一个在<strong>0(包括0)到1(不包括1)之间的随机小数</strong>，因此Math.random()可能返回0但绝不会返回1。</li>
-<li>用Math.random()生成一个随机小数。<br>把这个随机小数乘以 20。<br>用 Math.floor() 向下取整 获得它最近的整数。</li>
-</ul>
-<p><strong>记住Math.random()永远不会返回 1。同时因为我们是在用 Math.floor() 向下取整，所以最终我们获得的结果不可能有 20。这确保了我们获得了一个在0到19之间的整数。</strong><br>把操作连缀起来，代码类似于下面：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Math.floor(Math.random() * 20);</span><br></pre></td></tr></table></figure>
-<ul>
+<li>用Math.random()生成一个随机小数。<br>把这个随机小数乘以 20。<br>用 Math.floor() 向下取整 获得它最近的整数。<br><strong>记住Math.random()永远不会返回 1。同时因为我们是在用 Math.floor() 向下取整，所以最终我们获得的结果不可能有 20。这确保了我们获得了一个在0到19之间的整数。</strong><br>把操作连缀起来，代码类似于下面：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Math.floor(Math.random() * 20);</span><br></pre></td></tr></table></figure></li>
 <li><strong>返回一个在myMin(包括myMin)和myMax(包括myMax)之间的随机数。</strong><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Math.floor(Math.random() * (max - min + 1)) + min</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
@@ -439,7 +418,6 @@
 <h2><span id="regular-expressions-zheng-ze-biao-da-shi">Regular expressions 正则表达式</span><a href="#regular-expressions-zheng-ze-biao-da-shi" class="header-anchor">#</a></h2><ul>
 <li>Regular expressions正则表达式被用来根据某种匹配模式来寻找strings中的某些单词。</li>
 </ul>
-<blockquote>
 <p>例如：如果我们想要找到字符串The dog chased the cat中单词 the，我们可以使用下面的正则表达式:<strong>/the/gi</strong><br>我们可以把这个正则表达式分成几段：</p>
 </blockquote>
 <ul>
@@ -448,24 +426,20 @@
 <li>/g 代表着 global(全局)，意味着返回所有的匹配而不仅仅是第一个。</li>
 <li>i 代表着忽略大小写，意思是当我们寻找匹配的字符串的时候忽略掉字母的大小写。<blockquote>
 <p>用全局、忽略大小写的模式选取字符串 testString中所有的单词 and。</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var testString = &quot;Ada Lovelace and Charles Babbage designed the first computer and the software that would have run on it.&quot;;</span><br><span class="line">var expressionToGetSoftware = /software/gi;</span><br><span class="line">var softwareCount = testString.match(expressionToGetSoftware).length;</span><br><span class="line">var expression = /and/gi;// Change this Line</span><br><span class="line">var andCount = testString.match(expression).length;</span><br></pre></td></tr></table></figure></li>
-<li>特殊选择器中的一种就是数字选择器\d，意思是被用来获取一个字符串的数字。<br>在JavaScript中, 数字选择器类似于: /\d/g。</li>
-</ul>
-<p><strong>在选择器后面添加一个加号标记(+)，例如：/\d+/g，它允许这个正则表达式匹配一个或更多数字。</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var testString = &quot;There are 3 cats but 4 dogs.&quot;;</span><br><span class="line">var expression = /\d+/g;// Change this line</span><br><span class="line">var digitCount = testString.match(expression).length;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var testString = &quot;Ada Lovelace and Charles Babbage designed the first computer and the software that would have run on it.&quot;;</span><br><span class="line">var expressionToGetSoftware = /software/gi;</span><br><span class="line">var softwareCount = testString.match(expressionToGetSoftware).length;</span><br><span class="line">var expression = /and/gi;// Change this Line</span><br><span class="line">var andCount = testString.match(expression).length;</span><br></pre></td></tr></table></figure></blockquote>
+</li>
+<li>特殊选择器中的一种就是数字选择器\d，意思是被用来获取一个字符串的数字。<br>在JavaScript中, 数字选择器类似于: /\d/g。<br><strong>在选择器后面添加一个加号标记(+)，例如：/\d+/g，它允许这个正则表达式匹配一个或更多数字。</strong><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var testString = &quot;There are 3 cats but 4 dogs.&quot;;</span><br><span class="line">var expression = /\d+/g;// Change this line</span><br><span class="line">var digitCount = testString.match(expression).length;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>返回2 </p>
 </blockquote>
-<ul>
+</li>
 <li>我们也可以使用正则表达式选择器 \s 来查找一个字符串中的空白。<br>空白字符有 “ “ (空格符)、\r (回车符)、\n (换行符)、\t (制表符) 和 \f (换页符。<br>空白正则表达式类似于：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/\s+/g</span><br></pre></td></tr></table></figure></li>
-<li>你可以用正则表达式选择器的大写版本来反转任何匹配（相反意思）。</li>
-</ul>
-<p><strong>例如：\s 匹配任何空白字符，\S 匹配任何非空白字符。</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var testString = &quot;How many non-space characters are there in this sentence?&quot;;</span><br><span class="line">var expression = /\S/g;</span><br><span class="line">var nonSpaceCount = testString.match(expression).length;</span><br></pre></td></tr></table></figure>
+<li>你可以用正则表达式选择器的大写版本来反转任何匹配（相反意思）。<br><strong>例如：\s 匹配任何空白字符，\S 匹配任何非空白字符。</strong><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var testString = &quot;How many non-space characters are there in this sentence?&quot;;</span><br><span class="line">var expression = /\S/g;</span><br><span class="line">var nonSpaceCount = testString.match(expression).length;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>返回：49</p>
 </blockquote>
+</li>
+</ul>
 
     </div>
 
@@ -476,9 +450,9 @@
       <footer class="post-footer">
           
           <div class="post-tags">
-              <a href="/tags/%E8%A6%81%E7%82%B9/" rel="tag"><i class="fa fa-tag"></i> 要点</a>
               <a href="/tags/javascript/" rel="tag"><i class="fa fa-tag"></i> javascript</a>
               <a href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag"><i class="fa fa-tag"></i> 前端</a>
+              <a href="/tags/%E8%A6%81%E7%82%B9/" rel="tag"><i class="fa fa-tag"></i> 要点</a>
           </div>
 
         
@@ -531,7 +505,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">1.</span> <span class="nav-text">获取长度#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">2.</span> <span class="nav-text">索引#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">3.</span> <span class="nav-text">数组#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">4.</span> <span class="nav-text">不可变性#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">5.</span> <span class="nav-text">函数#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">6.</span> <span class="nav-text">布尔值与比较运算符#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">7.</span> <span class="nav-text">对象#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">8.</span> <span class="nav-text">JSON#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">9.</span> <span class="nav-text">随机数#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">10.</span> <span class="nav-text">Regular expressions 正则表达式#</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">1.</span> <span class="nav-text">转义#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">2.</span> <span class="nav-text">获取长度#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">3.</span> <span class="nav-text">索引#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">4.</span> <span class="nav-text">数组#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">5.</span> <span class="nav-text">不可变性#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">6.</span> <span class="nav-text">函数#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">7.</span> <span class="nav-text">布尔值与比较运算符#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">8.</span> <span class="nav-text">对象#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">9.</span> <span class="nav-text">123456var myObj = {top: &quot;hat&quot;,bottom: &quot;pants&quot;};myObj.hasOwnProperty(&quot;top&quot;);// truemyObj.hasOwnProperty(&quot;middle&quot;); // false#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">10.</span> <span class="nav-text">JSON#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">11.</span> <span class="nav-text">随机数#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">12.</span> <span class="nav-text">Regular expressions 正则表达式#</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -547,7 +521,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-count">17</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -560,7 +534,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">24</span>
+        <span class="site-state-item-count">26</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -610,7 +584,7 @@
 </div>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">blog全站共61.8k字</span>
+  <span class="post-count">blog全站共63.9k字</span>
 </div>
 
         
@@ -680,6 +654,8 @@
 
 
 
+
+  
 
   
 

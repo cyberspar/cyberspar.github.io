@@ -53,13 +53,13 @@
   };
 </script>
 
-  <meta name="description" content="python的进阶使用      if _name_ == ‘_main_‘: import 自己的包 放入默认地址中 导入自己的包 __ init__.py的作用   Python代码技巧 all or any collections dir emoji from _future_ import geopy inspect Jedi **kwargs newspaper3k 运算符重载（Oper">
+  <meta name="description" content="python的进阶使用     if __name__ == ‘__main__’: import 自己的包 放入默认地址中 导入自己的包 __ init__.py的作用   Python代码技巧 all or any collections dir emoji from __future__ import geopy inspect Jedi **kwargs newspaper3k 运算符重载">
 <meta name="keywords" content="要点,python,进阶">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python的进阶使用">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;18&#x2F;Python%E7%9A%84%E8%BF%9B%E9%98%B6%E4%BD%BF%E7%94%A8&#x2F;index.html">
 <meta property="og:site_name" content="cyberspar&#39;s blog">
-<meta property="og:description" content="python的进阶使用      if _name_ == ‘_main_‘: import 自己的包 放入默认地址中 导入自己的包 __ init__.py的作用   Python代码技巧 all or any collections dir emoji from _future_ import geopy inspect Jedi **kwargs newspaper3k 运算符重载（Oper">
+<meta property="og:description" content="python的进阶使用     if __name__ == ‘__main__’: import 自己的包 放入默认地址中 导入自己的包 __ init__.py的作用   Python代码技巧 all or any collections dir emoji from __future__ import geopy inspect Jedi **kwargs newspaper3k 运算符重载">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2019-11-24T09:59:17.155Z">
 <meta name="twitter:card" content="summary">
@@ -288,9 +288,8 @@
 <div class="toc">
 
 <!-- toc -->
-
 <ul>
-<li><a href="#if-name-main">if _<em>name_</em> == ‘_<em>main_</em>‘:</a></li>
+<li><a href="#if-name-main">if __name__ == ‘__main__’:</a></li>
 <li><a href="#import-zi-ji-de-bao">import 自己的包</a><ul>
 <li><a href="#fang-ru-mo-ren-di-zhi-zhong">放入默认地址中</a></li>
 <li><a href="#dao-ru-zi-ji-de-bao">导入自己的包</a></li>
@@ -302,7 +301,7 @@
 <li><a href="#collections">collections</a></li>
 <li><a href="#dir">dir</a></li>
 <li><a href="#emoji">emoji</a></li>
-<li><a href="#from-future-import">from _<em>future_</em> import</a></li>
+<li><a href="#from-future-import">from __future__ import</a></li>
 <li><a href="#geopy">geopy</a></li>
 <li><a href="#inspect">inspect</a></li>
 <li><a href="#jedi">Jedi</a></li>
@@ -332,28 +331,21 @@
 </li>
 </ul>
 <!-- tocstop -->
-
-</div>
-<a id="more"></a>
-
-<h1><span id="if-name-main">if _<em>name_</em> == ‘_<em>main_</em>‘:</span><a href="#if-name-main" class="header-anchor">#</a></h1><p>_<em>name_</em> 是当前模块名，当模块被直接运行时模块名为 _<em>main_</em> 。这句话的意思就是，当模块被直接运行时，以下代码块将被运行，当模块是被导入时，代码块不被运行。</p>
+<p></p></div><br><a id="more"></a><p></p>
+<h1><span id="if-name-main">if __name__ == ‘__main__’:</span><a href="#if-name-main" class="header-anchor">#</a></h1><p>__name__ 是当前模块名，当模块被直接运行时模块名为 __main__ 。这句话的意思就是，当模块被直接运行时，以下代码块将被运行，当模块是被导入时，代码块不被运行。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> __name__==<span class="string">"__main__"</span>:</span><br><span class="line">    <span class="keyword">print</span> (<span class="string">"I'm the second."</span>)</span><br></pre></td></tr></table></figure>
-
-<pre><code>I&apos;m the second.</code></pre><h1><span id="import-zi-ji-de-bao">import 自己的包</span><a href="#import-zi-ji-de-bao" class="header-anchor">#</a></h1><h2><span id="fang-ru-mo-ren-di-zhi-zhong">放入默认地址中</span><a href="#fang-ru-mo-ren-di-zhi-zhong" class="header-anchor">#</a></h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">sys.path</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>[&apos;&apos;,
- &apos;c:\\program files\\python35\\python35.zip&apos;,
- &apos;c:\\program files\\python35\\DLLs&apos;,
- &apos;c:\\program files\\python35\\lib&apos;,
- &apos;c:\\program files\\python35&apos;,
- &apos;C:\\Users\\DeepLearn\\AppData\\Roaming\\Python\\Python35\\site-packages&apos;,
- &apos;c:\\program files\\python35\\lib\\site-packages&apos;,
- &apos;C:\\Users\\DeepLearn\\AppData\\Roaming\\Python\\Python35\\site-packages\\IPython\\extensions&apos;,
- &apos;C:\\Users\\DeepLearn\\.ipython&apos;]</code></pre><h2><span id="dao-ru-zi-ji-de-bao">导入自己的包</span><a href="#dao-ru-zi-ji-de-bao" class="header-anchor">#</a></h2><p>parent/<br>        one/<br>　　<br>            <strong>init</strong>.py<br>            1.py<br>            2.py<br>        3.py</p>
-<p>1) 1.py和2.py处于同一文件夹下，可以直接通过import 2在1.py中导入2.py</p>
+<pre><code>I&#39;m the second.
+</code></pre><h1><span id="import-zi-ji-de-bao">import 自己的包</span><a href="#import-zi-ji-de-bao" class="header-anchor">#</a></h1><h2><span id="fang-ru-mo-ren-di-zhi-zhong">放入默认地址中</span><a href="#fang-ru-mo-ren-di-zhi-zhong" class="header-anchor">#</a></h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">sys.path</span><br></pre></td></tr></table></figure>
+<pre><code>[&#39;&#39;,
+ &#39;c:\\program files\\python35\\python35.zip&#39;,
+ &#39;c:\\program files\\python35\\DLLs&#39;,
+ &#39;c:\\program files\\python35\\lib&#39;,
+ &#39;c:\\program files\\python35&#39;,
+ &#39;C:\\Users\\DeepLearn\\AppData\\Roaming\\Python\\Python35\\site-packages&#39;,
+ &#39;c:\\program files\\python35\\lib\\site-packages&#39;,
+ &#39;C:\\Users\\DeepLearn\\AppData\\Roaming\\Python\\Python35\\site-packages\\IPython\\extensions&#39;,
+ &#39;C:\\Users\\DeepLearn\\.ipython&#39;]
+</code></pre><h2><span id="dao-ru-zi-ji-de-bao">导入自己的包</span><a href="#dao-ru-zi-ji-de-bao" class="header-anchor">#</a></h2><p>parent/<br>        one/<br>　　<br>            <strong>init</strong>.py<br>            1.py<br>            2.py<br>        3.py<br>1) 1.py和2.py处于同一文件夹下，可以直接通过import 2在1.py中导入2.py</p>
 <p>2) 3.py和one都处在parent目录下，3.py中可以通过 import one.1导入1.py</p>
 <h2><span id="init-py-de-zuo-yong">__ init__.py的作用</span><a href="#init-py-de-zuo-yong" class="header-anchor">#</a></h2><p>import one.1</p>
 <p>上述代码在3.py导入1.py,运行时会报错。需在one文件夹中加入_ init __.py,相当于C++中的include符号<br>即使这个文件是空的也可以。当然这个文件也可以初始一些数据。</p>
@@ -362,188 +354,178 @@
 <h2><span id="all-or-any">all or any</span><a href="#all-or-any" class="header-anchor">#</a></h2><p>Python 非常受欢迎的原因之一是其可读性和表达性。</p>
 <p>人们还经常把 Python 笑称为「可执行伪码（executable pseudocode）」。但是，当你可以编写这样的代码时，很难去反驳这种言论：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">x = [<span class="literal">True</span>, <span class="literal">True</span>, <span class="literal">False</span>]</span><br><span class="line"><span class="keyword">if</span> any(x):</span><br><span class="line">    print(<span class="string">"At least one True"</span>)</span><br><span class="line"><span class="keyword">if</span> all(x):</span><br><span class="line">    print(<span class="string">"Not one False"</span>)</span><br><span class="line"><span class="keyword">if</span> any(x) <span class="keyword">and</span> <span class="keyword">not</span> all(x):</span><br><span class="line">    print(<span class="string">"At least one True and one False"</span>)</span><br></pre></td></tr></table></figure>
-
 <pre><code>At least one True
-At least one True and one False</code></pre><h2><span id="collections">collections</span><a href="#collections" class="header-anchor">#</a></h2><p>Python 有一些很棒的默认数据类型，但有时候它们可能不会尽如你意。</p>
+At least one True and one False
+</code></pre><h2><span id="collections">collections</span><a href="#collections" class="header-anchor">#</a></h2><p>Python 有一些很棒的默认数据类型，但有时候它们可能不会尽如你意。</p>
 <p>不过，Python 标准库提供了 collections 模块。这个方便的附加组件可以为你提供更多数据类型。</p>
 <p>collections 模块：<a href="https://docs.python.org/3/library/collections.html" target="_blank" rel="noopener">https://docs.python.org/3/library/collections.html</a></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> OrderedDict, Counter</span><br><span class="line"><span class="comment"># Remembers the order the keys are added!</span></span><br><span class="line">x = OrderedDict(a=<span class="number">1</span>, b=<span class="number">2</span>, c=<span class="number">3</span>)</span><br><span class="line">print(x)</span><br><span class="line"><span class="comment"># Counts the frequency of each character</span></span><br><span class="line">y = Counter(<span class="string">"Hello World!"</span>)</span><br><span class="line">print(y)</span><br></pre></td></tr></table></figure>
-
-<pre><code>OrderedDict([(&apos;a&apos;, 1), (&apos;b&apos;, 2), (&apos;c&apos;, 3)])
-Counter({&apos;l&apos;: 3, &apos;o&apos;: 2, &apos; &apos;: 1, &apos;r&apos;: 1, &apos;!&apos;: 1, &apos;W&apos;: 1, &apos;d&apos;: 1, &apos;e&apos;: 1, &apos;H&apos;: 1})</code></pre><h2><span id="dir">dir</span><a href="#dir" class="header-anchor">#</a></h2><p>你是否想过如何查看 Python 对象内部及其具有哪些属性？</p>
+<pre><code>OrderedDict([(&#39;a&#39;, 1), (&#39;b&#39;, 2), (&#39;c&#39;, 3)])
+Counter({&#39;l&#39;: 3, &#39;o&#39;: 2, &#39; &#39;: 1, &#39;r&#39;: 1, &#39;!&#39;: 1, &#39;W&#39;: 1, &#39;d&#39;: 1, &#39;e&#39;: 1, &#39;H&#39;: 1})
+</code></pre><h2><span id="dir">dir</span><a href="#dir" class="header-anchor">#</a></h2><p>你是否想过如何查看 Python 对象内部及其具有哪些属性？</p>
 <p>输入以下命令行：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dir()</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>[&apos;Counter&apos;,
- &apos;In&apos;,
- &apos;NamespaceMagics&apos;,
- &apos;OrderedDict&apos;,
- &apos;Out&apos;,
- &apos;_&apos;,
- &apos;_2to3_refactor_cell&apos;,
- &apos;_2to3_refactoring_tool&apos;,
- &apos;_Jupyter&apos;,
- &apos;__&apos;,
- &apos;___&apos;,
- &apos;__builtin__&apos;,
- &apos;__builtins__&apos;,
- &apos;__doc__&apos;,
- &apos;__loader__&apos;,
- &apos;__name__&apos;,
- &apos;__package__&apos;,
- &apos;__spec__&apos;,
- &apos;_dh&apos;,
- &apos;_getsizeof&apos;,
- &apos;_i&apos;,
- &apos;_i1&apos;,
- &apos;_i2&apos;,
- &apos;_i3&apos;,
- &apos;_ih&apos;,
- &apos;_ii&apos;,
- &apos;_iii&apos;,
- &apos;_nms&apos;,
- &apos;_oh&apos;,
- &apos;exit&apos;,
- &apos;get_ipython&apos;,
- &apos;getsizeof&apos;,
- &apos;json&apos;,
- &apos;lib2to3&apos;,
- &apos;quit&apos;,
- &apos;var_dic_list&apos;,
- &apos;x&apos;,
- &apos;y&apos;,
- &apos;yapf_reformat&apos;]</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dir(<span class="string">"Hello World"</span>)</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>[&apos;__add__&apos;,
- &apos;__class__&apos;,
- &apos;__contains__&apos;,
- &apos;__delattr__&apos;,
- &apos;__dir__&apos;,
- &apos;__doc__&apos;,
- &apos;__eq__&apos;,
- &apos;__format__&apos;,
- &apos;__ge__&apos;,
- &apos;__getattribute__&apos;,
- &apos;__getitem__&apos;,
- &apos;__getnewargs__&apos;,
- &apos;__gt__&apos;,
- &apos;__hash__&apos;,
- &apos;__init__&apos;,
- &apos;__iter__&apos;,
- &apos;__le__&apos;,
- &apos;__len__&apos;,
- &apos;__lt__&apos;,
- &apos;__mod__&apos;,
- &apos;__mul__&apos;,
- &apos;__ne__&apos;,
- &apos;__new__&apos;,
- &apos;__reduce__&apos;,
- &apos;__reduce_ex__&apos;,
- &apos;__repr__&apos;,
- &apos;__rmod__&apos;,
- &apos;__rmul__&apos;,
- &apos;__setattr__&apos;,
- &apos;__sizeof__&apos;,
- &apos;__str__&apos;,
- &apos;__subclasshook__&apos;,
- &apos;capitalize&apos;,
- &apos;casefold&apos;,
- &apos;center&apos;,
- &apos;count&apos;,
- &apos;encode&apos;,
- &apos;endswith&apos;,
- &apos;expandtabs&apos;,
- &apos;find&apos;,
- &apos;format&apos;,
- &apos;format_map&apos;,
- &apos;index&apos;,
- &apos;isalnum&apos;,
- &apos;isalpha&apos;,
- &apos;isdecimal&apos;,
- &apos;isdigit&apos;,
- &apos;isidentifier&apos;,
- &apos;islower&apos;,
- &apos;isnumeric&apos;,
- &apos;isprintable&apos;,
- &apos;isspace&apos;,
- &apos;istitle&apos;,
- &apos;isupper&apos;,
- &apos;join&apos;,
- &apos;ljust&apos;,
- &apos;lower&apos;,
- &apos;lstrip&apos;,
- &apos;maketrans&apos;,
- &apos;partition&apos;,
- &apos;replace&apos;,
- &apos;rfind&apos;,
- &apos;rindex&apos;,
- &apos;rjust&apos;,
- &apos;rpartition&apos;,
- &apos;rsplit&apos;,
- &apos;rstrip&apos;,
- &apos;split&apos;,
- &apos;splitlines&apos;,
- &apos;startswith&apos;,
- &apos;strip&apos;,
- &apos;swapcase&apos;,
- &apos;title&apos;,
- &apos;translate&apos;,
- &apos;upper&apos;,
- &apos;zfill&apos;]</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dir(dir)</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>[&apos;__call__&apos;,
- &apos;__class__&apos;,
- &apos;__delattr__&apos;,
- &apos;__dir__&apos;,
- &apos;__doc__&apos;,
- &apos;__eq__&apos;,
- &apos;__format__&apos;,
- &apos;__ge__&apos;,
- &apos;__getattribute__&apos;,
- &apos;__gt__&apos;,
- &apos;__hash__&apos;,
- &apos;__init__&apos;,
- &apos;__le__&apos;,
- &apos;__lt__&apos;,
- &apos;__module__&apos;,
- &apos;__name__&apos;,
- &apos;__ne__&apos;,
- &apos;__new__&apos;,
- &apos;__qualname__&apos;,
- &apos;__reduce__&apos;,
- &apos;__reduce_ex__&apos;,
- &apos;__repr__&apos;,
- &apos;__self__&apos;,
- &apos;__setattr__&apos;,
- &apos;__sizeof__&apos;,
- &apos;__str__&apos;,
- &apos;__subclasshook__&apos;,
- &apos;__text_signature__&apos;]</code></pre><p>当以交互方式运行 Python 时，这可能是一个非常有用的功能，并且可以动态地探索你正在使用的对象和模块。</p>
+<pre><code>[&#39;Counter&#39;,
+ &#39;In&#39;,
+ &#39;NamespaceMagics&#39;,
+ &#39;OrderedDict&#39;,
+ &#39;Out&#39;,
+ &#39;_&#39;,
+ &#39;_2to3_refactor_cell&#39;,
+ &#39;_2to3_refactoring_tool&#39;,
+ &#39;_Jupyter&#39;,
+ &#39;__&#39;,
+ &#39;___&#39;,
+ &#39;__builtin__&#39;,
+ &#39;__builtins__&#39;,
+ &#39;__doc__&#39;,
+ &#39;__loader__&#39;,
+ &#39;__name__&#39;,
+ &#39;__package__&#39;,
+ &#39;__spec__&#39;,
+ &#39;_dh&#39;,
+ &#39;_getsizeof&#39;,
+ &#39;_i&#39;,
+ &#39;_i1&#39;,
+ &#39;_i2&#39;,
+ &#39;_i3&#39;,
+ &#39;_ih&#39;,
+ &#39;_ii&#39;,
+ &#39;_iii&#39;,
+ &#39;_nms&#39;,
+ &#39;_oh&#39;,
+ &#39;exit&#39;,
+ &#39;get_ipython&#39;,
+ &#39;getsizeof&#39;,
+ &#39;json&#39;,
+ &#39;lib2to3&#39;,
+ &#39;quit&#39;,
+ &#39;var_dic_list&#39;,
+ &#39;x&#39;,
+ &#39;y&#39;,
+ &#39;yapf_reformat&#39;]
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dir(<span class="string">"Hello World"</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>[&#39;__add__&#39;,
+ &#39;__class__&#39;,
+ &#39;__contains__&#39;,
+ &#39;__delattr__&#39;,
+ &#39;__dir__&#39;,
+ &#39;__doc__&#39;,
+ &#39;__eq__&#39;,
+ &#39;__format__&#39;,
+ &#39;__ge__&#39;,
+ &#39;__getattribute__&#39;,
+ &#39;__getitem__&#39;,
+ &#39;__getnewargs__&#39;,
+ &#39;__gt__&#39;,
+ &#39;__hash__&#39;,
+ &#39;__init__&#39;,
+ &#39;__iter__&#39;,
+ &#39;__le__&#39;,
+ &#39;__len__&#39;,
+ &#39;__lt__&#39;,
+ &#39;__mod__&#39;,
+ &#39;__mul__&#39;,
+ &#39;__ne__&#39;,
+ &#39;__new__&#39;,
+ &#39;__reduce__&#39;,
+ &#39;__reduce_ex__&#39;,
+ &#39;__repr__&#39;,
+ &#39;__rmod__&#39;,
+ &#39;__rmul__&#39;,
+ &#39;__setattr__&#39;,
+ &#39;__sizeof__&#39;,
+ &#39;__str__&#39;,
+ &#39;__subclasshook__&#39;,
+ &#39;capitalize&#39;,
+ &#39;casefold&#39;,
+ &#39;center&#39;,
+ &#39;count&#39;,
+ &#39;encode&#39;,
+ &#39;endswith&#39;,
+ &#39;expandtabs&#39;,
+ &#39;find&#39;,
+ &#39;format&#39;,
+ &#39;format_map&#39;,
+ &#39;index&#39;,
+ &#39;isalnum&#39;,
+ &#39;isalpha&#39;,
+ &#39;isdecimal&#39;,
+ &#39;isdigit&#39;,
+ &#39;isidentifier&#39;,
+ &#39;islower&#39;,
+ &#39;isnumeric&#39;,
+ &#39;isprintable&#39;,
+ &#39;isspace&#39;,
+ &#39;istitle&#39;,
+ &#39;isupper&#39;,
+ &#39;join&#39;,
+ &#39;ljust&#39;,
+ &#39;lower&#39;,
+ &#39;lstrip&#39;,
+ &#39;maketrans&#39;,
+ &#39;partition&#39;,
+ &#39;replace&#39;,
+ &#39;rfind&#39;,
+ &#39;rindex&#39;,
+ &#39;rjust&#39;,
+ &#39;rpartition&#39;,
+ &#39;rsplit&#39;,
+ &#39;rstrip&#39;,
+ &#39;split&#39;,
+ &#39;splitlines&#39;,
+ &#39;startswith&#39;,
+ &#39;strip&#39;,
+ &#39;swapcase&#39;,
+ &#39;title&#39;,
+ &#39;translate&#39;,
+ &#39;upper&#39;,
+ &#39;zfill&#39;]
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dir(dir)</span><br></pre></td></tr></table></figure>
+<pre><code>[&#39;__call__&#39;,
+ &#39;__class__&#39;,
+ &#39;__delattr__&#39;,
+ &#39;__dir__&#39;,
+ &#39;__doc__&#39;,
+ &#39;__eq__&#39;,
+ &#39;__format__&#39;,
+ &#39;__ge__&#39;,
+ &#39;__getattribute__&#39;,
+ &#39;__gt__&#39;,
+ &#39;__hash__&#39;,
+ &#39;__init__&#39;,
+ &#39;__le__&#39;,
+ &#39;__lt__&#39;,
+ &#39;__module__&#39;,
+ &#39;__name__&#39;,
+ &#39;__ne__&#39;,
+ &#39;__new__&#39;,
+ &#39;__qualname__&#39;,
+ &#39;__reduce__&#39;,
+ &#39;__reduce_ex__&#39;,
+ &#39;__repr__&#39;,
+ &#39;__self__&#39;,
+ &#39;__setattr__&#39;,
+ &#39;__sizeof__&#39;,
+ &#39;__str__&#39;,
+ &#39;__subclasshook__&#39;,
+ &#39;__text_signature__&#39;]
+</code></pre><p>当以交互方式运行 Python 时，这可能是一个非常有用的功能，并且可以动态地探索你正在使用的对象和模块。</p>
 <p>想要了解更多，点这里：<a href="https://docs.python.org/3/library/functions.html#dir" target="_blank" rel="noopener">https://docs.python.org/3/library/functions.html#dir</a></p>
 <h2><span id="emoji">emoji</span><a href="#emoji" class="header-anchor">#</a></h2><p>是的，真的有。请点击这里：<a href="https://pypi.org/project/emoji/" target="_blank" rel="noopener">https://pypi.org/project/emoji/</a><br>$ pip install emoji</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> emoji</span><br><span class="line">print(emoji.emojize(<span class="string">'Python is :thumbs_up:'</span>))</span><br><span class="line"></span><br><span class="line">print(emoji.emojize(<span class="string">'Python is :thumbsup:'</span>, use_aliases=<span class="literal">True</span>))</span><br><span class="line"></span><br><span class="line">print(emoji.demojize(<span class="string">'Python is 👍'</span>))</span><br></pre></td></tr></table></figure>
-
 <pre><code>Python is 👍
 Python is 👍
-Python is :thumbs_up:</code></pre><h2><span id="from-future-import">from _<em>future_</em> import</span><a href="#from-future-import" class="header-anchor">#</a></h2><p>Python 流行的一个结果是，总有新版本正在开发中。新版本意味着新功能——除非你的版本已经过时。</p>
+Python is :thumbs_up:
+</code></pre><h2><span id="from-future-import">from __future__ import</span><a href="#from-future-import" class="header-anchor">#</a></h2><p>Python 流行的一个结果是，总有新版本正在开发中。新版本意味着新功能——除非你的版本已经过时。</p>
 <p>不过，别担心。__ future__模块允许用户导入新版 Python 的功能。这简直就像时间旅行，或者魔法什么的。</p>
 <p>__ future__模块：<a href="https://docs.python.org/2/library/*future*.html" target="_blank" rel="noopener">https://docs.python.org/2/library/*future*.html</a></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> __future__ <span class="keyword">import</span> print_function</span><br><span class="line">print(<span class="string">"Hello World!"</span>)</span><br></pre></td></tr></table></figure>
-
-<pre><code>Hello World!</code></pre><h2><span id="geopy">geopy</span><a href="#geopy" class="header-anchor">#</a></h2><p>地理（Geography）对于程序员来说可能是一个具有挑战性的领域。但是 geopy 模块让它变得异常简单。</p>
+<pre><code>Hello World!
+</code></pre><h2><span id="geopy">geopy</span><a href="#geopy" class="header-anchor">#</a></h2><p>地理（Geography）对于程序员来说可能是一个具有挑战性的领域。但是 geopy 模块让它变得异常简单。</p>
 <p>geopy 模块：<a href="https://geopy.readthedocs.io/en/latest/" target="_blank" rel="noopener">https://geopy.readthedocs.io/en/latest/</a><br>$ pip install geopy<br>它通过抽取一系列不同地理编码服务的 API 来工作，使用户获取一个地方的完整街道地址、纬度、经度，甚至海拔高度。</p>
 <p>另外一个有用的功能是距离：它可以用你喜欢的度量单位计算出两个位置之间的距离。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> geopy <span class="keyword">import</span> GoogleV3</span><br><span class="line">place = <span class="string">"221b Baker Street, London"</span></span><br><span class="line">location = GoogleV3().geocode(place)</span><br><span class="line">print(location.address)</span><br><span class="line">print(location.location)</span><br></pre></td></tr></table></figure>
-
 <pre><code>C:\Users\DeepLearn\AppData\Roaming\Python\Python35\site-packages\geopy\geocoders\googlev3.py:122: UserWarning: Since July 2018 Google requires each request to have an API key. Pass a valid `api_key` to GoogleV3 geocoder to hide this warning. See https://developers.google.com/maps/documentation/geocoding/usage-and-billing
   UserWarning
 
@@ -566,7 +548,7 @@ c:\program files\python35\lib\http\client.py in request(self, method, url, body,
 
 
 c:\program files\python35\lib\http\client.py in _send_request(self, method, url, body, headers)
-   1151             body = _encode(body, &apos;body&apos;)
+   1151             body = _encode(body, &#39;body&#39;)
 -&gt; 1152         self.endheaders(body)
    1153 
 
@@ -641,7 +623,7 @@ c:\program files\python35\lib\urllib\request.py in open(self, fullurl, data, tim
 
 c:\program files\python35\lib\urllib\request.py in _open(self, req, data)
     483         result = self._call_chain(self.handle_open, protocol, protocol +
---&gt; 484                                   &apos;_open&apos;, req)
+--&gt; 484                                   &#39;_open&#39;, req)
     485         if result:
 
 
@@ -689,18 +671,18 @@ GeocoderServiceError                      Traceback (most recent call last)
 
 ~\AppData\Roaming\Python\Python35\site-packages\geopy\geocoders\base.py in _call_geocoder(self, url, timeout, raw, requester, deserializer, **kwargs)
     373                 if &quot;timed out&quot; in message:
-    374                     raise GeocoderTimedOut(&apos;Service timed out&apos;)
+    374                     raise GeocoderTimedOut(&#39;Service timed out&#39;)
 --&gt; 375             raise GeocoderServiceError(message)
     376 
-    377         if hasattr(page, &apos;getcode&apos;):
+    377         if hasattr(page, &#39;getcode&#39;):
 
 
-GeocoderServiceError: [WinError 10054] 远程主机强迫关闭了一个现有的连接。</code></pre><h2><span id="inspect">inspect</span><a href="#inspect" class="header-anchor">#</a></h2><p>Python 的 inspect 模块非常有助于理解问题背后的详情。你甚至可以在 inspect 模块上调用其方法！</p>
+GeocoderServiceError: [WinError 10054] 远程主机强迫关闭了一个现有的连接。
+</code></pre><h2><span id="inspect">inspect</span><a href="#inspect" class="header-anchor">#</a></h2><p>Python 的 inspect 模块非常有助于理解问题背后的详情。你甚至可以在 inspect 模块上调用其方法！</p>
 <p>inspect 模块：<a href="https://docs.python.org/3/library/inspect.html" target="_blank" rel="noopener">https://docs.python.org/3/library/inspect.html</a></p>
 <p>下面的代码示例使用 inspect.getsource() 打印自己的源代码。它还使用 inspect.getmodule() 打印定义它的模块。</p>
 <p>最后一行代码打印出自己的行号。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> inspect</span><br><span class="line">print(inspect.getsource(inspect.getsource))</span><br><span class="line">print(inspect.getmodule(inspect.getmodule))</span><br><span class="line">print(inspect.currentframe().f_lineno)</span><br></pre></td></tr></table></figure>
-
 <pre><code>def getsource(object):
     &quot;&quot;&quot;Return the text of the source code for an object.
 
@@ -708,10 +690,11 @@ GeocoderServiceError: [WinError 10054] 远程主机强迫关闭了一个现有�
     or code object.  The source code is returned as a single string.  An
     OSError is raised if the source code cannot be retrieved.&quot;&quot;&quot;
     lines, lnum = getsourcelines(object)
-    return &apos;&apos;.join(lines)
+    return &#39;&#39;.join(lines)
 
-&lt;module &apos;inspect&apos; from &apos;c:\\program files\\python35\\lib\\inspect.py&apos;&gt;
-4</code></pre><p>当然，除了这些琐碎的用途之外，inspect 模块还能帮助你理解代码正在做的事。你还可以用它编写自文档化代码。</p>
+&lt;module &#39;inspect&#39; from &#39;c:\\program files\\python35\\lib\\inspect.py&#39;&gt;
+4
+</code></pre><p>当然，除了这些琐碎的用途之外，inspect 模块还能帮助你理解代码正在做的事。你还可以用它编写自文档化代码。</p>
 <h2><span id="jedi">Jedi</span><a href="#jedi" class="header-anchor">#</a></h2><p>Jedi 库是一个自动完成和代码分析的库。它使代码编写变得更快、效果更高。</p>
 <p>除非你正在开发自己的 IDE，否则你肯定会对使用 Jedi 库作为编辑插件很感兴趣。</p>
 <p>Jedi：<a href="https://jedi.readthedocs.io/en/latest/docs/usage.html" target="_blank" rel="noopener">https://jedi.readthedocs.io/en/latest/docs/usage.html</a></p>
@@ -720,20 +703,20 @@ GeocoderServiceError: [WinError 10054] 远程主机强迫关闭了一个现有�
 <p>词典对象前面的双星号可以让你把该词典的内容作为命名参数输入到函数中。</p>
 <p>词典的秘钥是参数名，值是传递给函数的值。你甚至不需要称它为 kwargs！</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">dictionary = &#123;<span class="string">"a"</span>: <span class="number">1</span>, <span class="string">"b"</span>: <span class="number">2</span>&#125;</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">someFunction</span><span class="params">(a, b)</span>:</span></span><br><span class="line">    print(a + b)</span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line"><span class="comment"># these do the same thing:</span></span><br><span class="line">someFunction(**dictionary)</span><br><span class="line">someFunction(a=<span class="number">1</span>, b=<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
-
 <pre><code>3
-3</code></pre><p>当你想编写能够处理事先未定义的命名参数的函数时，这个很有用。</p>
+3
+</code></pre><p>当你想编写能够处理事先未定义的命名参数的函数时，这个很有用。</p>
 <p>列表推导式（List comprehensions）</p>
 <p>我最喜欢 Python 编程的原因之一是它的列表推导式（<a href="https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions）。" target="_blank" rel="noopener">https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions）。</a></p>
 <p>这些表达式使得编写干净易读的代码变得很容易，那些代码读起来几乎像自然语言一样。</p>
 <p>关于它们的更多使用信息请查看：<a href="https://www.learnpython.org/en/List_Comprehensions" target="_blank" rel="noopener">https://www.learnpython.org/en/List_Comprehensions</a></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">numbers = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>]</span><br><span class="line">evens = [x <span class="keyword">for</span> x <span class="keyword">in</span> numbers <span class="keyword">if</span> x % <span class="number">2</span> <span class="keyword">is</span> <span class="number">0</span>]</span><br><span class="line">odds = [y <span class="keyword">for</span> y <span class="keyword">in</span> numbers <span class="keyword">if</span> y <span class="keyword">not</span> <span class="keyword">in</span> evens]</span><br><span class="line">print(evens)</span><br><span class="line">print(odds)</span><br><span class="line">cities = [<span class="string">'London'</span>, <span class="string">'Dublin'</span>, <span class="string">'Oslo'</span>]</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">visit</span><span class="params">(city)</span>:</span></span><br><span class="line">    print(<span class="string">"Welcome to "</span>+city)</span><br><span class="line"><span class="keyword">for</span> city <span class="keyword">in</span> cities:</span><br><span class="line">    visit(city)</span><br></pre></td></tr></table></figure>
-
 <pre><code>[2, 4, 6]
 [1, 3, 5, 7]
 Welcome to London
 Welcome to Dublin
-Welcome to Oslo</code></pre><h2><span id="newspaper3k">newspaper3k</span><a href="#newspaper3k" class="header-anchor">#</a></h2><p>如果你之前没有见过它，那么我建议你先查看：<a href="https://pypi.org/project/newspaper3k/。" target="_blank" rel="noopener">https://pypi.org/project/newspaper3k/。</a></p>
+Welcome to Oslo
+</code></pre><h2><span id="newspaper3k">newspaper3k</span><a href="#newspaper3k" class="header-anchor">#</a></h2><p>如果你之前没有见过它，那么我建议你先查看：<a href="https://pypi.org/project/newspaper3k/。" target="_blank" rel="noopener">https://pypi.org/project/newspaper3k/。</a></p>
 <p>它可以帮助你从大量顶级国际出版物中检索到新闻文章和相关元数据。你可以检索图像、文本和作者名。</p>
 <p>它还有一些内置的 NLP 功能。</p>
 <p>地址：<a href="https://newspaper.readthedocs.io/en/latest/user_guide/quickstart.html#performing-nlp-on-an-article" target="_blank" rel="noopener">https://newspaper.readthedocs.io/en/latest/user_guide/quickstart.html#performing-nlp-on-an-article</a></p>
@@ -742,8 +725,6 @@ Welcome to Oslo</code></pre><h2><span id="newspaper3k">newspaper3k</span><a href
 <p>它实际上是一个简单的概念。你有没有想过为什么 Python 允许用户使用 + 运算符来将数字相加，并级联字符串？这就是运算符重载在发挥作用。</p>
 <p>你可以使用 Python 的标准运算符号来定义对象，这样你可以在与这些对象相关的语境中使用它们。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Thing</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, value)</span>:</span></span><br><span class="line">        self.__value = value</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__gt__</span><span class="params">(self, other)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.__value &gt; other.__value</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__lt__</span><span class="params">(self, other)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.__value &lt; other.__value</span><br><span class="line">something = Thing(<span class="number">100</span>)</span><br><span class="line">nothing = Thing(<span class="number">0</span>)</span><br><span class="line"><span class="comment"># True</span></span><br><span class="line">something &gt; nothing</span><br><span class="line"><span class="comment"># False</span></span><br><span class="line">something &lt; nothing</span><br><span class="line"><span class="comment"># Error</span></span><br><span class="line">something + nothing</span><br></pre></td></tr></table></figure>
-
-
 <pre><code>---------------------------------------------------------------------------
 
 TypeError                                 Traceback (most recent call last)
@@ -754,80 +735,74 @@ TypeError                                 Traceback (most recent call last)
 ---&gt; 15 something + nothing
 
 
-TypeError: unsupported operand type(s) for +: &apos;Thing&apos; and &apos;Thing&apos;</code></pre><h2><span id="pprint">pprint</span><a href="#pprint" class="header-anchor">#</a></h2><p>Python 的默认 print 函数就可以实现打印功能。但如果尝试打印较大的嵌套对象，就会发现打印结果很丑。</p>
+TypeError: unsupported operand type(s) for +: &#39;Thing&#39; and &#39;Thing&#39;
+</code></pre><h2><span id="pprint">pprint</span><a href="#pprint" class="header-anchor">#</a></h2><p>Python 的默认 print 函数就可以实现打印功能。但如果尝试打印较大的嵌套对象，就会发现打印结果很丑。</p>
 <p>这时 Python 标准库的 pretty printer 模块就可以发挥作用了。该模块可以将复杂的结构化对象以一种易读的格式打印出来。</p>
 <p>pretty printer 模块：<a href="https://docs.python.org/3/library/pprint.html" target="_blank" rel="noopener">https://docs.python.org/3/library/pprint.html</a></p>
 <p>Python 开发者的必备技能之一就是处理复杂的数据结构。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> pprint</span><br><span class="line">url = <span class="string">'https://randomuser.me/api/?results=1'</span></span><br><span class="line">users = requests.get(url).json()</span><br><span class="line">pprint.pprint(users)</span><br></pre></td></tr></table></figure>
-
-<pre><code>{&apos;info&apos;: {&apos;page&apos;: 1,
-          &apos;results&apos;: 1,
-          &apos;seed&apos;: &apos;744c994dc3382a78&apos;,
-          &apos;version&apos;: &apos;1.2&apos;},
- &apos;results&apos;: [{&apos;cell&apos;: &apos;95271759&apos;,
-              &apos;dob&apos;: {&apos;age&apos;: 57, &apos;date&apos;: &apos;1961-07-28T08:10:09Z&apos;},
-              &apos;email&apos;: &apos;marie.jensen@example.com&apos;,
-              &apos;gender&apos;: &apos;female&apos;,
-              &apos;id&apos;: {&apos;name&apos;: &apos;CPR&apos;, &apos;value&apos;: &apos;763068-4561&apos;},
-              &apos;location&apos;: {&apos;city&apos;: &apos;sommersted&apos;,
-                           &apos;coordinates&apos;: {&apos;latitude&apos;: &apos;-34.3742&apos;,
-                                           &apos;longitude&apos;: &apos;43.8803&apos;},
-                           &apos;postcode&apos;: 16007,
-                           &apos;state&apos;: &apos;syddanmark&apos;,
-                           &apos;street&apos;: &apos;2756 stenager&apos;,
-                           &apos;timezone&apos;: {&apos;description&apos;: &apos;Newfoundland&apos;,
-                                        &apos;offset&apos;: &apos;-3:30&apos;}},
-              &apos;login&apos;: {&apos;md5&apos;: &apos;1e56415c464998b7c196d03e3d8a2264&apos;,
-                        &apos;password&apos;: &apos;illini&apos;,
-                        &apos;salt&apos;: &apos;ur3vwOts&apos;,
-                        &apos;sha1&apos;: &apos;333888c39338d3aa7124ab55cd2b0a345ef49163&apos;,
-                        &apos;sha256&apos;: &apos;54ff4e9241789c768370aad57f6e24677bb4e132e3fe4bcea25c3b7dd1b237c0&apos;,
-                        &apos;username&apos;: &apos;redswan813&apos;,
-                        &apos;uuid&apos;: &apos;a3454ccd-154e-455a-947a-ec5c45437ad6&apos;},
-              &apos;name&apos;: {&apos;first&apos;: &apos;marie&apos;, &apos;last&apos;: &apos;jensen&apos;, &apos;title&apos;: &apos;miss&apos;},
-              &apos;nat&apos;: &apos;DK&apos;,
-              &apos;phone&apos;: &apos;32246843&apos;,
-              &apos;picture&apos;: {&apos;large&apos;: &apos;https://randomuser.me/api/portraits/women/27.jpg&apos;,
-                          &apos;medium&apos;: &apos;https://randomuser.me/api/portraits/med/women/27.jpg&apos;,
-                          &apos;thumbnail&apos;: &apos;https://randomuser.me/api/portraits/thumb/women/27.jpg&apos;},
-              &apos;registered&apos;: {&apos;age&apos;: 3, &apos;date&apos;: &apos;2015-05-15T09:39:05Z&apos;}}]}</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(users)</span><br></pre></td></tr></table></figure>
-
-<pre><code>{&apos;results&apos;: [{&apos;name&apos;: {&apos;last&apos;: &apos;jensen&apos;, &apos;title&apos;: &apos;miss&apos;, &apos;first&apos;: &apos;marie&apos;}, &apos;nat&apos;: &apos;DK&apos;, &apos;gender&apos;: &apos;female&apos;, &apos;picture&apos;: {&apos;large&apos;: &apos;https://randomuser.me/api/portraits/women/27.jpg&apos;, &apos;thumbnail&apos;: &apos;https://randomuser.me/api/portraits/thumb/women/27.jpg&apos;, &apos;medium&apos;: &apos;https://randomuser.me/api/portraits/med/women/27.jpg&apos;}, &apos;cell&apos;: &apos;95271759&apos;, &apos;id&apos;: {&apos;value&apos;: &apos;763068-4561&apos;, &apos;name&apos;: &apos;CPR&apos;}, &apos;location&apos;: {&apos;coordinates&apos;: {&apos;longitude&apos;: &apos;43.8803&apos;, &apos;latitude&apos;: &apos;-34.3742&apos;}, &apos;state&apos;: &apos;syddanmark&apos;, &apos;postcode&apos;: 16007, &apos;timezone&apos;: {&apos;description&apos;: &apos;Newfoundland&apos;, &apos;offset&apos;: &apos;-3:30&apos;}, &apos;street&apos;: &apos;2756 stenager&apos;, &apos;city&apos;: &apos;sommersted&apos;}, &apos;registered&apos;: {&apos;age&apos;: 3, &apos;date&apos;: &apos;2015-05-15T09:39:05Z&apos;}, &apos;dob&apos;: {&apos;age&apos;: 57, &apos;date&apos;: &apos;1961-07-28T08:10:09Z&apos;}, &apos;login&apos;: {&apos;uuid&apos;: &apos;a3454ccd-154e-455a-947a-ec5c45437ad6&apos;, &apos;md5&apos;: &apos;1e56415c464998b7c196d03e3d8a2264&apos;, &apos;sha256&apos;: &apos;54ff4e9241789c768370aad57f6e24677bb4e132e3fe4bcea25c3b7dd1b237c0&apos;, &apos;salt&apos;: &apos;ur3vwOts&apos;, &apos;sha1&apos;: &apos;333888c39338d3aa7124ab55cd2b0a345ef49163&apos;, &apos;password&apos;: &apos;illini&apos;, &apos;username&apos;: &apos;redswan813&apos;}, &apos;email&apos;: &apos;marie.jensen@example.com&apos;, &apos;phone&apos;: &apos;32246843&apos;}], &apos;info&apos;: {&apos;results&apos;: 1, &apos;page&apos;: 1, &apos;seed&apos;: &apos;744c994dc3382a78&apos;, &apos;version&apos;: &apos;1.2&apos;}}</code></pre><h2><span id="lei-xing-ti-shi-type-hints">类型提示（Type hints）</span><a href="#lei-xing-ti-shi-type-hints" class="header-anchor">#</a></h2><p>Python 是动态语言。在定义变量、函数、类别等时无需指定数据类型。</p>
+<pre><code>{&#39;info&#39;: {&#39;page&#39;: 1,
+          &#39;results&#39;: 1,
+          &#39;seed&#39;: &#39;744c994dc3382a78&#39;,
+          &#39;version&#39;: &#39;1.2&#39;},
+ &#39;results&#39;: [{&#39;cell&#39;: &#39;95271759&#39;,
+              &#39;dob&#39;: {&#39;age&#39;: 57, &#39;date&#39;: &#39;1961-07-28T08:10:09Z&#39;},
+              &#39;email&#39;: &#39;marie.jensen@example.com&#39;,
+              &#39;gender&#39;: &#39;female&#39;,
+              &#39;id&#39;: {&#39;name&#39;: &#39;CPR&#39;, &#39;value&#39;: &#39;763068-4561&#39;},
+              &#39;location&#39;: {&#39;city&#39;: &#39;sommersted&#39;,
+                           &#39;coordinates&#39;: {&#39;latitude&#39;: &#39;-34.3742&#39;,
+                                           &#39;longitude&#39;: &#39;43.8803&#39;},
+                           &#39;postcode&#39;: 16007,
+                           &#39;state&#39;: &#39;syddanmark&#39;,
+                           &#39;street&#39;: &#39;2756 stenager&#39;,
+                           &#39;timezone&#39;: {&#39;description&#39;: &#39;Newfoundland&#39;,
+                                        &#39;offset&#39;: &#39;-3:30&#39;}},
+              &#39;login&#39;: {&#39;md5&#39;: &#39;1e56415c464998b7c196d03e3d8a2264&#39;,
+                        &#39;password&#39;: &#39;illini&#39;,
+                        &#39;salt&#39;: &#39;ur3vwOts&#39;,
+                        &#39;sha1&#39;: &#39;333888c39338d3aa7124ab55cd2b0a345ef49163&#39;,
+                        &#39;sha256&#39;: &#39;54ff4e9241789c768370aad57f6e24677bb4e132e3fe4bcea25c3b7dd1b237c0&#39;,
+                        &#39;username&#39;: &#39;redswan813&#39;,
+                        &#39;uuid&#39;: &#39;a3454ccd-154e-455a-947a-ec5c45437ad6&#39;},
+              &#39;name&#39;: {&#39;first&#39;: &#39;marie&#39;, &#39;last&#39;: &#39;jensen&#39;, &#39;title&#39;: &#39;miss&#39;},
+              &#39;nat&#39;: &#39;DK&#39;,
+              &#39;phone&#39;: &#39;32246843&#39;,
+              &#39;picture&#39;: {&#39;large&#39;: &#39;https://randomuser.me/api/portraits/women/27.jpg&#39;,
+                          &#39;medium&#39;: &#39;https://randomuser.me/api/portraits/med/women/27.jpg&#39;,
+                          &#39;thumbnail&#39;: &#39;https://randomuser.me/api/portraits/thumb/women/27.jpg&#39;},
+              &#39;registered&#39;: {&#39;age&#39;: 3, &#39;date&#39;: &#39;2015-05-15T09:39:05Z&#39;}}]}
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(users)</span><br></pre></td></tr></table></figure>
+<pre><code>{&#39;results&#39;: [{&#39;name&#39;: {&#39;last&#39;: &#39;jensen&#39;, &#39;title&#39;: &#39;miss&#39;, &#39;first&#39;: &#39;marie&#39;}, &#39;nat&#39;: &#39;DK&#39;, &#39;gender&#39;: &#39;female&#39;, &#39;picture&#39;: {&#39;large&#39;: &#39;https://randomuser.me/api/portraits/women/27.jpg&#39;, &#39;thumbnail&#39;: &#39;https://randomuser.me/api/portraits/thumb/women/27.jpg&#39;, &#39;medium&#39;: &#39;https://randomuser.me/api/portraits/med/women/27.jpg&#39;}, &#39;cell&#39;: &#39;95271759&#39;, &#39;id&#39;: {&#39;value&#39;: &#39;763068-4561&#39;, &#39;name&#39;: &#39;CPR&#39;}, &#39;location&#39;: {&#39;coordinates&#39;: {&#39;longitude&#39;: &#39;43.8803&#39;, &#39;latitude&#39;: &#39;-34.3742&#39;}, &#39;state&#39;: &#39;syddanmark&#39;, &#39;postcode&#39;: 16007, &#39;timezone&#39;: {&#39;description&#39;: &#39;Newfoundland&#39;, &#39;offset&#39;: &#39;-3:30&#39;}, &#39;street&#39;: &#39;2756 stenager&#39;, &#39;city&#39;: &#39;sommersted&#39;}, &#39;registered&#39;: {&#39;age&#39;: 3, &#39;date&#39;: &#39;2015-05-15T09:39:05Z&#39;}, &#39;dob&#39;: {&#39;age&#39;: 57, &#39;date&#39;: &#39;1961-07-28T08:10:09Z&#39;}, &#39;login&#39;: {&#39;uuid&#39;: &#39;a3454ccd-154e-455a-947a-ec5c45437ad6&#39;, &#39;md5&#39;: &#39;1e56415c464998b7c196d03e3d8a2264&#39;, &#39;sha256&#39;: &#39;54ff4e9241789c768370aad57f6e24677bb4e132e3fe4bcea25c3b7dd1b237c0&#39;, &#39;salt&#39;: &#39;ur3vwOts&#39;, &#39;sha1&#39;: &#39;333888c39338d3aa7124ab55cd2b0a345ef49163&#39;, &#39;password&#39;: &#39;illini&#39;, &#39;username&#39;: &#39;redswan813&#39;}, &#39;email&#39;: &#39;marie.jensen@example.com&#39;, &#39;phone&#39;: &#39;32246843&#39;}], &#39;info&#39;: {&#39;results&#39;: 1, &#39;page&#39;: 1, &#39;seed&#39;: &#39;744c994dc3382a78&#39;, &#39;version&#39;: &#39;1.2&#39;}}
+</code></pre><h2><span id="lei-xing-ti-shi-type-hints">类型提示（Type hints）</span><a href="#lei-xing-ti-shi-type-hints" class="header-anchor">#</a></h2><p>Python 是动态语言。在定义变量、函数、类别等时无需指定数据类型。</p>
 <p>这有利于缩短开发周期。但是，简单的类型错误（typing issue）导致的运行时错误真的太烦了。</p>
 <p>从 Python 3.5 版本开始，用户可以选择在定义函数时开启类型提示。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">addTwo</span><span class="params">(x: int)</span> -&gt; int:</span></span><br><span class="line">    <span class="keyword">return</span> x + <span class="number">2</span></span><br></pre></td></tr></table></figure>
-
-
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">addTwo(<span class="number">3.3</span>)</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>5.3</code></pre><p>还可以定义类型别名：</p>
+<pre><code>5.3
+</code></pre><p>还可以定义类型别名：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> typing <span class="keyword">import</span> List</span><br><span class="line">Vector = List[float]</span><br><span class="line">Matrix = List[Vector]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">addMatrix</span><span class="params">(a: Matrix, b: Matrix)</span> -&gt; Matrix:</span></span><br><span class="line">    result = []</span><br><span class="line">    <span class="keyword">for</span> i, row <span class="keyword">in</span> enumerate(a):</span><br><span class="line">        result_row = []</span><br><span class="line">        <span class="keyword">for</span> j, col <span class="keyword">in</span> enumerate(row):</span><br><span class="line">            result_row += [a[i][j] + b[i][j]]</span><br><span class="line">        result += [result_row]</span><br><span class="line">    <span class="keyword">return</span> result</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">x = [[<span class="number">1.0</span>, <span class="number">0.0</span>], [<span class="number">0.0</span>, <span class="number">1.0</span>]]</span><br><span class="line">y = [[<span class="number">2.0</span>, <span class="number">1.0</span>], [<span class="number">0.0</span>, <span class="number">-2.0</span>]]</span><br><span class="line">z = addMatrix(x, y)</span><br><span class="line">print(z)</span><br></pre></td></tr></table></figure>
-
-<pre><code>[[3.0, 1.0], [0.0, -1.0]]</code></pre><p>尽管非强制，但类型注释可以使代码更易理解。</p>
+<pre><code>[[3.0, 1.0], [0.0, -1.0]]
+</code></pre><p>尽管非强制，但类型注释可以使代码更易理解。</p>
 <p>它们还允许你在运行之前使用类型检查工具捕捉 TypeError。在进行大型复杂项目时执行此类操作是值得的。</p>
 <h2><span id="uuid">uuid</span><a href="#uuid" class="header-anchor">#</a></h2><p>生成通用唯一标识符（Universally Unique ID，UUID）的一种快速简单方法就是使用 Python 标准库的 uuid 模块。</p>
 <p>uuid 模块：<a href="https://docs.python.org/3/library/uuid.html" target="_blank" rel="noopener">https://docs.python.org/3/library/uuid.html</a></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> uuid</span><br><span class="line">user_id = uuid.uuid4()</span><br><span class="line">print(user_id)</span><br></pre></td></tr></table></figure>
-
-<pre><code>8dc13404-ddd9-4a1a-9543-99b4b255b07b</code></pre><p>这创建了一个随机化后的 128 比特数字，该数字几乎必然是唯一的。</p>
+<pre><code>8dc13404-ddd9-4a1a-9543-99b4b255b07b
+</code></pre><p>这创建了一个随机化后的 128 比特数字，该数字几乎必然是唯一的。</p>
 <p>事实上，可以生成 2¹²²可能的 UUID。这个数字超过了 5,000,000,000,000,000,000,000,000,000,000,000,000。</p>
 <p>在给定集合中找出重复数字的可能性极低。即使有一万亿 UUID，重复数字存在的概率也远远低于十亿分之一。</p>
 <h2><span id="xkcd">xkcd</span><a href="#xkcd" class="header-anchor">#</a></h2><p>humour 是 Python 语言的一个关键特征，其名称来自英国喜剧片《蒙提·派森的飞行马戏团》(Monty Python and the Flying Circus)。Python 的很多官方文档引用了该喜剧片最著名的剧情。</p>
 <p>幽默感并不限于文档。试着运行下列行：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> antigravity</span><br></pre></td></tr></table></figure>
-
 <p>将打开 xkcd 画的 Python 漫画。不要改变这一点，Python。不要改变。</p>
 <h2><span id="yaml">YAML</span><a href="#yaml" class="header-anchor">#</a></h2><p>YAML 代表 『YAML Ain』t Markup Language』。它是一种数据格式语言，是 JSON 的超集。</p>
 <p>与 JSON 不同，它可以存储更复杂的对象并引用自己的元素。你还可以编写注释，使其尤其适用于编写配置文件。</p>
 <p>PyYAML 模块（<a href="https://pyyaml.org/wiki/PyYAMLDocumentation）可以让你在" target="_blank" rel="noopener">https://pyyaml.org/wiki/PyYAMLDocumentation）可以让你在</a> Python 中使用 YAML。安装：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">!py <span class="number">-3</span> -m pip install --user pyyaml</span><br></pre></td></tr></table></figure>
-
 <pre><code>Looking in indexes: https://pypi.mirrors.ustc.edu.cn/simple
-Requirement already satisfied: pyyaml in c:\users\deeplearn\appdata\roaming\python\python35\site-packages (3.12)</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> yaml</span><br></pre></td></tr></table></figure>
-
+Requirement already satisfied: pyyaml in c:\users\deeplearn\appdata\roaming\python\python35\site-packages (3.12)
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> yaml</span><br></pre></td></tr></table></figure>
 <p>PyYAML 使你能够存储任何数据类型的 Python 对象，以及任何用户定义类别的实例。</p>
 <h1><span id="duo-he-bing-xing-chu-li">多核并行处理</span><a href="#duo-he-bing-xing-chu-li" class="header-anchor">#</a></h1><p>Python 是机器学习领域内的首选编程语言，它易于使用，也有很多出色的库来帮助你更快处理数据。但当我们面临大量数据时，一些问题就会显现……</p>
 <p>目前，大数据（Big Data）这个术语通常用于表示包含数十万数据点的数据集。在这样的尺度上，工作进程中加入任何额外的计算都需要时刻注意保持效率。在设计机器学习系统时，数据预处理非常重要——在这里，我们必须对所有数据点使用某种操作。</p>
@@ -840,7 +815,6 @@ Requirement already satisfied: pyyaml in c:\users\deeplearn\appdata\roaming\pyth
 <p>通过使用 Python 的 concurrent.futures 模块，我们只需要 3 行代码就可以让一个普通的程序转换成适用于多核处理器并行处理的程序。</p>
 <h2><span id="biao-zhun-fang-fa">标准方法</span><a href="#biao-zhun-fang-fa" class="header-anchor">#</a></h2><p>让我们举一个简单的例子，在单个文件夹中有一个图片数据集，其中有数万张图片。在这里，我们决定使用 1000 张。我们希望在所有图片被传递到深度神经网络之前将其调整为 600×600 像素分辨率的形式。以下是你经常会在 GitHub 上看到的标准 Python 代码：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> glob</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">### Loop through all jpg files in the current folder </span></span><br><span class="line"><span class="comment">### Resize each one to size 600x600</span></span><br><span class="line"><span class="keyword">for</span> image_filename <span class="keyword">in</span> glob.glob(<span class="string">"*.jpg"</span>):</span><br><span class="line"> <span class="comment">### Read in the image data</span></span><br><span class="line"> img = cv2.imread(image_filename)</span><br><span class="line"></span><br><span class="line"> <span class="comment">### Resize the image</span></span><br><span class="line"> img = cv2.resize(img, (<span class="number">600</span>, <span class="number">600</span>))</span><br></pre></td></tr></table></figure>
-
 <p>上面的程序遵循你在处理数据脚本时经常看到的简单模式：</p>
 <ol>
 <li><p>首先从需要处理内容的文件（或其他数据）列表开始。</p>
@@ -863,17 +837,15 @@ Requirement already satisfied: pyyaml in c:\users\deeplearn\appdata\roaming\pyth
 </ul>
 <p>这一方法的重点在于，Python 帮我们处理了所有棘手的工作。我们只需告诉它我们想要运行哪个函数，要用多少 Python 实例，剩下的就交给它了！只需改变三行代码。实例：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> glob</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="keyword">import</span> concurrent.futures</span><br><span class="line"> </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">load_and_resize</span><span class="params">(image_filename)</span>:</span></span><br><span class="line"> <span class="comment">### Read in the image data</span></span><br><span class="line"> img = cv2.imread(image_filename)</span><br><span class="line"></span><br><span class="line"> <span class="comment">### Resize the image</span></span><br><span class="line"> img = cv2.resize(img, (<span class="number">600</span>, <span class="number">600</span>)) </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">### Create a pool of processes. By default, one is created for each CPU in your machine.</span></span><br><span class="line"><span class="keyword">with</span> concurrent.futures.ProcessPoolExecutor() <span class="keyword">as</span> executor:</span><br><span class="line"> <span class="comment">### Get a list of files to process</span></span><br><span class="line"> image_files = glob.glob(<span class="string">"*.jpg"</span>)</span><br><span class="line"></span><br><span class="line"> <span class="comment">### Process the list of files, but split the work across the process pool to use all CPUs</span></span><br><span class="line"> <span class="comment">### Loop through all jpg files in the current folder </span></span><br><span class="line"> <span class="comment">### Resize each one to size 600x600</span></span><br><span class="line"> executor.map(load_and_resize, image_files)</span><br></pre></td></tr></table></figure>
-
 <p>这个函数是一个计算密集型的函数。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 求最大公约数</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">gcd</span><span class="params">(pair)</span>:</span></span><br><span class="line">    a, b = pair</span><br><span class="line">    low = min(a, b)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(low, <span class="number">0</span>, <span class="number">-1</span>):</span><br><span class="line">        <span class="keyword">if</span> a % i == <span class="number">0</span> <span class="keyword">and</span> b % i == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> i</span><br><span class="line"></span><br><span class="line">numbers = [</span><br><span class="line">    (<span class="number">1963309</span>, <span class="number">2265973</span>), (<span class="number">1879675</span>, <span class="number">2493670</span>), (<span class="number">2030677</span>, <span class="number">3814172</span>),</span><br><span class="line">    (<span class="number">1551645</span>, <span class="number">2229620</span>), (<span class="number">1988912</span>, <span class="number">4736670</span>), (<span class="number">2198964</span>, <span class="number">7876293</span>)</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-
 <h3><span id="bu-shi-yong-duo-xian-cheng-duo-jin-cheng">不使用多线程/多进程</span><a href="#bu-shi-yong-duo-xian-cheng-duo-jin-cheng" class="header-anchor">#</a></h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line">start = time.time()</span><br><span class="line">results = list(map(gcd, numbers))</span><br><span class="line">end = time.time()</span><br><span class="line">print(<span class="string">'Took %.3f seconds.'</span> % (end - start))</span><br><span class="line">print(results)</span><br></pre></td></tr></table></figure>
-
 <pre><code>Took 0.790 seconds.
-[1, 5, 1, 5, 2, 3]</code></pre><h3><span id="duo-xian-cheng-threadpoolexecutor">多线程ThreadPoolExecutor</span><a href="#duo-xian-cheng-threadpoolexecutor" class="header-anchor">#</a></h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">from</span> concurrent.futures <span class="keyword">import</span> ThreadPoolExecutor, ProcessPoolExecutor, Executor</span><br><span class="line"></span><br><span class="line">start = time.time()</span><br><span class="line">pool = ThreadPoolExecutor(max_workers=<span class="number">2</span>)</span><br><span class="line">results = list(pool.map(gcd, numbers))</span><br><span class="line">end = time.time()</span><br><span class="line">print(<span class="string">'Took %.3f seconds.'</span> % (end - start))</span><br><span class="line">print(results)</span><br></pre></td></tr></table></figure>
-
+[1, 5, 1, 5, 2, 3]
+</code></pre><h3><span id="duo-xian-cheng-threadpoolexecutor">多线程ThreadPoolExecutor</span><a href="#duo-xian-cheng-threadpoolexecutor" class="header-anchor">#</a></h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">from</span> concurrent.futures <span class="keyword">import</span> ThreadPoolExecutor, ProcessPoolExecutor, Executor</span><br><span class="line"></span><br><span class="line">start = time.time()</span><br><span class="line">pool = ThreadPoolExecutor(max_workers=<span class="number">2</span>)</span><br><span class="line">results = list(pool.map(gcd, numbers))</span><br><span class="line">end = time.time()</span><br><span class="line">print(<span class="string">'Took %.3f seconds.'</span> % (end - start))</span><br><span class="line">print(results)</span><br></pre></td></tr></table></figure>
 <pre><code>Took 0.785 seconds.
-[1, 5, 1, 5, 2, 3]</code></pre><p>上面说过这是一个计算密集型函数，因为GIL的原因，多线程是无法提升效率的。同时，线程启动的时候，有一定的开销，与线程池进行通信，也会有开销，所以这个程序使用了多线程并没有变快。</p>
+[1, 5, 1, 5, 2, 3]
+</code></pre><p>上面说过这是一个计算密集型函数，因为GIL的原因，多线程是无法提升效率的。同时，线程启动的时候，有一定的开销，与线程池进行通信，也会有开销，所以这个程序使用了多线程并没有变快。</p>
 <h3><span id="duo-jin-cheng-processpoolexecutor">多进程ProcessPoolExecutor</span><a href="#duo-jin-cheng-processpoolexecutor" class="header-anchor">#</a></h3><p>import time<br>from concurrent.futures import ThreadPoolExecutor, ProcessPoolExecutor, Executor</p>
 <h1><span id="zhi-neng-zai-py-wen-jian-qie-bi-xu-yao-you-name-main-fou-ze-hui-chu-jin-cheng-cuo-wu">只能在.py文件且必须要有<strong>name</strong> == “<strong>main</strong>“，否则会出进程错误</span><a href="#zhi-neng-zai-py-wen-jian-qie-bi-xu-yao-you-name-main-fou-ze-hui-chu-jin-cheng-cuo-wu" class="header-anchor">#</a></h1><p>if <strong>name</strong> == “<strong>main</strong>“:<br>    start = time.time()<br>    pool = ProcessPoolExecutor(max_workers=2)<br>    results = list(pool.map(gcd, numbers))<br>    end = time.time()<br>    print(‘Took %.3f seconds.’ % (end - start))<br>在两个CPU核心的机器上运行多进程程序，比其他两个版本都快。这是因为，ProcessPoolExecutor类会利用multiprocessing模块所提供的底层机制，完成下列操作：</p>
 <p>1）把numbers列表中的每一项输入数据都传给map。</p>
@@ -975,7 +947,7 @@ Requirement already satisfied: pyyaml in c:\users\deeplearn\appdata\roaming\pyth
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">1.</span> <span class="nav-text">if _name_ == ‘_main_‘:#</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">2.</span> <span class="nav-text">import 自己的包#</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">2.1.</span> <span class="nav-text">放入默认地址中#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">2.2.</span> <span class="nav-text">导入自己的包#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">2.3.</span> <span class="nav-text">__ init__.py的作用#</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">3.</span> <span class="nav-text">Python代码技巧#</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">3.1.</span> <span class="nav-text">all or any#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">3.2.</span> <span class="nav-text">collections#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">3.3.</span> <span class="nav-text">dir#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">3.4.</span> <span class="nav-text">emoji#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">3.5.</span> <span class="nav-text">from _future_ import#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">3.6.</span> <span class="nav-text">geopy#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">3.7.</span> <span class="nav-text">inspect#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">3.8.</span> <span class="nav-text">Jedi#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">3.9.</span> <span class="nav-text">**kwargs#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">3.10.</span> <span class="nav-text">newspaper3k#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">3.11.</span> <span class="nav-text">运算符重载（Operator overloading）#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">3.12.</span> <span class="nav-text">pprint#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">3.13.</span> <span class="nav-text">类型提示（Type hints）#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">3.14.</span> <span class="nav-text">uuid#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">3.15.</span> <span class="nav-text">xkcd#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">3.16.</span> <span class="nav-text">YAML#</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">4.</span> <span class="nav-text">多核并行处理#</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">4.1.</span> <span class="nav-text">标准方法#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">4.2.</span> <span class="nav-text">更快的方法#</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">4.2.1.</span> <span class="nav-text">不使用多线程/多进程#</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">4.2.2.</span> <span class="nav-text">多线程ThreadPoolExecutor#</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">4.2.3.</span> <span class="nav-text">多进程ProcessPoolExecutor#</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">5.</span> <span class="nav-text">只能在.py文件且必须要有name == “main“，否则会出进程错误#</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">5.1.</span> <span class="nav-text">它总是那么快吗？#</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">1.</span> <span class="nav-text">if __name__ == ‘__main__’:#</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">2.</span> <span class="nav-text">import 自己的包#</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">2.1.</span> <span class="nav-text">放入默认地址中#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">2.2.</span> <span class="nav-text">导入自己的包#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">2.3.</span> <span class="nav-text">__ init__.py的作用#</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">3.</span> <span class="nav-text">Python代码技巧#</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">3.1.</span> <span class="nav-text">all or any#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">3.2.</span> <span class="nav-text">collections#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">3.3.</span> <span class="nav-text">dir#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">3.4.</span> <span class="nav-text">emoji#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">3.5.</span> <span class="nav-text">from __future__ import#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">3.6.</span> <span class="nav-text">geopy#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">3.7.</span> <span class="nav-text">inspect#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">3.8.</span> <span class="nav-text">Jedi#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">3.9.</span> <span class="nav-text">**kwargs#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">3.10.</span> <span class="nav-text">newspaper3k#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">3.11.</span> <span class="nav-text">运算符重载（Operator overloading）#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">3.12.</span> <span class="nav-text">pprint#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">3.13.</span> <span class="nav-text">类型提示（Type hints）#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">3.14.</span> <span class="nav-text">uuid#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">3.15.</span> <span class="nav-text">xkcd#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">3.16.</span> <span class="nav-text">YAML#</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">4.</span> <span class="nav-text">多核并行处理#</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">4.1.</span> <span class="nav-text">标准方法#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">4.2.</span> <span class="nav-text">更快的方法#</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">4.2.1.</span> <span class="nav-text">不使用多线程/多进程#</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">4.2.2.</span> <span class="nav-text">多线程ThreadPoolExecutor#</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">4.2.3.</span> <span class="nav-text">多进程ProcessPoolExecutor#</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">5.</span> <span class="nav-text">只能在.py文件且必须要有name == “main“，否则会出进程错误#</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">5.1.</span> <span class="nav-text">它总是那么快吗？#</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -991,7 +963,7 @@ Requirement already satisfied: pyyaml in c:\users\deeplearn\appdata\roaming\pyth
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-count">17</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1004,7 +976,7 @@ Requirement already satisfied: pyyaml in c:\users\deeplearn\appdata\roaming\pyth
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">24</span>
+        <span class="site-state-item-count">26</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1054,7 +1026,7 @@ Requirement already satisfied: pyyaml in c:\users\deeplearn\appdata\roaming\pyth
 </div>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">blog全站共61.8k字</span>
+  <span class="post-count">blog全站共63.9k字</span>
 </div>
 
         
@@ -1124,6 +1096,8 @@ Requirement already satisfied: pyyaml in c:\users\deeplearn\appdata\roaming\pyth
 
 
 
+
+  
 
   
 

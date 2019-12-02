@@ -53,13 +53,13 @@
   };
 </script>
 
-  <meta name="description" content="注意：要选中指定代码再执行，执行成功后要刷新表并单击右键重新生成。  2019.11.28 修改了自身连接的内容 2019.11.21 增加了多表查询和部分exists语句的内容 2019.11.17 第一次上传       数据类型注意 插入与删除等 匹配模式 查询限制">
+  <meta name="description" content="注意：要选中指定代码再执行，执行成功后要刷新表并单击右键重新生成。  2019.11.28 修改了自身连接的内容 2019.11.21 增加了多表查询和部分exists语句的内容 2019.11.17 第一次上传      数据类型注意 插入与删除等 匹配模式 查询限制">
 <meta name="keywords" content="要点,Mysql2008">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Mysql2008语法要点">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;21&#x2F;Mysql2008%E8%AF%AD%E6%B3%95%E8%A6%81%E7%82%B9&#x2F;index.html">
 <meta property="og:site_name" content="cyberspar&#39;s blog">
-<meta property="og:description" content="注意：要选中指定代码再执行，执行成功后要刷新表并单击右键重新生成。  2019.11.28 修改了自身连接的内容 2019.11.21 增加了多表查询和部分exists语句的内容 2019.11.17 第一次上传       数据类型注意 插入与删除等 匹配模式 查询限制">
+<meta property="og:description" content="注意：要选中指定代码再执行，执行成功后要刷新表并单击右键重新生成。  2019.11.28 修改了自身连接的内容 2019.11.21 增加了多表查询和部分exists语句的内容 2019.11.17 第一次上传      数据类型注意 插入与删除等 匹配模式 查询限制">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2019-11-28T01:11:21.740Z">
 <meta name="twitter:card" content="summary">
@@ -293,7 +293,6 @@
 </div></li>
 </ul>
 <!-- toc -->
-
 <ul>
 <li><a href="#shu-ju-lei-xing-zhu-yi">数据类型注意</a></li>
 <li><a href="#cha-ru-yu-shan-chu-deng">插入与删除等</a></li>
@@ -301,13 +300,10 @@
 <li><a href="#cha-xun-xian-zhi">查询限制</a></li>
 </ul>
 <!-- tocstop -->
-
-
-<a id="more"></a>
----
-## 数据类型注意
-+ **varchar(n)**它与char 类型相似,n必须从1-8000 .之间的数值。存储大小为输入数据字节的实际长度。 由于CHAR 数据类型长度固定，因此它比VARCHAR 类型的处理速度快。
-
+<p></p>
+<h2><span id></span><a href="#" class="header-anchor">#</a></h2><h2><span id="shu-ju-lei-xing-zhu-yi">数据类型注意</span><a href="#shu-ju-lei-xing-zhu-yi" class="header-anchor">#</a></h2><ul>
+<li><strong>varchar(n)</strong>它与char 类型相似,n必须从1-8000 .之间的数值。存储大小为输入数据字节的实际长度。 由于CHAR 数据类型长度固定，因此它比VARCHAR 类型的处理速度快。</li>
+</ul>
 <hr>
 <h2><span id="cha-ru-yu-shan-chu-deng">插入与删除等</span><a href="#cha-ru-yu-shan-chu-deng" class="header-anchor">#</a></h2><figure class="highlight plain"><figcaption><span>sp_rename 'student', '学生表'``` </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">+ 修改表名student为学生表  </span><br><span class="line">``` alter table 姓名表 add 性别 char(2)</span><br></pre></td></tr></table></figure>
 <ul>
@@ -325,7 +321,7 @@
 <li>下划线_：表示任意单个字符</li>
 <li>百分号%：表示任意多个字符</li>
 <li>方括号[]:括号里面可以限制一个字符的取值范围，例如[5-9],表示这个字符的范围在数字5和9之间包括5和9</li>
-<li>^ : 表示非，不包含例 [^9]，表示这个字符不包含9</li>
+<li>^ : 表示非，不包含例 <sup><a href="#fn_9" id="reffn_9">9</a></sup>，表示这个字符不包含9</li>
 </ul>
 <hr>
 <h2><span id="cha-xun-xian-zhi">查询限制</span><a href="#cha-xun-xian-zhi" class="header-anchor">#</a></h2><h4><span id="zui-da-xiao-jun-zhi">最大/小，均值</span><a href="#zui-da-xiao-jun-zhi" class="header-anchor">#</a></h4><figure class="highlight plain"><figcaption><span>AVG(年龄) from 学生表 ```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">+ 返回一个均值，还有如max()，min()等命令  </span><br><span class="line">#### 升/降序</span><br><span class="line">```select 学号,姓名,班级代码,出生日期,性别,年龄 from 学生表 order by 学号```   </span><br><span class="line">```select 学号,姓名,班级代码,出生日期,性别,年龄 from 学生表 order by 学号 desc```  </span><br><span class="line">+ **默认为升序,desc是降序**  </span><br><span class="line"></span><br><span class="line"> ```select * from 学生表 order by 学号,成绩```  </span><br><span class="line">+ 先按**学号**升序再按照**成绩**升序排列  </span><br><span class="line">```select * from 学生表 order by 学号 desc,成绩</span><br></pre></td></tr></table></figure>
@@ -337,26 +333,44 @@
 <p>select 学号,成绩 from 学生表<br>group by 学号,姓名<br>having count(学号)&gt;3</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">+ 输出同一人学号出现超过三遍，即输出选超过三门课的人，group by 指定一列或多列，值相等为一组。(学号为主键)**满足having条件才输出**</span><br></pre></td></tr></table></figure>
 <p>select 专业代码,couunt(学号) as 人数 from 学生表<br>group by 专业代码<br>order by 人数 desc</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">+ 求每个专业各有多少人，并按人数递减顺序显示各专业代码</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line">## 连接查询</span><br><span class="line">连接类型：</span><br><span class="line">1. 内连接</span><br><span class="line">2. 左外连接</span><br><span class="line">3. 右外连接</span><br><span class="line">4. 完全外连接</span><br><span class="line"></span><br><span class="line">#### 1 交叉连接CROSS JOIN</span><br><span class="line">**如果不带WHERE条件子句，它将会返回被连接的两个表的笛卡尔积，返回结果的行数等于两个表行数的乘积；**</span><br><span class="line">+ select *from T_student cross join T_class  </span><br><span class="line">  等于  </span><br><span class="line">   select *from T_student, T_class  </span><br><span class="line">+ 有where子句，往往会先生成两个表行数乘积的数据表，然后才根据where条件从中选择。</span><br><span class="line">```select * from T_student s cross join T_class c where s.classId =c.classId</span><br></pre></td></tr></table></figure></li>
-</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">+ 求每个专业各有多少人，并按人数递减顺序显示各专业代码</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line">## 连接查询</span><br><span class="line">连接类型：</span><br><span class="line">1. 内连接</span><br><span class="line">2. 左外连接</span><br><span class="line">3. 右外连接</span><br><span class="line">4. 完全外连接</span><br><span class="line"></span><br><span class="line">#### 1 交叉连接CROSS JOIN</span><br><span class="line">**如果不带WHERE条件子句，它将会返回被连接的两个表的笛卡尔积，返回结果的行数等于两个表行数的乘积；**</span><br><span class="line">+ select *from T_student cross join T_class  </span><br><span class="line">  等于  </span><br><span class="line">   select *from T_student, T_class  </span><br><span class="line">+ 有where子句，往往会先生成两个表行数乘积的数据表，然后才根据where条件从中选择。</span><br><span class="line">```select * from T_student s cross join T_class c where s.classId =c.classId</span><br></pre></td></tr></table></figure>
 <p><strong>(注:cross join后加条件只能用where,不能用on)</strong></p>
-<figure class="highlight plain"><figcaption><span>学号,姓名,班级表.班级代码,班级表.班级名称  FROM 班级表 CROSS JOIN 学生表 where 学生表.班级代码</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">+ 交叉查询cross join</span><br><span class="line"></span><br><span class="line">#### 2 内连接INNER JOIN</span><br><span class="line">两边表同时符合条件的组合</span><br><span class="line">#### 3 等值连接</span><br><span class="line">+ 等值连接</span><br><span class="line">概念：在连接条件中使用等于号（=）运算符，其查询结果中列出被连接表中的所有列，包括其中的重复列。</span><br></pre></td></tr></table></figure>
-<p>select * from T_student s,T_class c where s.classId = c.classId<br>select * from T_student s inner join T_class c on s.classId = c.classId </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">+ 等值连接表示为R A=BS，自然连接表示为R S；自然连接是除去重复属性的等值连接。两者之间的区别和联系如下:  </span><br><span class="line">1、自然连接一定是等值连接，但等值连接不一定是自然连接。</span><br><span class="line">2、等值连接要求相等的分量，不一定是公共属性；而自然连接要求相等的分量必须是公共属性。  </span><br><span class="line">3、等值连接不把重复的属性除去；而自然连接要把重复的属性除去。</span><br><span class="line"></span><br><span class="line">#### 4 内连接 inner join</span><br><span class="line">select 学号，姓名，课程代码	from 学生表 inner join 选课表</span><br><span class="line">on 学生表.学号 = 选课表.学号</span><br><span class="line">+ **超过两张表必须添加连接条件，否则返回的两张表的笛卡尔积没有意义**</span><br><span class="line"></span><br><span class="line">#### 5 复合连接 join on</span><br></pre></td></tr></table></figure>
-<p>select 学号,姓名,性别,班级表.班级名称,专业表.专业名称,系部表.系部名称 from 学生表<br>join 专业表 on 学生表.专业代码=专业表.专业代码<br>join 系部表 on  学生表.系部代码=系部表.系部代码<br>join 班级表 on  学生表.班级代码=班级表.班级代码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">+ 查询所有学生学号,姓名,性别,班级名称,专业名称和系部名称。（要求使用复合连接条件查询）使用多个join on 完成多表连接。  </span><br><span class="line"></span><br><span class="line">在一个JOIN表达式中，可以连结多个ON子句：</span><br></pre></td></tr></table></figure>
-<p>SELECT fields<br>FROM 表1 INNER JOIN 表2<br>ON 表1.字段1 比较运算子 表2.字段1 AND<br>ON 表1.字段2 比较运算子 表2.字段2) OR<br>ON 表1.字段3 比较运算子 表2.字段3)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">JOIN表达式中，可以为巢状式：</span><br></pre></td></tr></table></figure>
-<p>SELECT fields<br>FROM 表1 INNER JOIN<br>(表2 INNER JOIN [( ]表3<br>[INNER JOIN [( ] 表x [INNER JOIN …)]<br>ON 表3.字段3 比较运算子 表x.字段x)]<br>ON 表2.字段2 比较运算子 表3.字段3)<br>ON 表1.字段1 比较运算子 表2.字段2</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">在一个INNER JOIN中，可以包括巢状式的LEFT JOIN或RIGHT JOIN，但是在一个LEFT JOIN或RIGHT JOIN中不能包括巢状式的INNER JOIN。</span><br><span class="line">原文链接：https://blog.csdn.net/dreamweaver_zhou/article/details/78885020</span><br><span class="line"></span><br><span class="line">#### 自身连接</span><br><span class="line">**嵌套查询：**</span><br><span class="line">**嵌套查询：（子查询）**  </span><br><span class="line">```select 姓名,性别,高考成绩 from 学生表 where 学生表.高考成绩 &gt;(select 高考成绩 from 学生表 where 姓名=&apos;刘德华&apos;)</span><br></pre></td></tr></table></figure>
-<ul>
-<li>查询所有比刘德华高考分数高的学生姓名、性别、高考分数和刘德华的高考分数。嵌套查询，后面select条件指定了成绩</li>
+</li>
 </ul>
-<p><strong>嵌套查询！=自身连接查询</strong>  </p>
-<figure class="highlight plain"><figcaption><span>x.姓名,x.性别,x.高考成绩 from 学生表 as x join 学生表 as y on x.高考成绩>y.高考成绩 and y.姓名</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">+ 要求使用自身连接,注意把where换为on</span><br></pre></td></tr></table></figure>
-<p>select 姓名,学号,性别,班级名称,专业名称,系部名称 from 学生表<br>join 班级表 on 班级表.班级代码 =学生表.班级代码<br>join 专业表 on 专业表.专业代码 =学生表.专业代码<br>join 系部表 on 系部表.系部代码 =学生表.系部代码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">+ 查询所有学生的姓名，学号，班级名称，专业名称，系部名称</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#### EXISTS语句</span><br><span class="line">EXISTS用于检查子查询是否至少会返回一行数据，该子查询实际上并不返回任何数据，而是返回值True或False</span><br><span class="line">EXISTS 指定一个子查询，检测 行 的存在。</span><br><span class="line"></span><br><span class="line">+ 语法： EXISTS subquery</span><br><span class="line">参数： subquery 是一个受限的 SELECT 语句 (不允许有 COMPUTE 子句和 INTO 关键字)。</span><br><span class="line">结果类型： Boolean </span><br><span class="line">**如果子查询包含行，则返回 TRUE ，否则返回 FLASE。**</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line">+ 构建表格代码：</span><br></pre></td></tr></table></figure>
-<p>create table 系部<br>        (<br>            系部代码 char(6) not null primary key,<br>            系部名称 varchar(30) not null,<br>            系主任 char(8) null,<br>        )<br>create table 专业表<br>        (<br>            专业代码 char(4) not null primary key,<br>            专业名称 varchar(20) not null,<br>            系部代码 char(6) null foreign key references 系部(系部代码),<br>        )<br>create table 班级表<br>        (<br>            班级代码 char(9) not null primary key,<br>            班级名称 varchar(20) null,<br>            专业代码 char(4) null foreign key references 专业表(专业代码),<br>            系部代码 char(6) null foreign key references 系部(系部代码),<br>            备注 varchar(50) null ,<br>        )<br>create table 学生表<br>        (<br>            学号 char(12) not null primary key,<br>            姓名 char(8) null,<br>            性别 char(2) null,<br>            出生日期 datetime null,<br>            入学时间 datetime null,<br>            班级代码 char(9) null foreign key references 班级表(班级代码),<br>            系部代码 char(6) null foreign key references 系部(系部代码),<br>            专业代码 char(4) null foreign key references 专业表(专业代码),<br>        )<br>```</p>
+<figure class="highlight plain"><figcaption><span>学号,姓名,班级表.班级代码,班级表.班级名称  FROM 班级表 CROSS JOIN 学生表 where 学生表.班级代码</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">+ 交叉查询cross join</span><br><span class="line"></span><br><span class="line">#### 2 内连接INNER JOIN</span><br><span class="line">两边表同时符合条件的组合</span><br><span class="line">#### 3 等值连接</span><br><span class="line">+ 等值连接</span><br><span class="line">概念：在连接条件中使用等于号（=）运算符，其查询结果中列出被连接表中的所有列，包括其中的重复列。</span><br></pre></td></tr></table></figure>
+<p>select <em> from T_student s,T_class c where s.classId = c.classId<br>select </em> from T_student s inner join T_class c on s.classId = c.classId<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">+ 等值连接表示为R A=BS，自然连接表示为R S；自然连接是除去重复属性的等值连接。两者之间的区别和联系如下:  </span><br><span class="line">1、自然连接一定是等值连接，但等值连接不一定是自然连接。</span><br><span class="line">2、等值连接要求相等的分量，不一定是公共属性；而自然连接要求相等的分量必须是公共属性。  </span><br><span class="line">3、等值连接不把重复的属性除去；而自然连接要把重复的属性除去。</span><br><span class="line"></span><br><span class="line">#### 4 内连接 inner join</span><br><span class="line">select 学号，姓名，课程代码	from 学生表 inner join 选课表</span><br><span class="line">on 学生表.学号 = 选课表.学号</span><br><span class="line">+ **超过两张表必须添加连接条件，否则返回的两张表的笛卡尔积没有意义**</span><br><span class="line"></span><br><span class="line">#### 5 复合连接 join on</span><br></pre></td></tr></table></figure><br>select 学号,姓名,性别,班级表.班级名称,专业表.专业名称,系部表.系部名称 from 学生表<br>join 专业表 on 学生表.专业代码=专业表.专业代码<br>join 系部表 on  学生表.系部代码=系部表.系部代码<br>join 班级表 on  学生表.班级代码=班级表.班级代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">+ 查询所有学生学号,姓名,性别,班级名称,专业名称和系部名称。（要求使用复合连接条件查询）使用多个join on 完成多表连接。  </span><br><span class="line"></span><br><span class="line">在一个JOIN表达式中，可以连结多个ON子句：</span><br></pre></td></tr></table></figure><br>SELECT fields<br>FROM 表1 INNER JOIN 表2<br>ON 表1.字段1 比较运算子 表2.字段1 AND<br>ON 表1.字段2 比较运算子 表2.字段2) OR<br>ON 表1.字段3 比较运算子 表2.字段3)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">JOIN表达式中，可以为巢状式：</span><br></pre></td></tr></table></figure><br>SELECT fields<br>FROM 表1 INNER JOIN<br>(表2 INNER JOIN [( ]表3<br>[INNER JOIN [( ] 表x [INNER JOIN …)]<br>ON 表3.字段3 比较运算子 表x.字段x)]<br>ON 表2.字段2 比较运算子 表3.字段3)<br>ON 表1.字段1 比较运算子 表2.字段2<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">在一个INNER JOIN中，可以包括巢状式的LEFT JOIN或RIGHT JOIN，但是在一个LEFT JOIN或RIGHT JOIN中不能包括巢状式的INNER JOIN。</span><br><span class="line">原文链接：https://blog.csdn.net/dreamweaver_zhou/article/details/78885020</span><br><span class="line"></span><br><span class="line">#### 自身连接</span><br><span class="line">**嵌套查询：**</span><br><span class="line">**嵌套查询：（子查询）**  </span><br><span class="line">```select 姓名,性别,高考成绩 from 学生表 where 学生表.高考成绩 &gt;(select 高考成绩 from 学生表 where 姓名=&apos;刘德华&apos;)</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>查询所有比刘德华高考分数高的学生姓名、性别、高考分数和刘德华的高考分数。嵌套查询，后面select条件指定了成绩<br><strong>嵌套查询！=自身连接查询</strong>  <figure class="highlight plain"><figcaption><span>x.姓名,x.性别,x.高考成绩 from 学生表 as x join 学生表 as y on x.高考成绩>y.高考成绩 and y.姓名</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">+ 要求使用自身连接,注意把where换为on</span><br></pre></td></tr></table></figure>
+select 姓名,学号,性别,班级名称,专业名称,系部名称 from 学生表<br>join 班级表 on 班级表.班级代码 =学生表.班级代码<br>join 专业表 on 专业表.专业代码 =学生表.专业代码<br>join 系部表 on 系部表.系部代码 =学生表.系部代码<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">+ 查询所有学生的姓名，学号，班级名称，专业名称，系部名称</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#### EXISTS语句</span><br><span class="line">EXISTS用于检查子查询是否至少会返回一行数据，该子查询实际上并不返回任何数据，而是返回值True或False</span><br><span class="line">EXISTS 指定一个子查询，检测 行 的存在。</span><br><span class="line"></span><br><span class="line">+ 语法： EXISTS subquery</span><br><span class="line">参数： subquery 是一个受限的 SELECT 语句 (不允许有 COMPUTE 子句和 INTO 关键字)。</span><br><span class="line">结果类型： Boolean </span><br><span class="line">**如果子查询包含行，则返回 TRUE ，否则返回 FLASE。**</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line">+ 构建表格代码：</span><br></pre></td></tr></table></figure>
+create table 系部<pre><code>  (
+      系部代码 char(6) not null primary key,
+      系部名称 varchar(30) not null,
+      系主任 char(8) null,
+  )
+</code></pre>create table 专业表<pre><code>  (
+      专业代码 char(4) not null primary key,
+      专业名称 varchar(20) not null,
+      系部代码 char(6) null foreign key references 系部(系部代码),
+  )
+</code></pre>create table 班级表<pre><code>  (
+      班级代码 char(9) not null primary key,
+      班级名称 varchar(20) null,
+      专业代码 char(4) null foreign key references 专业表(专业代码),
+      系部代码 char(6) null foreign key references 系部(系部代码),
+      备注 varchar(50) null ,
+  )
+</code></pre>create table 学生表<pre><code>  (
+      学号 char(12) not null primary key,
+      姓名 char(8) null,
+      性别 char(2) null,
+      出生日期 datetime null,
+      入学时间 datetime null,
+      班级代码 char(9) null foreign key references 班级表(班级代码),
+      系部代码 char(6) null foreign key references 系部(系部代码),
+      专业代码 char(4) null foreign key references 专业表(专业代码),
+  )
+</code></pre>```</li>
+</ul>
 
     </div>
 
@@ -424,7 +438,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">1.</span> <span class="nav-text">插入与删除等#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">2.</span> <span class="nav-text">匹配模式#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">3.</span> <span class="nav-text">查询限制#</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#null"><span class="nav-number">3.0.1.</span> <span class="nav-text">最大/小，均值#</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#null"><span class="nav-number">3.0.2.</span> <span class="nav-text">求和#</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">1.</span> <span class="nav-text">#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">2.</span> <span class="nav-text">数据类型注意#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">3.</span> <span class="nav-text">插入与删除等#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">4.</span> <span class="nav-text">匹配模式#</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">5.</span> <span class="nav-text">查询限制#</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#null"><span class="nav-number">5.0.1.</span> <span class="nav-text">最大/小，均值#</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#null"><span class="nav-number">5.0.2.</span> <span class="nav-text">求和#</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -440,7 +454,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-count">17</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -453,7 +467,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">24</span>
+        <span class="site-state-item-count">26</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -503,7 +517,7 @@
 </div>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">blog全站共61.8k字</span>
+  <span class="post-count">blog全站共63.9k字</span>
 </div>
 
         
@@ -573,6 +587,8 @@
 
 
 
+
+  
 
   
 

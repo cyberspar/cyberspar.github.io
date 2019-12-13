@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>md中输入数学公式</title>
+    <url>/2019/12/13/d%E4%B8%AD%E8%BE%93%E5%85%A5%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F/</url>
+    <content><![CDATA[<p>推荐一片较系统和全面的博客：<a href="https://www.zybuluo.com/codeep/note/163962" target="_blank" rel="noopener">https://www.zybuluo.com/codeep/note/163962</a><br>基本语法和安装过程都比较简单，在此不再赘述。</p>
+]]></content>
+      <categories>
+        <category>MD</category>
+      </categories>
+      <tags>
+        <tag>MD语法</tag>
+        <tag>数学公式</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>hexo插入表格</title>
     <url>/2019/12/12/exo%E6%8F%92%E5%85%A5%E8%A1%A8%E6%A0%BC/</url>
     <content><![CDATA[<p>在整理色彩学笔记时，尝试把整理好的md文件上传到hexo中，发现能在本地md文件中显示的表格不能显示在hexo中。后续了解到，hexo中，表格代码要与上一行文字空一行才能正确显示，特此记录。<br><a id="more"></a><br>代码如下：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">包括：五种原色，五种间色</span><br><span class="line"></span><br><span class="line">|原色||间色||</span><br><span class="line">|---|:--|:--|:--|</span><br><span class="line">|红|R|黄红|YR|</span><br><span class="line">|黄|Y|绿黄|GY|</span><br><span class="line">|绿|G|蓝绿|BG|</span><br><span class="line">|蓝|B|紫蓝|PB|</span><br><span class="line">|紫|P|红紫|RP|</span><br></pre></td></tr></table></figure><br>效果如下：<br>包括：五种原色，五种间色</p>

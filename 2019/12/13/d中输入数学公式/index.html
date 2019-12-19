@@ -53,15 +53,15 @@
   };
 </script>
 
-  <meta name="description" content="推荐一片较系统和全面的博客：https:&#x2F;&#x2F;www.zybuluo.com&#x2F;codeep&#x2F;note&#x2F;163962基本语法和安装过程都比较简单，在此不再赘述。">
+  <meta name="description" content="推荐一片较系统和全面的博客：https:&#x2F;&#x2F;www.zybuluo.com&#x2F;codeep&#x2F;note&#x2F;163962基本语法和安装过程都比较简单，在此不再赘述。 注：md中，行内公式可以表示为1+ 彩度：$C_&amp;#123;ab&amp;#125;^*=[(a^*)^2+(b^*)^2]^&amp;#123;1&#x2F;2&amp;#125;$但在hexo中必须改为：1+ 彩度：$$C_&amp;#123;ab&amp;#125;^*=[(a^*)^">
 <meta name="keywords" content="MD语法,数学公式">
 <meta property="og:type" content="article">
 <meta property="og:title" content="md中输入数学公式">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;13&#x2F;d%E4%B8%AD%E8%BE%93%E5%85%A5%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F&#x2F;index.html">
 <meta property="og:site_name" content="cyberspar&#39;s blog">
-<meta property="og:description" content="推荐一片较系统和全面的博客：https:&#x2F;&#x2F;www.zybuluo.com&#x2F;codeep&#x2F;note&#x2F;163962基本语法和安装过程都比较简单，在此不再赘述。">
+<meta property="og:description" content="推荐一片较系统和全面的博客：https:&#x2F;&#x2F;www.zybuluo.com&#x2F;codeep&#x2F;note&#x2F;163962基本语法和安装过程都比较简单，在此不再赘述。 注：md中，行内公式可以表示为1+ 彩度：$C_&amp;#123;ab&amp;#125;^*=[(a^*)^2+(b^*)^2]^&amp;#123;1&#x2F;2&amp;#125;$但在hexo中必须改为：1+ 彩度：$$C_&amp;#123;ab&amp;#125;^*=[(a^*)^">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-12-13T03:04:59.377Z">
+<meta property="og:updated_time" content="2019-12-19T13:13:19.815Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://yoursite.com/2019/12/13/d%E4%B8%AD%E8%BE%93%E5%85%A5%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F/">
@@ -244,10 +244,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2019-12-13 11:03:00 / 修改时间：11:04:59" itemprop="dateCreated datePublished" datetime="2019-12-13T11:03:00+08:00">2019-12-13</time>
+              <time title="创建时间：2019-12-13 11:03:00" itemprop="dateCreated datePublished" datetime="2019-12-13T11:03:00+08:00">2019-12-13</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-12-19 21:13:19" itemprop="dateModified" datetime="2019-12-19T21:13:19+08:00">2019-12-19</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -279,6 +285,10 @@
 
       
         <p>推荐一片较系统和全面的博客：<a href="https://www.zybuluo.com/codeep/note/163962" target="_blank" rel="noopener">https://www.zybuluo.com/codeep/note/163962</a><br>基本语法和安装过程都比较简单，在此不再赘述。</p>
+<p>注：md中，行内公式可以表示为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">+ 彩度：$C_&#123;ab&#125;^*=[(a^*)^2+(b^*)^2]^&#123;1/2&#125;$</span><br></pre></td></tr></table></figure><br>但在hexo中必须改为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">+ 彩度：$$C_&#123;ab&#125;^*=[(a^*)^2+(b^*)^2]^&#123;1/2&#125;$$</span><br></pre></td></tr></table></figure><br>才能正确显示</p>
+<a id="more"></a>
+<h4><span id="hexo-zhong-shu-xue-gong-shi-xuan-ran-wen-ti">hexo中数学公式渲染问题：</span><a href="#hexo-zhong-shu-xue-gong-shi-xuan-ran-wen-ti" class="header-anchor">#</a></h4><p>摘自：<a href="https://www.cnblogs.com/Ai-heng/p/7282110.html" target="_blank" rel="noopener">https://www.cnblogs.com/Ai-heng/p/7282110.html</a></p>
+<p>我们可以知道问题或许出在hexo的渲染引擎上，如果渲染引擎不把公式中的一些特殊字符渲染成html标签，也就避免了这个问题。当然已经有人意识到了这个问题，并且对原先的渲染引擎进行了改进，生成了新的hexo-renderer-kramed引擎，这里是它的Github页面，所以我们只需要卸载默认引擎，并安装这个新的渲染引擎即可。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm uninstall hexo-renderer-marked --save</span><br><span class="line">npm install hexo-renderer-kramed --save</span><br></pre></td></tr></table></figure><br>我之前写有一篇KMP算法，就是在这里发现的渲染出错问题，当我把渲染引擎更换之后，发现大部分公式都正确渲染了，而从网上其他人的叙述中，也同样提到了这个问题，即是行间公式都没有问题，但是个别行内公式还会出现渲染出错，从网上找到了一个方法，解决了这一问题。定位到你的博客根目录，找到:<br>../node_modules/kramed/lib/rules/inline.js文件,进行部分修改：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">//escape: /^\\([\\`*&#123;&#125;\[\]()#$+\-.!_&gt;])/,</span><br></pre></td></tr></table></figure><br>第11行，将其修改为:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">escape: /^\\([`*\[\]()#$+\-.!_&gt;])/,</span><br></pre></td></tr></table></figure><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">//em: /^\b_((?:__|[\s\S])+?)_\b|^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,</span><br></pre></td></tr></table></figure><br>第20行，将其修改为:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">em: /^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,</span><br></pre></td></tr></table></figure><br><strong>另外需要注意一点，对于需要用到MathJax公式的文章，要在Front-matter中打开MathJax开关</strong>，例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">date: 2017/8/3 18:20:00</span><br><span class="line">tags: hexo</span><br><span class="line">mathjax: true</span><br><span class="line">title: hexo博客MathJax公式渲染</span><br><span class="line">---</span><br></pre></td></tr></table></figure></p>
 
     </div>
 
@@ -343,6 +353,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#null"><span class="nav-number">1.</span> <span class="nav-text">hexo中数学公式渲染问题：#</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -421,7 +432,7 @@
 </div>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">blog全站共67.7k字</span>
+  <span class="post-count">blog全站共68.3k字</span>
 </div>
 
         

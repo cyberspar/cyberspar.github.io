@@ -4,6 +4,10 @@
     <title>md中输入数学公式</title>
     <url>/2019/12/13/d%E4%B8%AD%E8%BE%93%E5%85%A5%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F/</url>
     <content><![CDATA[<p>推荐一片较系统和全面的博客：<a href="https://www.zybuluo.com/codeep/note/163962" target="_blank" rel="noopener">https://www.zybuluo.com/codeep/note/163962</a><br>基本语法和安装过程都比较简单，在此不再赘述。</p>
+<p>注：md中，行内公式可以表示为<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">+ 彩度：$C_&#123;ab&#125;^*=[(a^*)^2+(b^*)^2]^&#123;1/2&#125;$</span><br></pre></td></tr></table></figure><br>但在hexo中必须改为：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">+ 彩度：$$C_&#123;ab&#125;^*=[(a^*)^2+(b^*)^2]^&#123;1/2&#125;$$</span><br></pre></td></tr></table></figure><br>才能正确显示</p>
+<a id="more"></a>
+<h4><span id="hexo-zhong-shu-xue-gong-shi-xuan-ran-wen-ti">hexo中数学公式渲染问题：</span><a href="#hexo-zhong-shu-xue-gong-shi-xuan-ran-wen-ti" class="header-anchor">#</a></h4><p>摘自：<a href="https://www.cnblogs.com/Ai-heng/p/7282110.html" target="_blank" rel="noopener">https://www.cnblogs.com/Ai-heng/p/7282110.html</a></p>
+<p>我们可以知道问题或许出在hexo的渲染引擎上，如果渲染引擎不把公式中的一些特殊字符渲染成html标签，也就避免了这个问题。当然已经有人意识到了这个问题，并且对原先的渲染引擎进行了改进，生成了新的hexo-renderer-kramed引擎，这里是它的Github页面，所以我们只需要卸载默认引擎，并安装这个新的渲染引擎即可。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm uninstall hexo-renderer-marked --save</span><br><span class="line">npm install hexo-renderer-kramed --save</span><br></pre></td></tr></table></figure><br>我之前写有一篇KMP算法，就是在这里发现的渲染出错问题，当我把渲染引擎更换之后，发现大部分公式都正确渲染了，而从网上其他人的叙述中，也同样提到了这个问题，即是行间公式都没有问题，但是个别行内公式还会出现渲染出错，从网上找到了一个方法，解决了这一问题。定位到你的博客根目录，找到:<br>../node_modules/kramed/lib/rules/inline.js文件,进行部分修改：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">//escape: /^\\([\\`*&#123;&#125;\[\]()#$+\-.!_&gt;])/,</span><br></pre></td></tr></table></figure><br>第11行，将其修改为:<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">escape: /^\\([`*\[\]()#$+\-.!_&gt;])/,</span><br></pre></td></tr></table></figure><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">//em: /^\b_((?:__|[\s\S])+?)_\b|^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,</span><br></pre></td></tr></table></figure><br>第20行，将其修改为:<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">em: /^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,</span><br></pre></td></tr></table></figure><br><strong>另外需要注意一点，对于需要用到MathJax公式的文章，要在Front-matter中打开MathJax开关</strong>，例如：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">date: 2017/8/3 18:20:00</span><br><span class="line">tags: hexo</span><br><span class="line">mathjax: true</span><br><span class="line">title: hexo博客MathJax公式渲染</span><br><span class="line">---</span><br></pre></td></tr></table></figure></p>
 ]]></content>
       <categories>
         <category>MD</category>
@@ -85,6 +89,7 @@
 <li><a href="#di-qi-zhang-cie-1931-xyz-biao-zhun-se-du-xue-xi-tong">第七章 CIE 1931 XYZ标准色度学系统</a></li>
 <li><a href="#di-ba-zhang-guo-ji-yun-se-zuo-biao-zhi-yu-se-chai-ji-suan">第八章 国际匀色坐标制与色差计算</a></li>
 <li><a href="#di-jiu-zhang-guang-yuan-de-se-du-xue">第九章 光源的色度学</a></li>
+<li><a href="#fu-lu">附录</a></li>
 </ul>
 <!-- tocstop -->
 <p><br> <a id="more"></a></p>
@@ -254,7 +259,7 @@
 <p>若对于标准白光，红绿蓝三原色光数量相等，即$R=G=B$，所以有$r=g=b=0.33$。<br>其颜色方程可以表示为：</p>
 <script type="math/tex; mode=display">W=0.33(R)+0.33(G)+0.33(B)</script><p><strong>光谱三刺激值和光谱色度坐标的关系</strong>是：</p>
 <script type="math/tex; mode=display">r(λ)=\overline{r}(λ)/(\overline{r}(λ)+\overline{g}(λ)+\overline{b}(λ))</script><script type="math/tex; mode=display">g(λ)=\overline{g}(λ)/(\overline{r}(λ)+\overline{g}(λ)+\overline{b}(λ))</script><script type="math/tex; mode=display">b(λ)=\overline{b}(λ)/(\overline{r}(λ)+\overline{g}(λ)+\overline{b}(λ))</script><ul>
-<li><strong>色度坐标: $ r(λ) $;光谱三刺激值： $\overline{r}(λ)$光波长：$λ$;</strong></li>
+<li><strong>色度坐标: $r(λ)$;光谱三刺激值： $\overline{r}(λ)$光波长：$λ$;</strong></li>
 </ul>
 <hr>
 <h3><span id="di-qi-zhang-cie-1931-xyz-biao-zhun-se-du-xue-xi-tong">第七章 CIE 1931 XYZ标准色度学系统</span><a href="#di-qi-zhang-cie-1931-xyz-biao-zhun-se-du-xue-xi-tong" class="header-anchor">#</a></h3><h4><span id="7-1-cie-1931-xyz-biao-zhun-se-du-xue-xi-tong-de-jian-li">7.1 CIE 1931 XYZ标准色度学系统的建立</span><a href="#7-1-cie-1931-xyz-biao-zhun-se-du-xue-xi-tong-de-jian-li" class="header-anchor">#</a></h4><p>CIE 1931 XYZ系统是在RGB颜色系统的基础上，用数学的方法选择<strong>三个理想的原色</strong>来代替实际的三原色，<strong>从而将CIE RGB系统中的光谱三刺激值$\overline{r}、\overline{g}、\overline{b}$和色度坐标$r、g、b$均变为正值</strong><br>建立CIE 1931 XYZ系统主要考虑到：</p>
@@ -350,32 +355,35 @@
         a*=500[(X/X_0)^{1/3}-(Y/Y_0)^{1/3}]\\
         b^*=500[(Y/Y_0)^{1/3}-(Z/Z_0)^{1/3}]\\
    \end{cases}</script><ul>
-<li>$X,Y,Z$———颜色样品的三刺激值</li>
-<li>$X_0,Y_0,Z_0$———CIE标准照明体的三刺激值</li>
-<li>$L^*$———心理计量明度</li>
-<li>$a^<em>,b^</em>$———心理计量色度，是神经节细胞的红绿，黄蓝反映</li>
+<li>$ X,Y,Z $———颜色样品的三刺激值</li>
+<li>$ X_0,Y_0,Z_0 $———CIE标准照明体的三刺激值</li>
+<li>$ L^* $———心理计量明度</li>
+<li>$ a^<em>,b^</em> $———心理计量色度，是神经节细胞的红绿，黄蓝反映</li>
 </ul>
-<p>从上述公式中，我们可以看出，由$XYZ$向$LAB$变化时，由于包含立方根，是一种非线性变换，则原来的1931 XYZ马蹄形色度图光谱轨迹不再存在，于是我们采用新的<strong>心理色彩空间</strong>，其中：<strong>$L^<em>,a^</em>,b^*$是神经节细胞黑白，红绿，黄蓝反映。</strong></p>
+<p>从上述公式中，我们可以看出，由$XYZ$向$LAB$变化时，由于包含立方根，是一种非线性变换，则原来的1931 XYZ马蹄形色度图光谱轨迹不再存在，于是我们采用新的<strong>心理色彩空间</strong>，其中：<strong>$ L^<em>,a^</em>,b^* $是神经节细胞黑白，红绿，黄蓝反映。</strong></p>
+<blockquote>
+<p>eg. $+a^{<em>}$为红色，$-a^{</em>}$为绿色</p>
+</blockquote>
 <ul>
-<li>$+a^{<em>}$为红色，$-a^{</em>}$为绿色</li>
-<li>彩度：$C_{ab}^<em>=[(a^</em>)^2+(b^*)^2]^{1/2}$</li>
-<li><p>色相角： $h_{ab}^<em>=\frac{180}{\pi}arctan(b^</em>/a^*)(度)$</p>
+<li>彩度：<script type="math/tex">C_{ab}^*=[(a^*)^2+(b^*)^2]^{1/2}</script></li>
+<li><p>色相角： <script type="math/tex">h_{ab}^*=\frac{180}{\pi}arctan(b^*/a^*)(度)</script></p>
 </li>
 <li><p><strong>色差就是指用数据的方式表示两种颜色给人的色差感觉上的差别</strong></p>
 </li>
 </ul>
 <p>若两个颜色都按照LAB标定颜色，则色差计算公式如下：</p>
 <ul>
-<li>明度差：$ΔL^<em>=L_1^</em>-L_2^* $</li>
-<li><p>色度差：$<br> \begin{cases}</p>
-<pre><code>Δa^*=a_1^*-a_2^*\\
-Δa^*=a_1^*-a_2^*\\
-</code></pre><p> \end{cases}<br>$</p>
-</li>
-<li><p><strong>总色差</strong>：$ΔE_{ab}^<em>=\sqrt{(L_1^</em>-L_2^<em>)^2+(a_1^</em>-a_2^<em>)^2+(b_1^</em>-b_2^*)^2}$</p>
+<li>明度差：<script type="math/tex">ΔL^*=L_1^*-L_2^*</script></li>
+<li><p>色度差：</p>
+<script type="math/tex; mode=display">
+ \begin{cases}
+    Δa^*=a_1^*-a_2^*\\
+    Δa^*=a_1^*-a_2^*\\
+ \end{cases}</script></li>
+<li><p><strong>总色差</strong>：<script type="math/tex">ΔE_{ab}^*=\sqrt{(L_1^*-L_2^*)^2+(a_1^*-a_2^*)^2+(b_1^*-b_2^*)^2}</script></p>
 </li>
 <li>彩度差和色度差公式同上</li>
-<li><strong>色相差</strong>：$ΔH_{ab}^<em>=\sqrt{(ΔE_{ab}^</em>)^2-(ΔL^<em>)^2-QQ(ΔC_{ab}^</em>)^2}$</li>
+<li><strong>色相差</strong>：<script type="math/tex">ΔH_{ab}^*=\sqrt{(ΔE_{ab}^*)^2-(ΔL^*)^2-QQ(ΔC_{ab}^*)^2}</script></li>
 </ul>
 <h4><span id="8-3-se-chai-gong-shi">8.3 色差公式</span><a href="#8-3-se-chai-gong-shi" class="header-anchor">#</a></h4><p>理想的色差公式应该基于真正视觉感知均匀的颜色空间，其预测的色差应该与目视判别有良好的一致性</p>
 <h5><span id="8-3-1-cmc-se-chai-gong-shi">8.3.1 CMC色差公式</span><a href="#8-3-1-cmc-se-chai-gong-shi" class="header-anchor">#</a></h5><h5><span id="8-3-2-cie94-se-chai-gong-shi">8.3.2 CIE94色差公式</span><a href="#8-3-2-cie94-se-chai-gong-shi" class="header-anchor">#</a></h5><h4><span id="8-4-se-mao-he-se-mao-mo-xing">8.4 色貌和色貌模型</span><a href="#8-4-se-mao-he-se-mao-mo-xing" class="header-anchor">#</a></h4><ul>
@@ -384,6 +392,18 @@
 </ul>
 <hr>
 <h3><span id="di-jiu-zhang-guang-yuan-de-se-du-xue">第九章 光源的色度学</span><a href="#di-jiu-zhang-guang-yuan-de-se-du-xue" class="header-anchor">#</a></h3><p><strong>光是色的源泉，色是光的表现</strong><br>照明体的不同会影响人们对颜色的感知。而照明体是指“在影响物体颜色视觉的整个波长范围内所定义的相对光谱功率分布”</p>
+<h4><span id="9-2-guang-yuan-de-se-wen">9.2 光源的色温</span><a href="#9-2-guang-yuan-de-se-wen" class="header-anchor">#</a></h4><h5><span id="9-2-1-hei-ti">9.2.1 黑体</span><a href="#9-2-1-hei-ti" class="header-anchor">#</a></h5><ul>
+<li>如果一个物体能够在任何温度下全部吸收任何波长的辐射，那么这个物体称为<strong>黑体</strong>，或者叫<strong>完全辐射体</strong>。</li>
+<li>人们用黑体加热到不同温度所发出的<strong>不同光色</strong>来表示一个光源的颜色，称为光源的颜色色温，简称<strong>色温</strong>。色温是光源的重要指标。<h4><span id="9-3-guang-yuan-de-xian-se-xing-ji-qi-ding-liang-ping-jie">9.3 光源的显色性及其定量评价</span><a href="#9-3-guang-yuan-de-xian-se-xing-ji-qi-ding-liang-ping-jie" class="header-anchor">#</a></h4></li>
+<li>光源的显色性是指与参照光源相比较，光源显现物体颜色的特性，它是表征在光源下物体颜色对人所产生的视觉效果。</li>
+</ul>
+<hr>
+<h3><span id="fu-lu">附录</span><a href="#fu-lu" class="header-anchor">#</a></h3><p>颜色模型  </p>
+<ul>
+<li>和设备相关：色光RGB、色料CMYK</li>
+<li>中间转换：LAB、YCbCr、YUV</li>
+<li>心理：HSV</li>
+</ul>
 ]]></content>
       <categories>
         <category>笔记</category>
@@ -1307,8 +1327,8 @@ d:\python 3.5.2\lib\site-packages\IPython\core\interactiveshell.py:2889: UserWar
         <category>要点</category>
       </categories>
       <tags>
-        <tag>python</tag>
         <tag>要点</tag>
+        <tag>python</tag>
         <tag>基础</tag>
       </tags>
   </entry>
@@ -3779,8 +3799,8 @@ dtype: float64
         <category>要点</category>
       </categories>
       <tags>
-        <tag>python</tag>
         <tag>要点</tag>
+        <tag>python</tag>
         <tag>数据科学</tag>
       </tags>
   </entry>
@@ -4387,8 +4407,8 @@ Requirement already satisfied: pyyaml in c:\users\deeplearn\appdata\roaming\pyth
         <category>要点</category>
       </categories>
       <tags>
-        <tag>python</tag>
         <tag>要点</tag>
+        <tag>python</tag>
         <tag>进阶</tag>
       </tags>
   </entry>
@@ -4878,7 +4898,7 @@ array([[ 3,  5],
     <content><![CDATA[<h3><span id="hexo-theme-next-zai-xiu-gai-bei-jing-shi-peng-dao-de-wen-ti">hexo-theme-next在修改背景时碰到的问题</span><a href="#hexo-theme-next-zai-xiu-gai-bei-jing-shi-peng-dao-de-wen-ti" class="header-anchor">#</a></h3><h6><span id="ben-ren-hexo-de-an-zhuang-lu-jing-wei-c-hexo-blog-ban-ben-wei-v7-5-0">本人hexo的安装路径为：C:\hexo\blog，版本为v7.5.0</span><a href="#ben-ren-hexo-de-an-zhuang-lu-jing-wei-c-hexo-blog-ban-ben-wei-v7-5-0" class="header-anchor">#</a></h6><ul>
 <li>在搜索如何修改页面背景的过程中，发现大部分博客介绍的方法仅适用于旧的next而不是新的hexo-theme-nextv7.5.0主题。<a id="more"></a>
 <strong>教程转载如下：</strong><br><a href="https://blog.csdn.net/zgcr654321/article/details/86751765#hexo_1" target="_blank" rel="noopener">https://blog.csdn.net/zgcr654321/article/details/86751765#hexo_1</a></li>
-<li>设置hexo博客背景图片/浏览页面时显示浏览进度<br>要设置博客的背景图片，打开hexo博客源码目录<strong>\themes\next\source\css _custom\custom.styl</strong>文件，添加以下代码：</li>
+<li>设置hexo博客背景图片/浏览页面时显示浏览进度<br>要设置博客的背景图片，打开hexo博客源码目录<strong>\themes\next\source\css\ _custom\custom.styl</strong>文件，添加以下代码：</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">body&#123;</span><br><span class="line">    background:url(/images/background1.jpg);</span><br><span class="line">    background-size:cover;</span><br><span class="line">    background-repeat:no-repeat;</span><br><span class="line">    background-attachment:fixed;</span><br><span class="line">    background-position:center;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.main-inner &#123; </span><br><span class="line">    background: #fff;</span><br><span class="line">    opacity: 0.9;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>搜索后发现<strong>C:\hexo\blog\themes\hexo-theme-next\source\css</strong>下有：</p>
@@ -5082,9 +5102,9 @@ array([[ 3,  5],
         <category>前端</category>
       </categories>
       <tags>
-        <tag>要点</tag>
         <tag>javascript</tag>
         <tag>前端</tag>
+        <tag>要点</tag>
       </tags>
   </entry>
 </search>

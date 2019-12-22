@@ -253,6 +253,54 @@
 <li>当白光照射到色料上时，色料从白光中吸收一种或几种单色光，从而呈现另外一种颜色的方法是色料减色法。</li>
 <li>实质：色料的选择吸收，使色光能量削弱。简而言之，<em>色料相加，能量减弱，越加越暗</em></li>
 </ul>
+<h5><span id="3-2-3-jia-se-fa-he-jian-se-fa-de-fan-ying">3.2.3 加色法和减色法的反应</span><a href="#3-2-3-jia-se-fa-he-jian-se-fa-de-fan-ying" class="header-anchor">#</a></h5><div class="table-container">
+<table>
+<thead>
+<tr>
+<th></th>
+<th style="text-align:left">色光加色法</th>
+<th style="text-align:left">色料减色法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>三原色</td>
+<td style="text-align:left">$R,G,B$</td>
+<td style="text-align:left">$Y,M(品红),C(青)$</td>
+</tr>
+<tr>
+<td>呈色基本规律</td>
+<td style="text-align:left">$(R)+(G)=(Y)$<br>$(R)+(B)=(M)$<br>$(G)+(B)=(C)$<br>$(R)+(G)+(B)=(W)$</td>
+<td style="text-align:left">$(Y)+(M)=(R)$<br>$(Y)+(C)=(G)$<br>$(M)+(C)=(B)$<br>$(M)+(C)+(Y)=(BK)(黑色)$</td>
+</tr>
+<tr>
+<td>实质</td>
+<td style="text-align:left">色光相加，能量相加，越加越亮</td>
+<td style="text-align:left">色料相加，能量减弱，越加越暗</td>
+</tr>
+<tr>
+<td>效果</td>
+<td style="text-align:left">明度增大</td>
+<td style="text-align:left">明度减小</td>
+</tr>
+<tr>
+<td>呈色方法</td>
+<td style="text-align:left">视觉器官内、外的加色混合<br>静态混合<br>动态混合</td>
+<td style="text-align:left">色料掺和<br>透明色差的叠合</td>
+</tr>
+<tr>
+<td>补色关系</td>
+<td style="text-align:left">互补色相加成白色</td>
+<td style="text-align:left">互补色相加成黑色</td>
+</tr>
+<tr>
+<td>主要用途</td>
+<td style="text-align:left">颜色测量、彩色电视、剧场照明</td>
+<td style="text-align:left">彩色绘画、彩色印刷、彩色摄影</td>
+</tr>
+</tbody>
+</table>
+</div>
 <hr>
 <h3><span id="di-si-zhang-yan-se-shi-jue-he-yan-se-shi-jue-li-lun">第四章 颜色视觉和颜色视觉理论</span><a href="#di-si-zhang-yan-se-shi-jue-he-yan-se-shi-jue-li-lun" class="header-anchor">#</a></h3><h4><span id="4-1-yan-se-shi-jue">4.1 颜色视觉</span><a href="#4-1-yan-se-shi-jue" class="header-anchor">#</a></h4><h5><span id="4-1-1-yan-se-de-gua-ying-xing">4.1.1 颜色的适应性</span><a href="#4-1-1-yan-se-de-gua-ying-xing" class="header-anchor">#</a></h5><ol>
 <li><p>亮度适应<br>通过生理上的调节，对光线强度产生适应的过程称为亮度适应<br> 1.1 暗适应</p>
@@ -1485,8 +1533,8 @@ d:\python 3.5.2\lib\site-packages\IPython\core\interactiveshell.py:2889: UserWar
         <category>要点</category>
       </categories>
       <tags>
-        <tag>python</tag>
         <tag>要点</tag>
+        <tag>python</tag>
         <tag>基础</tag>
       </tags>
   </entry>
@@ -3957,8 +4005,8 @@ dtype: float64
         <category>要点</category>
       </categories>
       <tags>
-        <tag>python</tag>
         <tag>要点</tag>
+        <tag>python</tag>
         <tag>数据科学</tag>
       </tags>
   </entry>
@@ -4565,8 +4613,8 @@ Requirement already satisfied: pyyaml in c:\users\deeplearn\appdata\roaming\pyth
         <category>要点</category>
       </categories>
       <tags>
-        <tag>python</tag>
         <tag>要点</tag>
+        <tag>python</tag>
         <tag>进阶</tag>
       </tags>
   </entry>
@@ -5260,9 +5308,9 @@ array([[ 3,  5],
         <category>前端</category>
       </categories>
       <tags>
-        <tag>要点</tag>
         <tag>javascript</tag>
         <tag>前端</tag>
+        <tag>要点</tag>
       </tags>
   </entry>
 </search>

@@ -224,7 +224,7 @@
 </ul>
 <hr>
 <h3><span id="di-san-zhang-se-guang-jia-se-fa-he-se-liao-jian-se-fa">第三章 色光加色法和色料减色法</span><a href="#di-san-zhang-se-guang-jia-se-fa-he-se-liao-jian-se-fa" class="header-anchor">#</a></h3><h4><span id="3-1-se-guang-jia-se-fa">3.1 色光加色法</span><a href="#3-1-se-guang-jia-se-fa" class="header-anchor">#</a></h4><ul>
-<li>从能量的观点来看，色光混合是亮度的叠加，混合后的色光必然要亮于混合前的各个色光，只有明亮度最低的色光作为原色才能混合出数目毕竟多的色彩；否则，用比较亮的色光作为原色则永远不能混合出低明亮度的颜色。</li>
+<li>从能量的观点来看，色光混合是亮度的叠加，混合后的色光必然要亮于混合前的各个色光，只有明亮度最低的色光作为原色才能混合出数目比较多的色彩；否则，用比较亮的色光作为原色则永远不能混合出低明亮度的颜色。</li>
 <li>人的视网膜上有三种感色的锥体细胞————<strong>感红、感绿和感蓝细胞</strong></li>
 <li>混合色光的颜色总是趋向<strong>比例大</strong>的那种颜色</li>
 <li>任何两种色光相加混合后得到白光，那么这两种色光称为互补色光<script type="math/tex; mode=display">红光（R）+青光（C）=白光（W）</script></li>
@@ -497,12 +497,12 @@
 <li>彩度差和色度差公式同上</li>
 <li><strong>色相差</strong>：<script type="math/tex">ΔH_{ab}^*=\sqrt{(ΔE_{ab}^*)^2-(ΔL^*)^2-(ΔC_{ab}^*)^2}</script></li>
 </ul>
-<h5><span id="8-2-2-cie-1976-luv-jun-yun-yan-se-kong-jian">8.2.2 CIE 1976 LUV均匀颜色空间</span><a href="#8-2-2-cie-1976-luv-jun-yun-yan-se-kong-jian" class="header-anchor">#</a></h5><p>CIE 1976 LUV均匀颜色空间是由1931 XYZ 和1964匀色颜色空间改进而成的。主要是<strong>使用数学方法对Y值作非线性变换，使其与代表视觉等间距的孟塞尔颜色体系靠拢</strong>。</p>
+<h5><span id="8-2-3-cie-1976-luv-jun-yun-yan-se-kong-jian">8.2.3 CIE 1976 LUV均匀颜色空间</span><a href="#8-2-3-cie-1976-luv-jun-yun-yan-se-kong-jian" class="header-anchor">#</a></h5><p>CIE 1976 LUV均匀颜色空间是由1931 XYZ 和1964匀色颜色空间改进而成的。主要是<strong>使用数学方法对Y值作非线性变换，使其与代表视觉等间距的孟塞尔颜色体系靠拢</strong>。</p>
 <script type="math/tex; mode=display">
    \begin{cases}
       L^*=\begin{cases}
-               116(Y/Y_0)^{1/3}-16\\
-               903.3(Y/Y_0)\\
+               116(Y/Y_0)^{1/3}-16  & \text{$Y/Y_0$>0.008856}\\
+               903.3(Y/Y_0) & \text{$Y/Y_0$>0.008856}\\
           \end{cases}
       \\
       u^*=13L^*(u^{'}-u^{'}_0)\\

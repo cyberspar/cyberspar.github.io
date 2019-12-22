@@ -472,7 +472,7 @@
 </ul>
 <p>从上述公式中，我们可以看出，由$XYZ$向$LAB$变化时，由于包含立方根，是一种非线性变换，则原来的1931 XYZ马蹄形色度图光谱轨迹不再存在，于是我们采用新的<strong>心理色彩空间</strong>，其中：<strong>$ L^<em>,a^</em>,b^* $是神经节细胞黑白，红绿，黄蓝反映。</strong></p>
 <blockquote>
-<p>eg. $+a^{<em>}$为红色，$-a^{</em>}$为绿色</p>
+<p>eg. <script type="math/tex">+a^{*}</script>为红色，<script type="math/tex">-a^{*}</script>为绿色</p>
 </blockquote>
 <ul>
 <li>彩度：<script type="math/tex">C_{ab}^*=[(a^*)^2+(b^*)^2]^{1/2}</script></li>
@@ -495,6 +495,39 @@
 <li>彩度差和色度差公式同上</li>
 <li><strong>色相差</strong>：<script type="math/tex">ΔH_{ab}^*=\sqrt{(ΔE_{ab}^*)^2-(ΔL^*)^2-(ΔC_{ab}^*)^2}</script></li>
 </ul>
+<h5><span id="8-2-2-cie-1976-luv-jun-yun-yan-se-kong-jian">8.2.2 CIE 1976 LUV均匀颜色空间</span><a href="#8-2-2-cie-1976-luv-jun-yun-yan-se-kong-jian" class="header-anchor">#</a></h5><p>CIE 1976 LUV均匀颜色空间是由1931 XYZ 和1964匀色颜色空间改进而成的。主要是<strong>使用数学方法对Y值作非线性变换，使其与代表视觉等间距的孟塞尔颜色体系靠拢</strong>。</p>
+<script type="math/tex; mode=display">
+   \begin{cases}
+      L^*=\begin{cases}
+               116(Y/Y_0)^{1/3}-16\\
+               903.3(Y/Y_0)\\
+          \end{cases}
+      \\
+      u^*=13L^*(u^{'}-u^{'}_0)\\
+      v^*=13L^*(v^{'}-v^{'}_0)\\
+   \end{cases}</script><p>其中：</p>
+<script type="math/tex; mode=display">
+   \left.
+      \begin{aligned}
+         u^{'}=u=\frac{4X}{X+15Y+3Z}\\
+         v^{'}=1.5v=\frac{9Y}{X+15Y+3Z}\\
+      \end{aligned}
+   \right\}</script><script type="math/tex; mode=display">
+   \left.
+      \begin{aligned}
+         u^{'}_0=u_0=\frac{4X_0}{X_0+15Y_0+3Z_0}\\
+         v^{'}_0=1.5v_0=\frac{9Y_0}{X_0+15Y_0+3Z_0}\\
+      \end{aligned}
+   \right\}</script><p>式中：</p>
+<ul>
+<li>$L^*$：明度指数</li>
+<li>$u^<em>,v^</em>$：色度指数</li>
+<li>$u^{‘},v^{‘}$：CIE 1964系统的色度坐标</li>
+<li>$x,y$: CIE 1931系统的色度坐标</li>
+<li>$u^{‘}_0,v^{‘}_0,x_0,y_0$：测色所用光源的色度坐标</li>
+<li>$X,Y,Z$：样品色的三刺激值</li>
+<li>$X_0,Y_0,Z_0$：光源的三刺激值</li>
+</ul>
 <h4><span id="8-3-se-chai-gong-shi">8.3 色差公式</span><a href="#8-3-se-chai-gong-shi" class="header-anchor">#</a></h4><p>理想的色差公式应该基于真正视觉感知均匀的颜色空间，其预测的色差应该与目视判别有良好的一致性</p>
 <h5><span id="8-3-1-cmc-se-chai-gong-shi">8.3.1 CMC色差公式</span><a href="#8-3-1-cmc-se-chai-gong-shi" class="header-anchor">#</a></h5><h5><span id="8-3-2-cie94-se-chai-gong-shi">8.3.2 CIE94色差公式</span><a href="#8-3-2-cie94-se-chai-gong-shi" class="header-anchor">#</a></h5><h4><span id="8-4-se-mao-he-se-mao-mo-xing">8.4 色貌和色貌模型</span><a href="#8-4-se-mao-he-se-mao-mo-xing" class="header-anchor">#</a></h4><ul>
 <li>色貌：与色刺激和材料质地等有馆的颜色主观表现。</li>
@@ -514,6 +547,15 @@
 <li>中间转换：LAB、YCbCr、YUV</li>
 <li>心理：HSV</li>
 </ul>
+<p>色彩模式：</p>
+<ul>
+<li>RGB、CMYK、LAB、HSB、灰度、位图、索引彩色、多通道色彩。</li>
+</ul>
+<ol>
+<li>RGB 到 CMYK：信息丢失。</li>
+<li>RGB 到 灰度：色度信息丢失。</li>
+<li>灰度 到 位图： 层次信息丢失。</li>
+</ol>
 ]]></content>
       <categories>
         <category>笔记</category>
@@ -1437,8 +1479,8 @@ d:\python 3.5.2\lib\site-packages\IPython\core\interactiveshell.py:2889: UserWar
         <category>要点</category>
       </categories>
       <tags>
-        <tag>要点</tag>
         <tag>python</tag>
+        <tag>要点</tag>
         <tag>基础</tag>
       </tags>
   </entry>
@@ -3909,8 +3951,8 @@ dtype: float64
         <category>要点</category>
       </categories>
       <tags>
-        <tag>要点</tag>
         <tag>python</tag>
+        <tag>要点</tag>
         <tag>数据科学</tag>
       </tags>
   </entry>
@@ -4517,8 +4559,8 @@ Requirement already satisfied: pyyaml in c:\users\deeplearn\appdata\roaming\pyth
         <category>要点</category>
       </categories>
       <tags>
-        <tag>要点</tag>
         <tag>python</tag>
+        <tag>要点</tag>
         <tag>进阶</tag>
       </tags>
   </entry>

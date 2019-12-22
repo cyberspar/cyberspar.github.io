@@ -613,6 +613,17 @@
 <li>灰度 到 位图： 层次信息丢失。</li>
 </ol>
 <p>色域：Lab&gt;RGB&gt;CMYK</p>
+<p>对错题</p>
+<ol>
+<li>明度=亮度？  错。明度使心里感知，不可测量；亮度可测量</li>
+<li>光是色的源泉,色是光的表现 对</li>
+<li>孟塞尔颜色系统属于混色系统   错</li>
+<li>标准光源和标准照明体一回事?  错 光源是发光的物理辐射体 照明体是特定的相对光谱分布</li>
+<li>色温是颜色温度吗？   错</li>
+<li>所有颜色都可以用RGB匹配吗？  错</li>
+<li>人眼的观察能力与鉴别能力不同环境下不同？ 对 三刺激值不同</li>
+<li>Yxy是均匀颜色空间吗?  错 因为是模拟人眼感知的</li>
+</ol>
 ]]></content>
       <categories>
         <category>笔记</category>
@@ -5311,9 +5322,9 @@ array([[ 3,  5],
         <category>前端</category>
       </categories>
       <tags>
+        <tag>要点</tag>
         <tag>javascript</tag>
         <tag>前端</tag>
-        <tag>要点</tag>
       </tags>
   </entry>
 </search>

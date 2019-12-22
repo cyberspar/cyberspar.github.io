@@ -521,7 +521,7 @@
    \right\}</script><p>式中：</p>
 <ul>
 <li>$L^*$：明度指数</li>
-<li>$u^<em>,v^</em>$：色度指数</li>
+<li>$u^{*},v^{*}$：色度指数</li>
 <li>$u^{‘},v^{‘}$：CIE 1964系统的色度坐标</li>
 <li>$x,y$: CIE 1931系统的色度坐标</li>
 <li>$u^{‘}_0,v^{‘}_0,x_0,y_0$：测色所用光源的色度坐标</li>
@@ -1479,8 +1479,8 @@ d:\python 3.5.2\lib\site-packages\IPython\core\interactiveshell.py:2889: UserWar
         <category>要点</category>
       </categories>
       <tags>
-        <tag>python</tag>
         <tag>要点</tag>
+        <tag>python</tag>
         <tag>基础</tag>
       </tags>
   </entry>
@@ -3951,8 +3951,8 @@ dtype: float64
         <category>要点</category>
       </categories>
       <tags>
-        <tag>python</tag>
         <tag>要点</tag>
+        <tag>python</tag>
         <tag>数据科学</tag>
       </tags>
   </entry>
@@ -4559,8 +4559,8 @@ Requirement already satisfied: pyyaml in c:\users\deeplearn\appdata\roaming\pyth
         <category>要点</category>
       </categories>
       <tags>
-        <tag>python</tag>
         <tag>要点</tag>
+        <tag>python</tag>
         <tag>进阶</tag>
       </tags>
   </entry>
@@ -5254,9 +5254,9 @@ array([[ 3,  5],
         <category>前端</category>
       </categories>
       <tags>
-        <tag>要点</tag>
         <tag>javascript</tag>
         <tag>前端</tag>
+        <tag>要点</tag>
       </tags>
   </entry>
 </search>

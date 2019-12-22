@@ -489,14 +489,17 @@
 </ul>
 <h4><span id="7-4-wu-pin-se-san-ci-ji-zhi-xyz-de-ji-suan">7.4 物品色三刺激值XYZ的计算</span><a href="#7-4-wu-pin-se-san-ci-ji-zhi-xyz-de-ji-suan" class="header-anchor">#</a></h4><h5><span id="7-4-1-guang-yuan-de-guang-pu-xiang-dui-neng-liang-fen-bu">7.4.1 光源的光谱相对能量分布</span><a href="#7-4-1-guang-yuan-de-guang-pu-xiang-dui-neng-liang-fen-bu" class="header-anchor">#</a></h5><p>以波长λ为中心的微小波长范围内的辐射能与该波长的宽度之比称为<strong>光谱密度</strong>。<strong>光谱密度</strong>表示了单位波长区间内辐射能的大小。光谱密度与波长之间的函数关系称为光谱分布。</p>
 <script type="math/tex; mode=display">\varphi_e(λ)=d_{\varphi_e}/dλ(W/nm)</script><ul>
-<li>$\varphi_e(λ)$表示光的辐射能，$λ$表示光谱色的波长<h5><span id="7-4-2-wu-pin-se-san-ci-ji-zhi-xyz-de-ji-suan">7.4.2 物品色三刺激值XYZ的计算</span><a href="#7-4-2-wu-pin-se-san-ci-ji-zhi-xyz-de-ji-suan" class="header-anchor">#</a></h5>由物体表面的光谱反射曲线计算$X、Y、Z$三刺激值涉及<strong>光源能量分布、物体表面反射性能和人眼颜色视觉三方面的特征参数</strong>。</li>
+<li>$\varphi_e(λ)$表示光的辐射能，$λ$表示光谱色的波长</li>
+</ul>
+<h5><span id="7-4-2-wu-pin-se-san-ci-ji-zhi-xyz-de-ji-suan">7.4.2 物品色三刺激值XYZ的计算</span><a href="#7-4-2-wu-pin-se-san-ci-ji-zhi-xyz-de-ji-suan" class="header-anchor">#</a></h5><p>由物体表面的光谱反射曲线计算$X、Y、Z$三刺激值涉及<strong>光源能量分布、物体表面反射性能和人眼颜色视觉三方面的特征参数</strong>。</p>
+<ul>
 <li>XYZ色度学系统中反射物体色的三刺激在$X、Y、Z$按下式计算：<script type="math/tex; mode=display">
  \begin{cases}
       X=K\int_{λ}S(λ)ρ(λ)\overline{x}(λ)dλ\\
       Y=K\int_{λ}S(λ)ρ(λ)\overline{y}(λ)dλ\\
       Z=K\int_{λ}S(λ)ρ(λ)\overline{z}(λ)dλ\\
  \end{cases}</script></li>
-<li>ρ(λ)：光谱反射率；K：归化系数，$K=100/\int_{λ}\cdot S(λ)\cdot \overline{y}(λ)\cdot dλ$</li>
+<li>$ρ(λ)$：光谱反射率；$K$：归化系数，$K=100/\int_{λ}\cdot S(λ)\cdot \overline{y}(λ)\cdot dλ$；$S(λ)：标准照明体的相对光谱率分布</li>
 </ul>
 <h4><span id="7-5-yan-se-de-ke-guan-san-shu-xing">7.5 颜色的客观三属性</span><a href="#7-5-yan-se-de-ke-guan-san-shu-xing" class="header-anchor">#</a></h4><p>颜色的客观三属性：</p>
 <ul>

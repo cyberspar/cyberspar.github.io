@@ -262,8 +262,10 @@
 <p> 1.2 明适应</p>
 <blockquote>
 <p>与暗适应过程相反。</p>
-<h5><span id="4-1-2-yan-se-dui-bi">4.1.2 颜色对比</span><a href="#4-1-2-yan-se-dui-bi" class="header-anchor">#</a></h5><p>当两种或两种以上的色彩放在一起时，由于相互影响的作用显示出差别的现象</p>
 </blockquote>
+<ul>
+<li><strong>明适应时间短，暗适应时间长</strong>。<h5><span id="4-1-2-yan-se-dui-bi">4.1.2 颜色对比</span><a href="#4-1-2-yan-se-dui-bi" class="header-anchor">#</a></h5>当两种或两种以上的色彩放在一起时，由于相互影响的作用显示出差别的现象</li>
+</ul>
 </li>
 <li>明度对比</li>
 <li>色相对比：因色相差别而形成的色彩对比，可依靠色相环来测量。</li>
@@ -556,6 +558,7 @@
 <li>RGB 到 灰度：色度信息丢失。</li>
 <li>灰度 到 位图： 层次信息丢失。</li>
 </ol>
+<p>色域：Lab&gt;RGB&gt;CMYK</p>
 ]]></content>
       <categories>
         <category>笔记</category>

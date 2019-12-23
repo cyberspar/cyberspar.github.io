@@ -1,23 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>hexo admin上的deploy问题</title>
-    <url>/2019/11/14/Admin%E4%B8%8A%E7%9A%84deploy%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<ul>
-<li>目前仅有linux下的解决方案，参见<a href="https://github.com/jaredly/hexo-admin/issues/70" target="_blank" rel="noopener">https://github.com/jaredly/hexo-admin/issues/70</a></li>
-<li>windows环境下暂无直接解决方案，只能采取间接方法，调用bat命令完成一键上传。</li>
-</ul>
-]]></content>
-      <categories>
-        <category>hexo</category>
-      </categories>
-      <tags>
-        <tag>踩坑</tag>
-        <tag>hexo</tag>
-        <tag>hexo admin</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Mysql2008语法要点</title>
     <url>/2019/11/21/Mysql2008%E8%AF%AD%E6%B3%95%E8%A6%81%E7%82%B9/</url>
     <content><![CDATA[<p><strong>注意：要选中指定代码再执行，执行成功后要刷新表并单击右键重新生成。</strong></p>
@@ -115,6 +98,23 @@ create table 系部<pre><code>  (
       <tags>
         <tag>要点</tag>
         <tag>Mysql2008</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo admin上的deploy问题</title>
+    <url>/2019/11/14/Admin%E4%B8%8A%E7%9A%84deploy%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<ul>
+<li>目前仅有linux下的解决方案，参见<a href="https://github.com/jaredly/hexo-admin/issues/70" target="_blank" rel="noopener">https://github.com/jaredly/hexo-admin/issues/70</a></li>
+<li>windows环境下暂无直接解决方案，只能采取间接方法，调用bat命令完成一键上传。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>踩坑</tag>
+        <tag>hexo</tag>
+        <tag>hexo admin</tag>
       </tags>
   </entry>
   <entry>
@@ -3367,6 +3367,23 @@ Requirement already satisfied: pyyaml in c:\users\deeplearn\appdata\roaming\pyth
       </tags>
   </entry>
   <entry>
+    <title>md和hexo中输入数学公式</title>
+    <url>/2019/12/13/d%E4%B8%AD%E8%BE%93%E5%85%A5%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F/</url>
+    <content><![CDATA[<p>推荐一片较系统和全面的博客：<a href="https://www.zybuluo.com/codeep/note/163962" target="_blank" rel="noopener">https://www.zybuluo.com/codeep/note/163962</a><br>基本语法和安装过程都比较简单，在此不再赘述。</p>
+<p>注：md中，行内公式可以表示为<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">+ 彩度：$C_&#123;ab&#125;^*=[(a^*)^2+(b^*)^2]^&#123;1/2&#125;$</span><br></pre></td></tr></table></figure><br>但在hexo中必须改为：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">+ 彩度：$$C_&#123;ab&#125;^*=[(a^*)^2+(b^*)^2]^&#123;1/2&#125;$$</span><br></pre></td></tr></table></figure><br>才能正确显示</p>
+<a id="more"></a>
+<h4><span id="hexo-zhong-shu-xue-gong-shi-xuan-ran-wen-ti">hexo中数学公式渲染问题：</span><a href="#hexo-zhong-shu-xue-gong-shi-xuan-ran-wen-ti" class="header-anchor">#</a></h4><p>摘自：<a href="https://www.cnblogs.com/Ai-heng/p/7282110.html" target="_blank" rel="noopener">https://www.cnblogs.com/Ai-heng/p/7282110.html</a></p>
+<p>我们可以知道问题或许出在hexo的渲染引擎上，如果渲染引擎不把公式中的一些特殊字符渲染成html标签，也就避免了这个问题。当然已经有人意识到了这个问题，并且对原先的渲染引擎进行了改进，生成了新的hexo-renderer-kramed引擎，这里是它的Github页面，所以我们只需要卸载默认引擎，并安装这个新的渲染引擎即可。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm uninstall hexo-renderer-marked --save</span><br><span class="line">npm install hexo-renderer-kramed --save</span><br></pre></td></tr></table></figure><br>我之前写有一篇KMP算法，就是在这里发现的渲染出错问题，当我把渲染引擎更换之后，发现大部分公式都正确渲染了，而从网上其他人的叙述中，也同样提到了这个问题，即是行间公式都没有问题，但是个别行内公式还会出现渲染出错，从网上找到了一个方法，解决了这一问题。定位到你的博客根目录，找到:<br>../node_modules/kramed/lib/rules/inline.js文件,进行部分修改：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">//escape: /^\\([\\`*&#123;&#125;\[\]()#$+\-.!_&gt;])/,</span><br></pre></td></tr></table></figure><br>第11行，将其修改为:<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">escape: /^\\([`*\[\]()#$+\-.!_&gt;])/,</span><br></pre></td></tr></table></figure><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">//em: /^\b_((?:__|[\s\S])+?)_\b|^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,</span><br></pre></td></tr></table></figure><br>第20行，将其修改为:<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">em: /^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,</span><br></pre></td></tr></table></figure><br><strong>另外需要注意一点，对于需要用到MathJax公式的文章，要在Front-matter中打开MathJax开关</strong>，例如：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">date: 2017/8/3 18:20:00</span><br><span class="line">tags: hexo</span><br><span class="line">mathjax: true</span><br><span class="line">title: hexo博客MathJax公式渲染</span><br><span class="line">---</span><br></pre></td></tr></table></figure></p>
+]]></content>
+      <categories>
+        <category>MD</category>
+      </categories>
+      <tags>
+        <tag>MD语法</tag>
+        <tag>数学公式</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>c++面向对象程序设计笔记</title>
     <url>/2019/11/18/c++%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<p>c++面向对象程序设计的一些要点和笔记</p>
@@ -3474,23 +3491,6 @@ Requirement already satisfied: pyyaml in c:\users\deeplearn\appdata\roaming\pyth
       <tags>
         <tag>要点</tag>
         <tag>c++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>md和hexo中输入数学公式</title>
-    <url>/2019/12/13/d%E4%B8%AD%E8%BE%93%E5%85%A5%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F/</url>
-    <content><![CDATA[<p>推荐一片较系统和全面的博客：<a href="https://www.zybuluo.com/codeep/note/163962" target="_blank" rel="noopener">https://www.zybuluo.com/codeep/note/163962</a><br>基本语法和安装过程都比较简单，在此不再赘述。</p>
-<p>注：md中，行内公式可以表示为<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">+ 彩度：$C_&#123;ab&#125;^*=[(a^*)^2+(b^*)^2]^&#123;1/2&#125;$</span><br></pre></td></tr></table></figure><br>但在hexo中必须改为：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">+ 彩度：$$C_&#123;ab&#125;^*=[(a^*)^2+(b^*)^2]^&#123;1/2&#125;$$</span><br></pre></td></tr></table></figure><br>才能正确显示</p>
-<a id="more"></a>
-<h4><span id="hexo-zhong-shu-xue-gong-shi-xuan-ran-wen-ti">hexo中数学公式渲染问题：</span><a href="#hexo-zhong-shu-xue-gong-shi-xuan-ran-wen-ti" class="header-anchor">#</a></h4><p>摘自：<a href="https://www.cnblogs.com/Ai-heng/p/7282110.html" target="_blank" rel="noopener">https://www.cnblogs.com/Ai-heng/p/7282110.html</a></p>
-<p>我们可以知道问题或许出在hexo的渲染引擎上，如果渲染引擎不把公式中的一些特殊字符渲染成html标签，也就避免了这个问题。当然已经有人意识到了这个问题，并且对原先的渲染引擎进行了改进，生成了新的hexo-renderer-kramed引擎，这里是它的Github页面，所以我们只需要卸载默认引擎，并安装这个新的渲染引擎即可。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm uninstall hexo-renderer-marked --save</span><br><span class="line">npm install hexo-renderer-kramed --save</span><br></pre></td></tr></table></figure><br>我之前写有一篇KMP算法，就是在这里发现的渲染出错问题，当我把渲染引擎更换之后，发现大部分公式都正确渲染了，而从网上其他人的叙述中，也同样提到了这个问题，即是行间公式都没有问题，但是个别行内公式还会出现渲染出错，从网上找到了一个方法，解决了这一问题。定位到你的博客根目录，找到:<br>../node_modules/kramed/lib/rules/inline.js文件,进行部分修改：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">//escape: /^\\([\\`*&#123;&#125;\[\]()#$+\-.!_&gt;])/,</span><br></pre></td></tr></table></figure><br>第11行，将其修改为:<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">escape: /^\\([`*\[\]()#$+\-.!_&gt;])/,</span><br></pre></td></tr></table></figure><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">//em: /^\b_((?:__|[\s\S])+?)_\b|^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,</span><br></pre></td></tr></table></figure><br>第20行，将其修改为:<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">em: /^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,</span><br></pre></td></tr></table></figure><br><strong>另外需要注意一点，对于需要用到MathJax公式的文章，要在Front-matter中打开MathJax开关</strong>，例如：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">date: 2017/8/3 18:20:00</span><br><span class="line">tags: hexo</span><br><span class="line">mathjax: true</span><br><span class="line">title: hexo博客MathJax公式渲染</span><br><span class="line">---</span><br></pre></td></tr></table></figure></p>
-]]></content>
-      <categories>
-        <category>MD</category>
-      </categories>
-      <tags>
-        <tag>MD语法</tag>
-        <tag>数学公式</tag>
       </tags>
   </entry>
   <entry>
@@ -4394,6 +4394,7 @@ array([[ 3,  5],
 <li>人眼的观察能力与鉴别能力不同环境下不同？ 对 三刺激值不同</li>
 <li>Yxy是均匀颜色空间吗?  错 因为是模拟人眼感知的</li>
 </ol>
+<p><a href="https://wenku.baidu.com/view/7af6b43df08583d049649b6648d7c1c708a10bbc.html" target="_blank" rel="noopener">https://wenku.baidu.com/view/7af6b43df08583d049649b6648d7c1c708a10bbc.html</a></p>
 ]]></content>
       <categories>
         <category>笔记</category>

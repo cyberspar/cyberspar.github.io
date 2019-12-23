@@ -410,9 +410,12 @@
 </ul>
 <hr>
 <h3><span id="di-liu-zhang-cie-1931-rgb-zhen-shi-san-yuan-se-xi-tong">第六章 CIE 1931 RGB真实三原色系统</span><a href="#di-liu-zhang-cie-1931-rgb-zhen-shi-san-yuan-se-xi-tong" class="header-anchor">#</a></h3><h5><span id="6-1-1-zhuan-pan-shi-yan-fa">6.1.1 转盘实验法</span><a href="#6-1-1-zhuan-pan-shi-yan-fa" class="header-anchor">#</a></h5><ul>
-<li>转盘外圈的颜色有$RGB$和黑色，改变$RGB$的面积比例可以形成不同的颜色，改变黑色部分的面积可以改变颜色的亮度。当转盘高速旋转，人眼就能看到一个混合色。如果将另一个待匹配的颜色$C$放在转盘的中心，当外圈的颜色看起来和中心的颜色相同时，就实现了颜色的匹配。<h5><span id="6-1-2-se-guang-pi-pei-fa">6.1.2 色光匹配法</span><a href="#6-1-2-se-guang-pi-pei-fa" class="header-anchor">#</a></h5><h5><span id="6-1-3-yan-se-fang-cheng">6.1.3 颜色方程</span><a href="#6-1-3-yan-se-fang-cheng" class="header-anchor">#</a></h5><script type="math/tex; mode=display">(C)=R(R)+G(G)+B(B)</script></li>
-<li>$(C)$表示待匹配的颜色，<strong>RGB代表三原色的数量（三刺激值）</strong>，$(R)(G)(B)$代表三原色，=表示匹配，即视觉上的相等。<h5><span id="6-1-4-fu-ci-ji-zhi">6.1.4 负刺激值</span><a href="#6-1-4-fu-ci-ji-zhi" class="header-anchor">#</a></h5>在颜色转盘实验中，如果待匹配色$(C)$的颜色饱和度很大，仍采用三原色$(R)(G)(B)$可能实现不了匹配。可以把外圈的颜色加到中心的$(C)$上，则公式变为：</li>
+<li>转盘外圈的颜色有$RGB$和黑色，改变$RGB$的面积比例可以形成不同的颜色，改变黑色部分的面积可以改变颜色的亮度。当转盘高速旋转，人眼就能看到一个混合色。如果将另一个待匹配的颜色$C$放在转盘的中心，当外圈的颜色看起来和中心的颜色相同时，就实现了颜色的匹配。</li>
 </ul>
+<h5><span id="6-1-2-se-guang-pi-pei-fa">6.1.2 色光匹配法</span><a href="#6-1-2-se-guang-pi-pei-fa" class="header-anchor">#</a></h5><h5><span id="6-1-3-yan-se-fang-cheng">6.1.3 颜色方程</span><a href="#6-1-3-yan-se-fang-cheng" class="header-anchor">#</a></h5><script type="math/tex; mode=display">(C)=R(R)+G(G)+B(B)</script><ul>
+<li>$(C)$表示待匹配的颜色，<strong>RGB代表三原色的数量（三刺激值）</strong>，$(R)(G)(B)$代表三原色，=表示匹配，即视觉上的相等。</li>
+</ul>
+<h5><span id="6-1-4-fu-ci-ji-zhi">6.1.4 负刺激值</span><a href="#6-1-4-fu-ci-ji-zhi" class="header-anchor">#</a></h5><p>在颜色转盘实验中，如果待匹配色$(C)$的颜色饱和度很大，仍采用三原色$(R)(G)(B)$可能实现不了匹配。可以把外圈的颜色加到中心的$(C)$上，则公式变为：</p>
 <script type="math/tex; mode=display">(C)=R(R)+G(G)-B(B)</script><p><strong>三原色各自在（R+G+B）中的相对比例叫做色度坐标</strong>  </p>
 <p>某颜色的<strong>色度坐标</strong>可以表示为：</p>
 <script type="math/tex; mode=display">r=R/(R+G+B)</script><script type="math/tex; mode=display">g=G/(R+G+B)</script><script type="math/tex; mode=display">b=B/(R+G+B)</script><p>且：$r+g+b=1$</p>
@@ -515,6 +518,12 @@
 <p>在色度图的不同距离，颜色宽容量是不同的，如人眼对蓝色的宽容量最小，绿色的宽容量最大。因此，色度图上的色度空间在视觉上是不均匀的，CIE 1931 XYZ系统不是一个理想的系统</p>
 <h4><span id="8-2-jun-yun-yan-se-kong-jian">8.2 均匀颜色空间</span><a href="#8-2-jun-yun-yan-se-kong-jian" class="header-anchor">#</a></h4><p>希望能更好的表示各颜色的宽容量，于是创建了新的色度图。</p>
 <h5><span id="8-2-2-cie-1976-lab-jun-yun-yan-se-kong-jian">8.2.2 CIE 1976 LAB均匀颜色空间</span><a href="#8-2-2-cie-1976-lab-jun-yun-yan-se-kong-jian" class="header-anchor">#</a></h5><p>优点：<strong>当颜色的色差大于视觉的识别阈值又小于孟塞尔系统中相邻两级色差时，可以较好的反映物体色的心理感受效果。</strong></p>
+<ul>
+<li>Lab是基于人对颜色的感觉来设计的，更具体地说，它是感知均匀（perceptual uniform）的。Perceptual uniform的意思是，如果数字（即前面提到的L、a、b这三个数）变化的幅度一样，那么它给人带来视觉上的变化幅度也差不多。Lab相较于RGB与CMYK等颜色空间更符合人类视觉，也更容易调整：想要调节亮度（不考虑Helmholtz–Kohlrausch effect，见下注）就调节L通道，想要调节只色彩平衡就分别调a和b。</li>
+<li>注：Helmholtz–Kohlrausch effect是人眼的一种错觉——当色彩饱和度高时，颜色会看起来更亮。</li>
+<li>Lab有个很好的特性——设备无关（device-independent）。也就是说，在给定了颜色空间白点（white point）之后，这个颜色空间就能明确地确定各个颜色是如何被创建和显示的，与使用的显示介质没有关系。</li>
+<li>这么牛X的特性不用肯定浪费啊，举个典型的栗子，当你想把屏幕上的RGB图片转成打印用的CMYK图片的时候，就可以先将它从RGB转成LAB，然后再把LAB图片转成CMYK模式。我们可以放心大胆滴这么做，因为LAB的色域（gamut）比RGB和CMYK都要大（Lab色域很大，有一大部分已经超出了人类视觉范围，也就不能称之为“颜色”了）。<br>需要注意的是，Lab定义的是相对于白点的颜色，只有定义完白点是什么颜色（比如定义为CIE standard illuminant D50），我们才能知道其他的颜色。(原文链接：<a href="https://blog.csdn.net/gdymind/article/details/82357139" target="_blank" rel="noopener">https://blog.csdn.net/gdymind/article/details/82357139</a>)</li>
+</ul>
 <script type="math/tex; mode=display">
    \begin{cases}
         L^*=116(Y/Y_0)^{1/3}-16\\
@@ -603,6 +612,7 @@
 <li>中间转换：LAB、YCbCr、YUV</li>
 <li>心理：HSV</li>
 </ul>
+<p>由于RGB和CMYK都是设备相关的，因此不能直接和LAB互相转换。所以在转换之前，必须定义一种绝对的颜色空间，比如sRGB或者Adobe RGB。<br>从RGB转到sRGB是设备相关的，但之后的变换是设备无关的。</p>
 <p>色彩模式：</p>
 <ul>
 <li>RGB、CMYK、LAB、HSB、灰度、位图、索引彩色、多通道色彩。</li>
@@ -5322,9 +5332,9 @@ array([[ 3,  5],
         <category>前端</category>
       </categories>
       <tags>
-        <tag>要点</tag>
         <tag>javascript</tag>
         <tag>前端</tag>
+        <tag>要点</tag>
       </tags>
   </entry>
 </search>

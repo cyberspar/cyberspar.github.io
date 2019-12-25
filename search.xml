@@ -1,6 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>数据库文件下载</title>
+    <url>/2019/12/25/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD/</url>
+    <content><![CDATA[<p>数据库课程中用到的题目，代码和数据库结构下载。</p>
+<p><a href="/download/数据库技术与应用实验.doc">点击下载题目</a></p>
+<p><a href="../download/上机答案.sql">点击下载答案</a></p>
+<p><a href="../download/上机答案_数据定义.sql">点击下载数据定义</a></p>
+<p>顺带提及网上的教程略有偏差，本人的文件路径为：<br>C:\hexo\blog\source </p>
+<p>文件夹下分别有如下文件夹：<br>_post<br>download</p>
+<p>其中download中存放了我要下载的文件。</p>
+<p>代码格式为：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[点击下载题目](/download/数据库技术与应用实验.doc)</span><br></pre></td></tr></table></figure><br>百度到的代码加了引号，应该不需要。</p>
+]]></content>
+      <categories>
+        <category>数据库</category>
+      </categories>
+      <tags>
+        <tag>sql server2008</tag>
+        <tag>下载</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>人工智能课堂笔记</title>
     <url>/2019/12/19/%E5%B7%A5%E6%99%BA%E8%83%BD%E8%AF%BE%E5%A0%82%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<p>草草了事<br><a id="more"></a></p>
@@ -718,7 +738,7 @@
       </tags>
   </entry>
   <entry>
-    <title>Mysql2008语法要点</title>
+    <title>Sql server2008语法要点</title>
     <url>/2019/11/21/Mysql2008%E8%AF%AD%E6%B3%95%E8%A6%81%E7%82%B9/</url>
     <content><![CDATA[<p><strong>注意：要选中指定代码再执行，执行成功后要刷新表并单击右键重新生成。</strong></p>
 <ul>
@@ -814,7 +834,7 @@ create table 系部<pre><code>  (
       </categories>
       <tags>
         <tag>要点</tag>
-        <tag>Mysql2008</tag>
+        <tag>sql server2008</tag>
       </tags>
   </entry>
   <entry>

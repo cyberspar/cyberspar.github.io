@@ -217,6 +217,305 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/18/Python%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="cyberspar">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="cyberspar's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/11/18/Python%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" class="post-title-link" itemprop="url">Python基础知识</a>
+        </h1>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-11-18 14:21:50" itemprop="dateCreated datePublished" datetime="2019-11-18T14:21:50+08:00">2019-11-18</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-11-24 17:59:00" itemprop="dateModified" datetime="2019-11-24T17:59:00+08:00">2019-11-24</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%A6%81%E7%82%B9/" itemprop="url" rel="index">
+                    <span itemprop="name">要点</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>python编程 从入门到实践</p>
+<div class="tocStart"></div>
+
+<!-- toc -->
+<ul>
+<li><a href="#qi-bu">起步</a><ul>
+<li><a href="#da-jian-bian-cheng-huan-jing">搭建编程环境</a></li>
+<li><a href="#python-de-shi-yong">python的使用</a><ul>
+<li><a href="#python-2-he-python-3">python 2 和python 3</a></li>
+<li><a href="#zai-linux-xi-tong-zhong-da-jian-python">在linux系统中搭建python</a></li>
+<li><a href="#zai-windows-xi-tong-zhong-da-jian-python-bian-cheng-huan-jing">在Windows系统中搭建Python编程环境</a></li>
+<li><a href="#cong-zhong-duan-shang-yun-xing-python-cheng-xu">从终端上运行python 程序</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#bian-liang-he-jian-dan-shu-ju-lei-xing">变量和简单数据类型</a><ul>
+<li><a href="#bian-liang">变量</a></li>
+<li><a href="#bian-liang-de-ming-ming-yu-shi-yong">变量的命名与使用</a></li>
+<li><a href="#zi-fu-chuan">字符串</a><ul>
+<li><a href="#shi-yong-fang-fa-xiu-gai-zi-fu-chuan-de-da-xiao">使用方法修改字符串的大小</a></li>
+<li><a href="#he-bing-zi-fu-chuan">合并字符串</a></li>
+<li><a href="#shi-yong-zhi-biao-fu-huo-huan-xing-fu-lai-tian-jia-kong-bai">使用制表符或换行符来添加空白</a></li>
+<li><a href="#shan-chu-kong-bai">删除空白</a></li>
+<li><a href="#python2-zhong-de-print-yu-ju">Python2中的print语句</a></li>
+</ul>
+</li>
+<li><a href="#shu-zi">数字</a><ul>
+<li><a href="#shi-yong-han-shu-str-bi-mian-lei-xing-cuo-wu">使用函数str()避免类型错误</a></li>
+<li><a href="#python2-zhong-de-zheng-shu">Python2中的整数</a></li>
+</ul>
+</li>
+<li><a href="#zhu-shi-yu-python-zhi-shan">注释与Python之禅</a></li>
+</ul>
+</li>
+<li><a href="#lie-biao-jian-jie">列表简介</a><ul>
+<li><a href="#lie-biao-shi-shi-me">列表是什么</a><ul>
+<li><a href="#fang-wen-lie-biao-yuan-su">访问列表元素</a></li>
+</ul>
+</li>
+<li><a href="#xiu-gai-tian-jia-he-shan-chu-yuan-su">修改，添加和删除元素</a><ul>
+<li><a href="#xiu-gai-lie-biao-yuan-su">修改列表元素</a></li>
+<li><a href="#zai-lie-biao-zhong-tian-jia-yuan-su">在列表中添加元素</a></li>
+<li><a href="#cong-lie-biao-zhong-shan-chu-yuan-su">从列表中删除元素</a></li>
+</ul>
+</li>
+<li><a href="#zu-zhi-lie-biao">组织列表</a><ul>
+<li><a href="#shi-yong-fang-fa-sort-dui-lie-biao-jin-xing-yong-jiu-xing-pai-xu">使用方法sort()对列表进行永久性排序</a></li>
+<li><a href="#shi-yong-fang-fa-sorted-dui-lie-biao-jin-xing-lin-shi-xing-pai-xu">使用方法sorted()对列表进行临时性排序“</a></li>
+<li><a href="#shi-yong-reverse-fan-zhuan-lie-biao-yuan-su">使用reverse()反转列表元素</a></li>
+<li><a href="#que-ding-lie-biao-de-chang-du">确定列表的长度</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#cao-zuo-lie-biao">操作列表</a><ul>
+<li><a href="#bian-li-zheng-ge-lie-biao">遍历整个列表</a></li>
+<li><a href="#bi-mian-suo-jin-cuo-wu-he">避免缩进错误和“：”</a></li>
+<li><a href="#chuang-jian-shu-zhi-lie-biao">创建数值列表</a><ul>
+<li><a href="#shi-yong-han-shu-range">使用函数range()</a></li>
+<li><a href="#shi-yong-range-chuang-jian-shu-zi-lie-biao">使用range()创建数字列表</a></li>
+<li><a href="#dui-shu-zi-lie-biao-zhi-xing-jian-dan-de-tong-ji-ji-suan">对数字列表执行简单的统计计算</a></li>
+<li><a href="#lie-biao-jie-xi">列表解析</a></li>
+</ul>
+</li>
+<li><a href="#shi-yong-lie-biao-de-yi-bu-fen">使用列表的一部分</a><ul>
+<li><a href="#qie-pian">切片</a></li>
+<li><a href="#fu-zhi-lie-biao">复制列表</a></li>
+</ul>
+</li>
+<li><a href="#yuan-zu">元组</a><ul>
+<li><a href="#ding-yi-yuan-zu">定义元组</a></li>
+<li><a href="#xiu-gai-yuan-zu-bian-liang">修改元组变量</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#if-yu-ju">if 语句</a><ul>
+<li><a href="#tiao-jian-ce-shi-bu-biao-da-shi">条件测试/布表达式</a><ul>
+<li><a href="#jian-cha-shi-fou-xiang-deng-shi-kao-lu-da-xiao-xie">检查是否相等时考虑大小写</a></li>
+<li><a href="#shi-yong-guan-jian-zi-and-he-or-jian-cha-duo-ge-tiao-jian">使用关键字and和or检查多个条件</a></li>
+<li><a href="#shi-yong-guan-jian-zi-in-jian-cha-te-ding-zhi-shi-fou-zai-lie-biao-zhong">使用关键字in检查特定值是否在列表中</a></li>
+<li><a href="#if-else-yu-ju">if-else语句</a></li>
+<li><a href="#if-elif-else-yu-ju">if-elif-else语句</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#zi-dian">字典</a><ul>
+<li><a href="#shi-yong-zi-dian">使用字典</a><ul>
+<li><a href="#fang-wen-zi-dian-zhong-de-zhi">访问字典中的值</a></li>
+<li><a href="#tian-jia-jian-zhi-dui">添加键-值对</a></li>
+<li><a href="#xiu-gai-zi-dian-zhong-de-zhi">修改字典中的值</a></li>
+<li><a href="#shan-chu-jian-zhi-dui">删除键-值对</a></li>
+</ul>
+</li>
+<li><a href="#bian-li-zi-dian">遍历字典</a><ul>
+<li><a href="#bian-li-suo-you-de-jian-zhi-dui">遍历所有的键-值对</a></li>
+<li><a href="#bian-li-zi-dian-zhong-de-suo-you-jian">遍历字典中的所有键</a></li>
+<li><a href="#an-shun-xu-bian-li-zi-dian-zhong-de-suo-you-jian">按顺序遍历字典中的所有键</a></li>
+<li><a href="#bian-li-zi-dian-zhong-de-suo-you-zhi">遍历字典中的所有值</a></li>
+</ul>
+</li>
+<li><a href="#qian-tao">嵌套</a><ul>
+<li><a href="#zi-dian-lie-biao">字典列表</a></li>
+<li><a href="#zai-zi-dian-zhong-cun-chu-lie-biao">在字典中存储列表</a></li>
+<li><a href="#zai-zi-dian-zhong-cun-chu-zi-dian">在字典中存储字典</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#yong-hu-shu-ru-yu-while-xun-huan">用户输入与while循环</a><ul>
+<li><a href="#han-shu-input-de-gong-zuo-yuan-li">函数input()的工作原理</a><ul>
+<li><a href="#shi-yong-int-lai-huo-qu-shu-zhi-shu-ru">使用int()来获取数值输入</a></li>
+<li><a href="#qiu-mo-yun-suan-fu">求模运算符</a></li>
+<li><a href="#zai-python-2-7-zhong-huo-qu-shu-ru">在Python 2.7中获取输入</a></li>
+</ul>
+</li>
+<li><a href="#while-xun-huan-jian-jie">while 循环简介</a><ul>
+<li><a href="#shi-yong-while-xun-huan-lai-shu-shu">使用while循环来数数</a></li>
+<li><a href="#rang-yong-hu-xuan-ze-he-shi-tui-chu">让用户选择何时退出</a></li>
+<li><a href="#shi-yong-biao-zhi">使用标志</a></li>
+<li><a href="#shi-yong-zai-xun-huan-zhong-shi-yong-break-he-continue">使用在循环中使用break和continue</a></li>
+</ul>
+</li>
+<li><a href="#shi-yong-whlie-xun-huan-lai-chu-li-lie-biao-he-zi-dian">使用whlie循环来处理列表和字典</a></li>
+</ul>
+</li>
+<li><a href="#han-shu">函数</a><ul>
+<li><a href="#ding-yi-han-shu">定义函数</a><ul>
+<li><a href="#xiang-han-shu-chuan-di-xin-xi">向函数传递信息</a></li>
+<li><a href="#shi-can-he-xing-can">实参和形参</a></li>
+</ul>
+</li>
+<li><a href="#chuan-di-shi-can">传递实参</a><ul>
+<li><a href="#wei-zhi-shi-can">位置实参</a></li>
+<li><a href="#guan-jian-zi-shi-can">关键字实参</a></li>
+<li><a href="#mo-ren-zhi">默认值</a></li>
+</ul>
+</li>
+<li><a href="#fan-hui-zhi">返回值</a></li>
+<li><a href="#chuan-di-lie-biao">传递列表</a></li>
+<li><a href="#jiang-han-shu-cun-chu-zai-mo-kuai-zhong">将函数存储在模块中</a></li>
+</ul>
+</li>
+<li><a href="#lei">类</a><ul>
+<li><a href="#chuang-jian-lei-he-shi-yong-lei">创建类和使用类</a><ul>
+<li><a href="#chuang-jian-cat-lei">创建Cat类</a></li>
+<li><a href="#gen-ju-lei-chuang-jian-shi-li">根据类创建实例</a></li>
+<li><a href="#chuang-jian-duo-ge-shi-li">创建多个实例</a></li>
+</ul>
+</li>
+<li><a href="#shi-yong-lei-he-shi-li">使用类和实例</a><ul>
+<li><a href="#car-lei">Car类</a></li>
+<li><a href="#gei-shu-xing-zhi-ding-mo-ren-zhi">给属性指定默认值</a></li>
+<li><a href="#xiu-gai-shu-xing-de-zhi">修改属性的值</a></li>
+</ul>
+</li>
+<li><a href="#ji-cheng">继承</a><ul>
+<li><a href="#zi-lei-de-fang-fa-init">子类的方法<strong>init</strong>()</a></li>
+<li><a href="#python2-7-zhong-de-ji-cheng">Python2.7中的继承</a></li>
+<li><a href="#gei-zi-lei-ding-yi-shu-xing-he-fang-fa">给子类定义属性和方法</a></li>
+<li><a href="#chong-xie-fu-lei-de-fang-fa">重写父类的方法</a></li>
+<li><a href="#jiang-shi-li-yong-zuo-shu-xing">将实例用作属性</a></li>
+</ul>
+</li>
+<li><a href="#dao-ru-lei">导入类</a><ul>
+<li><a href="#dao-ru-dan-ge-lei">导入单个类</a></li>
+<li><a href="#zai-yi-ge-mo-kuai-zhong-cun-chu-duo-ge-lei">在一个模块中存储多个类</a></li>
+<li><a href="#cong-yi-ge-mo-kuai-zhong-dao-ru-duo-ge-lei">从一个模块中导入多个类</a></li>
+<li><a href="#dao-ru-zheng-ge-mo-kuai">导入整个模块</a></li>
+<li><a href="#dao-ru-mo-kuai-zhong-de-suo-you-lei">导入模块中的所有类</a></li>
+<li><a href="#zai-yi-ge-mo-kuai-zhong-dao-ru-ling-yi-ge-mo-kuai">在一个模块中导入另一个模块</a></li>
+</ul>
+</li>
+<li><a href="#python-biao-zhun-ku">Python标准库</a></li>
+<li><a href="#lei-bian-ma-wang-ge">类编码网格</a></li>
+</ul>
+</li>
+<li><a href="#wen-jian-yu-yi-chang">文件与异常</a><ul>
+<li><a href="#cong-wen-jian-zhong-du-qu-shu-ju">从文件中读取数据</a><ul>
+<li><a href="#wen-jian-lu-jing">文件路径</a></li>
+<li><a href="#zhu-xing-du-qu">逐行读取</a></li>
+</ul>
+</li>
+<li><a href="#xie-ru-wen-jian">写入文件</a><ul>
+<li><a href="#xie-ru-kong-wen-jian">写入空文件</a></li>
+<li><a href="#xie-ru-duo-xing">写入多行</a></li>
+<li><a href="#fu-jia-dao-wen-jian">附加到文件</a></li>
+</ul>
+</li>
+<li><a href="#yi-chang">异常</a><ul>
+<li><a href="#chu-li-zerodivisionerror-yi-chang">处理 ZeroDivisionError异常</a></li>
+<li><a href="#shi-yong-yi-chang-bi-mian-beng-kui">使用异常避免崩溃</a></li>
+<li><a href="#chu-li-filenotfounderror-yi-chang">处理FileNotFoundError异常</a></li>
+<li><a href="#fen-xi-wen-ben">分析文本</a></li>
+</ul>
+</li>
+<li><a href="#cun-chu-shu-ju">存储数据</a><ul>
+<li><a href="#shi-yong-json-dump-he-json-load">使用json.dump()和json.load()</a></li>
+<li><a href="#bao-cun-he-du-qu-yong-hu-sheng-cheng-de-shu-ju">保存和读取用户生成的数据</a></li>
+<li><a href="#chong-gou">重构</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#ce-shi-dai-ma">测试代码</a><ul>
+<li><a href="#ce-shi-han-shu">测试函数</a><ul>
+<li><a href="#dan-yuan-ce-shi-he-ce-shi-yong-li">单元测试和测试用例</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<!-- tocstop -->
+<p><div class="tocEnd"></div><br></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/11/18/Python%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/18/Python%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E8%AE%A1%E7%AE%97/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -713,79 +1012,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/17/hexo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="cyberspar">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="cyberspar's blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/11/17/hexo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87/" class="post-title-link" itemprop="url">hexo插入图片</a>
-        </h1>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-11-17 16:39:00" itemprop="dateCreated datePublished" datetime="2019-11-17T16:39:00+08:00">2019-11-17</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-12-12 22:02:49" itemprop="dateModified" datetime="2019-12-12T22:02:49+08:00">2019-12-12</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>尚未完美解决在hexo中插入图片的问题，先记录修改的过程。<br></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2019/11/17/hexo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -836,20 +1062,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">21</span>
+          <span class="site-state-item-count">22</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">30</span>
+        <span class="site-state-item-count">31</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -899,7 +1125,7 @@
 </div>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">blog全站共71.1k字</span>
+  <span class="post-count">blog全站共71.4k字</span>
 </div>
 
         

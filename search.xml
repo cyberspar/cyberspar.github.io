@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>小程序云开发问题</title>
+    <url>/2020/03/26/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<p>很久没有写文章记录了。今天在小程序云开发中遇到了问题，百度没有找到很好的解决办法，最终发现是很低级的错误，特此记录。<br><a id="more"></a></p>
+<p>云函数代码：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">exports.main = async (event, context) =&gt; &#123;</span><br><span class="line">  var page1 = await new Promise((resolve,reject)=&gt;&#123;</span><br><span class="line">    setTimeout(()=&gt;&#123;</span><br><span class="line">      resolve(event.a+event.b)</span><br><span class="line">    &#125;,5000)</span><br><span class="line">  &#125;)</span><br><span class="line">  return page1</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>在前端调用云函数的时候报错为：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">error: errcode: -404011</span><br></pre></td></tr></table></figure><br>但重点是后面的timeout问题，第一次报错的时候急于百度而忽略了。百度上的问题大多是因为没有部署云函数就编译，或者是环境错误。但在云函数中已经显示成功部署。</p>
+<p>重点在于云函数默认的超时时间为<strong>3秒</strong>，而我测试的时间为<strong>5秒</strong>，所以无论如何都只能返回err信息。<br>后来在云函数设置中将超时时间改为10秒后成功调用。</p>
+<p>打开云函数：<br><img alt data-src="/2020/03/26/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91%E9%97%AE%E9%A2%98/1.png"><br>修改时间：<br><img alt data-src="/2020/03/26/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91%E9%97%AE%E9%A2%98/2.png"></p>
+]]></content>
+      <categories>
+        <category>小程序</category>
+      </categories>
+      <tags>
+        <tag>小程序</tag>
+        <tag>云开发</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>数据库文件下载</title>
     <url>/2019/12/25/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD/</url>
     <content><![CDATA[<p>数据库课程中用到的题目，代码和数据库结构下载。</p>
@@ -5361,9 +5377,9 @@ array([[ 3,  5],
         <category>前端</category>
       </categories>
       <tags>
-        <tag>要点</tag>
         <tag>javascript</tag>
         <tag>前端</tag>
+        <tag>要点</tag>
       </tags>
   </entry>
 </search>
